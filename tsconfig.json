@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./build/",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "types": ["jest"],
+    "typeRoots": ["./node_modules/@types"],
+    "module": "esnext"
+  },
+  "include": ["src", "global.d.ts"],
+  "exclude": [
+    "node_modules",
+    // for now excluding all fixtures and stories so that later
+    // we can fix them to better fit the intended behavior of each component
+    "**/*.stories.tsx"
+  ],
+  "files": ["./global.d.ts"]
+}
