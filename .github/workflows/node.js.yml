@@ -23,11 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Review code
-        run: npm run lint
-
       - name: Install dependencies
         run: npm install
+
+      - name: Review code
+        run: npm run lint
 
       - name: Run the tests
         run: npm test -- --coverage
