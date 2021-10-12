@@ -95,7 +95,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{js,jsx,,ts,tsx}": [
       "./node_modules/.bin/eslint --fix"
     ]
   },
