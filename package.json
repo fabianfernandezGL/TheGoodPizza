@@ -82,6 +82,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "lint": "./node_modules/.bin/eslint src --ext .jsx,.js,.tsx,.ts",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "prepare": "husky install",
