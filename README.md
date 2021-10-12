@@ -2,6 +2,12 @@
 
 Gorilla Logic recently created a new fast food business. They will be starting a pilot selling food to the Gorillas in the company.
 
+## Deploy and Test Coverage Status
+
+| Deploy                                                                                | Test Coverage                                                                                                                                        |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![CI/CD](https://github.com/fabianfernandezGL/PizzaCart-UI/workflows/CI/CD/badge.svg) | [![codecov](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI/branch/main/graph/badge.svg)](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI) |
+
 ## About the Code
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -38,9 +44,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Deploy and Test Status
-
-| Deploy                                                                                | Test Coverage                                                                                                                                        |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![CI/CD](https://github.com/fabianfernandezGL/PizzaCart-UI/workflows/CI/CD/badge.svg) | [![codecov](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI/branch/main/graph/badge.svg)](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI) |
