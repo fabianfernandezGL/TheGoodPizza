@@ -69,12 +69,15 @@
     "test": "node scripts/test.js",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "./src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix --max-warnings=0",
-      "prettier --write"
-    ],
-    "*.js": "eslint --cache --fix"
+    "*.{js,ts,tsx}": [
+      "./node_modules/.bin/eslint --fix"
+    ]
   },
   "browserslist": {
     "production": [
@@ -146,11 +149,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
+    "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
