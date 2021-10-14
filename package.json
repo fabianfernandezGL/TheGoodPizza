@@ -69,7 +69,6 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "devDependencies": {
-    "autoprefixer": "^9",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
@@ -81,14 +80,10 @@
     "eslint-plugin-testing-library": "^3.9.2",
     "husky": ">=6",
     "lint-staged": ">=10",
-    "postcss": "^7",
     "prettier": "^2.4.1"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint src --ext .jsx,.js,.tsx,.ts",
-    "css": "postcss ./src/styles/tailwind.css -o ./src/styles/tailwind.generated.css",
-    "prestart": "npm run css",
-    "prebuild": "npm run css",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
