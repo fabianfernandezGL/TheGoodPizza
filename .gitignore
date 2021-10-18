@@ -109,4 +109,7 @@ coverage
 # Tailwind generated file
 tailwind.generated.css
 
+# Build
+build
+
 # End of https://www.toptal.com/developers/gitignore/api/react,git,visualstudiocode,macos,windows
