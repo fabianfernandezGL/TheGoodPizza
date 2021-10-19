@@ -38,7 +38,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "eslint . --cache --fix",
+    "lint": "eslint src",
+    "lint:fix": "yarn lint --cache --fix",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
@@ -49,7 +50,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,,ts,tsx}": [
-      "./node_modules/.bin/eslint --fix"
+      "yarn lint"
     ]
   },
   "browserslist": {
