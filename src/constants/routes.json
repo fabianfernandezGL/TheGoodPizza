@@ -2,5 +2,14 @@
   "HOME": "/home",
   "NOT_FOUND": "/404",
   "LOGIN": "/login",
-  "SIGN_UP": "/signup"
+  "SIGN_UP": "/sign_up",
+  "MENU": "/menu",
+  "ABOUT_US": "/about_us",
+  "CONTACT": "/contact",
+  "HELP": "/help",
+  "CHECKOUT_ORDER": "/checkout/order",
+  "CHECKOUT_ADDRESS": "/checkout/address",
+  "CHECKOUT_PAYMENT": "/checkout/payment",
+  "CHECKOUT_SUMMARY": "/checkout/summary",
+  "CHECKOUT_FINALIZED": "/checkout/finalized"
 }
