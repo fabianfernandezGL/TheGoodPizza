@@ -1,5 +1,12 @@
 export interface MenuItemData {
   name?: string
-  icon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
+  icon?: any
   href: string
+  span: number
+  img?: Image
+}
+
+interface Image {
+  path: string
+  width: number
 }

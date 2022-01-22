@@ -1,5 +1,6 @@
 import React from 'react'
 import { MenuItemData } from 'global.types'
+import { Col } from 'antd'
 
 interface MenuItemProps {
   item: MenuItemData
@@ -7,19 +8,15 @@ interface MenuItemProps {
 
 const MenuItem = ({ item }: MenuItemProps) => {
   return (
-    <a
-      href={item.href}
-      key={item.name}
-      className="text-base font-medium text-gray-500 hover:text-gray-900"
-    >
-      {item.icon && (
-        <item.icon
-          className="flex-shrink-0 h-6 w-6 text-yellow"
-          aria-hidden="true"
-        />
-      )}
-      {item.name}
-    </a>
+    <Col span={item.span}>
+      <a href={item.href} key={item.name}>
+        {item.icon && (
+          <item.icon style={{ fontSize: '30px' }} aria-hidden="true" />
+        )}
+        {item.name}
+        {item.img && <img src={item.img.path} width={item.img.width} />}
+      </a>
+    </Col>
   )
 }
 

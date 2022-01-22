@@ -1,13 +1,46 @@
 import routes from './routes.json'
-import { ShoppingCartIcon } from '@heroicons/react/solid'
+import { ShoppingCartOutlined } from '@ant-design/icons'
+import logo from '../images/logo-white.svg'
 
 const MenuOptions = [
-  { name: 'Menu', href: routes.MENU },
-  { name: 'About Us', href: routes.ABOUT_US },
-  { name: 'Contact', href: routes.CONTACT },
-  { name: 'Login/Sign up', href: routes.LOGIN },
-  { name: 'Help', href: routes.HELP },
-  { icon: ShoppingCartIcon, href: routes.CHECKOUT_ORDER },
+  {
+    href: routes.HOME,
+    img: {
+      path: logo,
+      width: 121,
+    },
+    span: 12,
+  },
+  {
+    name: 'Menu',
+    href: routes.MENU,
+    span: 2,
+  },
+  {
+    name: 'About Us',
+    href: routes.ABOUT_US,
+    span: 2,
+  },
+  {
+    name: 'Contact',
+    href: routes.CONTACT,
+    span: 2,
+  },
+  {
+    name: 'Login/Sign up',
+    href: routes.LOGIN,
+    span: 3,
+  },
+  {
+    name: 'Help',
+    href: routes.HELP,
+    span: 2,
+  },
+  {
+    icon: ShoppingCartOutlined,
+    href: routes.CHECKOUT_ORDER,
+    span: 1,
+  },
 ]
 
 export default MenuOptions
