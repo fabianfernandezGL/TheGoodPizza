@@ -36,6 +36,7 @@
     "prepare": "husky install",
     "lint": "eslint src",
     "lint:fix": "yarn lint --cache --fix",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "husky": {
