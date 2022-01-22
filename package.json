@@ -1,43 +1,29 @@
 {
-  "name": "pizza-cart",
+  "name": "pizzacart-ui",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://fabianfernandezgl.github.io/PizzaCart-UI/",
   "dependencies": {
-    "@craco/craco": "^6.3.0",
-    "@heroicons/react": "^1.0.4",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@craco/craco": "^6.4.3",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "antd": "^4.18.4",
+    "craco-less": "^2.0.0",
     "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.28.0",
     "gh-pages": "^3.2.3",
+    "lint-staged": "^12.2.2",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.5",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.3.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "typescript": "^4.4.4",
-    "web-vitals": "^1.0.1"
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.15",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "autoprefixer": "^9",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.0",
-    "postcss": "^7"
-  },
-  "resolutions": {
-    "styled-components": "^5"
+    "react-scripts": "5.0.0",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "craco start",
@@ -47,7 +33,6 @@
     "prepare": "husky install",
     "lint": "eslint src",
     "lint:fix": "yarn lint --cache --fix",
-    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "husky": {
@@ -71,6 +56,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0"
   },
   "jest": {
     "collectCoverageFrom": [

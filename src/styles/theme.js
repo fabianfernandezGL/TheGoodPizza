@@ -1,8 +1,6 @@
 module.exports = {
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
       white: {
         DEFAULT: '#FFF',
       },
