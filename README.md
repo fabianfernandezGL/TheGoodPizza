@@ -2,6 +2,10 @@
 
 Gorilla Logic recently created a new fast food business. They will be starting a pilot selling food to the Gorillas in the company.
 
+## Live demo
+
+Click [here](https://fabianfernandezgl.github.io/PizzaCart-UI/) to see the app running.
+
 ## Deploy and Test Coverage Status
 
 | Deploy                                                                                | Test Coverage                                                                                                                                        |
