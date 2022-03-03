@@ -1,4 +1,3 @@
-import React from 'react'
 import MenuOptions from 'constants/menuOptions'
 import MenuOption from './MenuItem'
 import { MenuItemData } from 'global.types'

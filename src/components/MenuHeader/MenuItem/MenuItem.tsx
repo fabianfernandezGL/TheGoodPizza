@@ -1,4 +1,3 @@
-import React from 'react'
 import { MenuItemData } from 'global.types'
 import { Col } from 'antd'
 

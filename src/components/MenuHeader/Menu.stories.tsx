@@ -1,4 +1,3 @@
-import React from 'react'
 import MenuHeader from './Menu'
 import { theme } from '../../styles/theme'
 

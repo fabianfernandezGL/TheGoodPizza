@@ -1,4 +1,3 @@
-import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { theme } from '../../../styles/theme'
 import MenuItem from './MenuItem'
@@ -29,6 +28,7 @@ Text.args = {
     href: '#',
     span: 1,
     name: 'Item',
+    showInFooter: false,
   },
 }
 
@@ -38,6 +38,7 @@ Icon.args = {
     href: '#',
     span: 1,
     icon: SettingOutlined,
+    showInFooter: false,
   },
 }
 
@@ -50,5 +51,6 @@ Logo.args = {
       path: logo,
       width: 60,
     },
+    showInFooter: false,
   },
 }
