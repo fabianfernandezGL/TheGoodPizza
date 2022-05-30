@@ -45,10 +45,7 @@ export default function Home({}: HomeProps): JSX.Element {
           >
             {title.toUpperCase()}
           </TypographyBigTitle>
-          <TypographySmallTitle
-            data-testid="title"
-            color={theme.colors.yellow.DEFAULT}
-          >
+          <TypographySmallTitle color={theme.colors.yellow.DEFAULT}>
             {subtitle}
           </TypographySmallTitle>
           <Space>
