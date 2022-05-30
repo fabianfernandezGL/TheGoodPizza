@@ -1,10 +1,12 @@
 import { Col, Row } from 'antd'
-import Subtitle from 'components/Typography/Subtitle'
 import MenuOption from 'components/MenuHeader/MenuItem'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
-import Text from 'components/Typography/Text'
 import styled from 'styled-components'
+import {
+  TypographySubtitle,
+  TypographyText,
+} from 'components/Typography/Typography'
 
 interface LayoutProps {}
 
@@ -14,17 +16,29 @@ const Layout = styled.div<LayoutProps>`
 
 const MenuOptions = [
   {
-    name: <Text color={theme.colors.black.DEFAULT}>Terms & Conditions</Text>,
+    name: (
+      <TypographyText color={theme.colors.black.DEFAULT}>
+        Terms & Conditions
+      </TypographyText>
+    ),
     href: '',
     span: 24,
   },
   {
-    name: <Text color={theme.colors.black.DEFAULT}>Privacy Policy</Text>,
+    name: (
+      <TypographyText color={theme.colors.black.DEFAULT}>
+        Privacy Policy
+      </TypographyText>
+    ),
     href: '',
     span: 24,
   },
   {
-    name: <Text color={theme.colors.black.DEFAULT}>Careers</Text>,
+    name: (
+      <TypographyText color={theme.colors.black.DEFAULT}>
+        Careers
+      </TypographyText>
+    ),
     href: '',
     span: 24,
   },
@@ -35,9 +49,9 @@ const ImportantStuff = () => {
     <Layout>
       <Row gutter={[0, 24]} align="bottom">
         <Col span={24}>
-          <Subtitle color={theme.colors.white.DEFAULT}>
+          <TypographySubtitle color={theme.colors.white.DEFAULT}>
             Important Stuff!
-          </Subtitle>
+          </TypographySubtitle>
         </Col>
         <Col span={24}>
           {MenuOptions.map((option: MenuItemData, idx: number) => (

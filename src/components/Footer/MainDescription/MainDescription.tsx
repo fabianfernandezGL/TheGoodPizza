@@ -1,6 +1,8 @@
 import { Col, Row } from 'antd'
 import Logo from 'components/Logo'
+import { TypographyText } from 'components/Typography/Typography'
 import SocialMedia from './SocialMedia'
+import { theme } from 'styles/theme'
 
 const MainDescription = () => {
   return (
@@ -10,10 +12,10 @@ const MainDescription = () => {
           <Logo width={101} />
         </Col>
         <Col span={24}>
-          <p>
+          <TypographyText color={theme.colors.black.DEFAULT}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             scelerisque vulputate est iaculis bibendum curabitur.
-          </p>
+          </TypographyText>
         </Col>
         <Col span={24}>
           <SocialMedia />

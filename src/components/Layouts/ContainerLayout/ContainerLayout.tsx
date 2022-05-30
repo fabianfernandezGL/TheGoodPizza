@@ -1,6 +1,7 @@
 import { ContainerLayoutProps, Corner } from 'global.types'
 import styled from 'styled-components'
 import { Col, Row } from 'antd'
+import MainLayout from '../MainLayout'
 
 const getRadiusValue = (
   corner: Corner,
@@ -13,14 +14,20 @@ const getRadiusValue = (
   return '0'
 }
 
+// interface MainLayoutProps {}
 interface LayoutProps {
-  readonly backgroundColor: string
+  readonly backgroundColor?: string
   readonly radiusValue: string
   readonly roundCorner: Corner
+  readonly withPadding: boolean
 }
 
+// const MainLayout = styled.div<MainLayoutProps>`
+//   background-color: ;
+// `
+
 const Layout = styled.div<LayoutProps>`
-  padding: 6.5rem;
+  padding: ${(props) => (props.withPadding ? '6.5rem' : '0')};
   border-top-left-radius: ${(props) =>
     getRadiusValue(props.roundCorner, 'leftUp', props.radiusValue)};
   border-top-right-radius: ${(props) =>
@@ -30,22 +37,26 @@ const Layout = styled.div<LayoutProps>`
   border-bottom-right-radius: ${(props) =>
     getRadiusValue(props.roundCorner, 'rightDown', props.radiusValue)};
   width: 100%;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : ''};
 `
 
 const ContainerLayout = (props: ContainerLayoutProps) => {
   return (
-    <Row align="bottom">
-      <Col span={props.colSpan}>
-        <Layout
-          backgroundColor={props.backgroundColor}
-          radiusValue={props.radiusValue}
-          roundCorner={props.roundCorner}
-        >
-          {props.children}
-        </Layout>
-      </Col>
-    </Row>
+    <MainLayout>
+      <Row align="bottom">
+        <Col span={props.colSpan}>
+          <Layout
+            backgroundColor={props.backgroundColor}
+            radiusValue={props.radiusValue}
+            roundCorner={props.roundCorner}
+            withPadding={props.withPadding}
+          >
+            {props.children}
+          </Layout>
+        </Col>
+      </Row>
+    </MainLayout>
   )
 }
 

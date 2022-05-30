@@ -18,33 +18,20 @@ export type Corner = 'leftUp' | 'leftDown' | 'rightUp' | 'rightDown'
 
 // Props
 export interface ContainerLayoutProps {
-  backgroundColor: string
+  backgroundColor?: string
   roundCorner: Corner
   radiusValue: string
-  children: React.ReactElement
+  children?: React.ReactElement
   colSpan: number
+  withPadding: boolean
 }
 
 export interface LogoProps {
   width: number
 }
 
-export interface BigTitleProps {
+export interface TypographyProps {
   children?: string | undefined | React.ReactElement
-  color: string
-}
-
-export interface SmallTitleProps {
-  children?: string | undefined | React.ReactElement
-  color: string
-}
-
-export interface SubtitleProps {
-  children?: string | undefined | React.ReactElement
-  color: string
-}
-
-export interface TextProps {
-  children?: string | undefined | React.ReactElement
+  margin?: string
   color: string
 }

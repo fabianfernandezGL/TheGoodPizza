@@ -1,5 +1,4 @@
-import { Col, Row } from 'antd'
-import Subtitle from 'components/Typography/Subtitle'
+import { Col, Row, Space } from 'antd'
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
 import feed1 from '../../../images/feed/feed1.png'
@@ -8,6 +7,7 @@ import feed3 from '../../../images/feed/feed3.png'
 import feed4 from '../../../images/feed/feed4.png'
 import feed5 from '../../../images/feed/feed5.png'
 import feed6 from '../../../images/feed/feed6.png'
+import { TypographySubtitle } from 'components/Typography/Typography'
 
 interface LayoutProps {}
 
@@ -22,18 +22,18 @@ const OurFeed = () => {
     <Layout>
       <Row gutter={[0, 24]} align="bottom">
         <Col span={24}>
-          <Subtitle color={theme.colors.white.DEFAULT}>Our Feed</Subtitle>
+          <TypographySubtitle color={theme.colors.white.DEFAULT}>
+            Our Feed
+          </TypographySubtitle>
         </Col>
 
-        <Row gutter={[0, 8]} align="bottom">
-          {imgs.map((img, idx) => {
-            return (
-              <Col span={8} key={idx}>
-                <img src={img} width="69" />
-              </Col>
-            )
-          })}
-        </Row>
+        <Col span={24}>
+          <Space wrap>
+            {imgs.map((img, idx) => {
+              return <img key={idx} src={img} width="69" />
+            })}
+          </Space>
+        </Col>
       </Row>
     </Layout>
   )
