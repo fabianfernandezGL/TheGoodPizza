@@ -25,7 +25,7 @@ const Footer = () => {
         roundCorner="rightUp"
         colSpan={24}
       >
-        <Row justify="space-around" align="stretch">
+        <Row justify="space-between" align="stretch">
           <Col span={6}>
             <MainDescription />
           </Col>
