@@ -15,7 +15,7 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "@types/react-redux": "^7.1.24",
-    "@types/styled-components": "^5.1.21",
+    "@types/styled-components": "^5.1.25",
     "antd": "^4.18.4",
     "craco-less": "^2.0.0",
     "eslint": "^7.32.0",

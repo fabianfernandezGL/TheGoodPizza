@@ -9,7 +9,7 @@ interface MenuItemProps {
 const MenuItem = ({ item }: MenuItemProps) => {
   return (
     <Col span={item.span}>
-      <Link to={item.href} key={item.name}>
+      <Link to={item.href} key={item.idx}>
         {item.icon && (
           <item.icon style={{ fontSize: '30px' }} aria-hidden="true" />
         )}

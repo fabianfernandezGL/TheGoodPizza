@@ -7,8 +7,9 @@ import { store } from './redux/store'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import routes from './constants/routes.json'
 import Home from 'pages/Home'
-import MainLayout from 'components/MainLayout'
+import MainLayout from 'components/Layouts/MainLayout'
 import MenuHeader from 'components/MenuHeader'
+import Footer from 'components/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,10 +18,11 @@ ReactDOM.render(
         <MainLayout>
           <MenuHeader />
           <Routes>
-            <Route path="/PizzaCart-UI" element={<Home />}>
+            <Route path={routes.MAIN_ROOT}>
               <Route path={routes.HOME} element={<Home />} />
             </Route>
           </Routes>
+          <Footer />
         </MainLayout>
       </Provider>
     </BrowserRouter>
