@@ -1,11 +1,7 @@
+import { TypographyProps } from 'global.types'
 import styled from 'styled-components'
 
-interface TypographyhProps {
-  margin?: string
-  color: string
-}
-
-const TypographyText = styled.p<TypographyhProps>`
+const TypographyText = styled.p<TypographyProps>`
   color: ${(props) => props.color};
   margin: ${(props) => (props.margin ? props.margin : '')};
   font-family: 'Red Hat Display';
@@ -15,7 +11,7 @@ const TypographyText = styled.p<TypographyhProps>`
   line-height: 21px;
 `
 
-const TypographyBigTitle = styled.h2<TypographyhProps>`
+const TypographyBigTitle = styled.h2<TypographyProps>`
   color: ${(props) => props.color};
   margin: ${(props) => (props.margin ? props.margin : '')};
   font-family: 'Rowdies';
@@ -25,7 +21,7 @@ const TypographyBigTitle = styled.h2<TypographyhProps>`
   line-height: 99px;
 `
 
-const TypographySmallTitle = styled.h3<TypographyhProps>`
+const TypographySmallTitle = styled.h3<TypographyProps>`
   color: ${(props) => props.color};
   margin: ${(props) => (props.margin ? props.margin : '')};
   font-family: 'Rowdies';
@@ -35,7 +31,7 @@ const TypographySmallTitle = styled.h3<TypographyhProps>`
   line-height: 50px;
 `
 
-const TypographySubtitle = styled.h4<TypographyhProps>`
+const TypographySubtitle = styled.h4<TypographyProps>`
   color: ${(props) => props.color};
   margin: ${(props) => (props.margin ? props.margin : '')};
   font-family: 'Rowdies';

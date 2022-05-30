@@ -1,4 +1,5 @@
-import { Col, Row } from 'antd'
+import { Col, Row, Space } from 'antd'
+import Button from 'components/Button'
 import ContainerLayout from 'components/Layouts/ContainerLayout'
 import {
   TypographyBigTitle,
@@ -50,6 +51,14 @@ export default function Home({}: HomeProps): JSX.Element {
           >
             {subtitle}
           </TypographySmallTitle>
+          <Space>
+            <Col>
+              <Button type="default">Log In</Button>
+            </Col>
+            <Col>
+              <Button type="primary">Sign Up</Button>
+            </Col>
+          </Space>
         </Col>
       </Row>
     </Layout>

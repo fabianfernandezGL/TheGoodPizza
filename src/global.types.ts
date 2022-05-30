@@ -31,7 +31,8 @@ export interface LogoProps {
 }
 
 export interface TypographyProps {
-  children?: string | undefined | React.ReactElement
   margin?: string
   color: string
 }
+
+export interface ButtonProps {}

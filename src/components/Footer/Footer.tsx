@@ -33,7 +33,7 @@ const Footer = () => {
           <Col span={4}>
             <ImportantStuff />
           </Col>
-          <Col span={4}>
+          <Col span={3}>
             <OurFeed />
           </Col>
         </Row>

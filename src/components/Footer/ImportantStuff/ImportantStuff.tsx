@@ -3,6 +3,7 @@ import MenuOption from 'components/MenuHeader/MenuItem'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import routes from 'constants/routes.json'
 import {
   TypographySubtitle,
   TypographyText,
@@ -21,7 +22,7 @@ const MenuOptions = [
         Terms & Conditions
       </TypographyText>
     ),
-    href: '',
+    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
     span: 24,
   },
   {
@@ -30,7 +31,7 @@ const MenuOptions = [
         Privacy Policy
       </TypographyText>
     ),
-    href: '',
+    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
     span: 24,
   },
   {
@@ -39,7 +40,7 @@ const MenuOptions = [
         Careers
       </TypographyText>
     ),
-    href: '',
+    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
     span: 24,
   },
 ]
