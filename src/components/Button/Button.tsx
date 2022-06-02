@@ -47,19 +47,40 @@ const baseButton = styled.button<BaseProps>`
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+  transition: 0.3s;
 `
-
+// On hover, using alpha of 75%
+// On active, using alpha of 60%
 const active = styled(baseButton)`
   background: ${(props) => props.color};
   color: ${theme.colors.white.DEFAULT};
   border-style: none;
-`
+  &:hover {
+    //background: ${(props) => props.color}BF;
+    filter: brightness(125%);
+  }
 
+  &:active {
+    filter: brightness(150%);
+    //background: ${(props) => props.color}99;
+  }
+`
+// On hover, using alpha of 25%
+// On active, using alpha of 40%
 const secondary = styled(baseButton)`
   background: transparent;
   border-color: ${(props) => props.color};
   border-style: solid;
   color: ${(props) => props.color};
+  &:hover {
+    //background: ${(props) => props.color}40;
+    border-color: ${theme.colors.white.DEFAULT};
+    color: ${theme.colors.white.DEFAULT};
+  }
+
+  &:active {
+    background: ${theme.colors.white.DEFAULT}66;
+  }
 `
 
 const getButtonByType = (
