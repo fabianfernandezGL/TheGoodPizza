@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd'
 import MenuOption from 'components/MenuHeader/MenuItem'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
@@ -8,6 +7,7 @@ import {
   TypographySubtitle,
   TypographyText,
 } from 'components/Typography/Typography'
+import { Grid } from '@mui/material'
 
 interface LayoutProps {}
 
@@ -23,7 +23,7 @@ const MenuOptions = [
       </TypographyText>
     ),
     href: `${routes.MAIN_ROOT}/${routes.HOME}`,
-    span: 24,
+    span: 12,
   },
   {
     name: (
@@ -32,7 +32,7 @@ const MenuOptions = [
       </TypographyText>
     ),
     href: `${routes.MAIN_ROOT}/${routes.HOME}`,
-    span: 24,
+    span: 12,
   },
   {
     name: (
@@ -41,25 +41,25 @@ const MenuOptions = [
       </TypographyText>
     ),
     href: `${routes.MAIN_ROOT}/${routes.HOME}`,
-    span: 24,
+    span: 12,
   },
 ]
 
 const ImportantStuff = () => {
   return (
     <Layout>
-      <Row gutter={[0, 24]} align="bottom">
-        <Col span={24}>
+      <Grid container spacing={2}>
+        <Grid item sm={12}>
           <TypographySubtitle color={theme.colors.white.DEFAULT}>
             Important Stuff!
           </TypographySubtitle>
-        </Col>
-        <Col span={24}>
+        </Grid>
+        <Grid item sm={12}>
           {MenuOptions.map((option: MenuItemData, idx: number) => (
             <MenuOption key={idx} item={option} />
           ))}
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

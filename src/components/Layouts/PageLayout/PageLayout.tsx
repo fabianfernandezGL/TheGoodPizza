@@ -1,7 +1,7 @@
 import { PageLayoutProps } from 'global.types'
 import styled from 'styled-components'
-import { Col, Row } from 'antd'
 import ContainerLayout from '../ContainerLayout'
+import { Grid } from '@mui/material'
 
 interface LayoutProps {}
 
@@ -13,8 +13,8 @@ const Layout = styled.div<LayoutProps>`
 const PageLayout = (props: PageLayoutProps) => {
   return (
     <Layout>
-      <Row align="middle">
-        <Col span={props.spanImg}>
+      <Grid container>
+        <Grid item sm={props.spanImg}>
           <ContainerLayout
             colSpan={24}
             radiusValue="388px"
@@ -23,9 +23,11 @@ const PageLayout = (props: PageLayoutProps) => {
             backgroundImg={props.img}
             height={'834px'}
           />
-        </Col>
-        <Col span={props.spanContent}>{props.children}</Col>
-      </Row>
+        </Grid>
+        <Grid item sm={props.spanContent}>
+          {props.children}
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

@@ -1,11 +1,11 @@
 import ContainerLayout from 'components/Layouts/ContainerLayout'
 import { theme } from 'styles/theme'
-import { Col, Row } from 'antd'
 import styled from 'styled-components'
 import MainDescription from './MainDescription/MainDescription'
 import OurLinks from './OurLinks/OurLinks'
 import ImportantStuff from './ImportantStuff/ImportantStuff'
 import OurFeed from './OurFeed/OurFeed'
+import { Grid } from '@mui/material'
 
 interface LayoutProps {}
 
@@ -23,20 +23,20 @@ const Footer = () => {
         colSpan={24}
         withPadding
       >
-        <Row justify="space-between" align="stretch">
-          <Col span={6}>
+        <Grid container>
+          <Grid item sm={3}>
             <MainDescription />
-          </Col>
-          <Col span={4}>
+          </Grid>
+          <Grid item sm={2}>
             <OurLinks />
-          </Col>
-          <Col span={4}>
+          </Grid>
+          <Grid item sm={2}>
             <ImportantStuff />
-          </Col>
-          <Col span={3}>
+          </Grid>
+          <Grid item sm={3}>
             <OurFeed />
-          </Col>
-        </Row>
+          </Grid>
+        </Grid>
       </ContainerLayout>
     </Layout>
   )

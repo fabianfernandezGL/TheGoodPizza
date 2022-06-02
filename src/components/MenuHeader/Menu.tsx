@@ -1,8 +1,8 @@
 import MenuOptions from 'constants/menuOptions'
 import MenuOption from './MenuItem'
 import { MenuItemData } from 'global.types'
-import { Row } from 'antd'
 import styled from 'styled-components'
+import { Grid } from '@mui/material'
 
 interface LayoutProps {}
 
@@ -16,11 +16,11 @@ const Layout = styled.div<LayoutProps>`
 const MenuHeader = () => {
   return (
     <Layout>
-      <Row align="middle">
+      <Grid container>
         {MenuOptions.map((option: MenuItemData, idx: number) => (
           <MenuOption key={idx} item={option} />
         ))}
-      </Row>
+      </Grid>
     </Layout>
   )
 }

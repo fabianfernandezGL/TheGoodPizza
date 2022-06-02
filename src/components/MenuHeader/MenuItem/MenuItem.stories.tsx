@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { theme } from '../../../styles/theme'
 import MenuItem from './MenuItem'
-import { SettingOutlined } from '@ant-design/icons'
 import logo from '../../../images/logo-white.svg'
 
 const { black } = theme.colors
@@ -32,15 +31,15 @@ Text.args = {
   },
 }
 
-export const Icon = Template.bind({})
-Icon.args = {
-  item: {
-    href: '#',
-    span: 1,
-    icon: SettingOutlined,
-    showInFooter: false,
-  },
-}
+// export const Icon = Template.bind({})
+// Icon.args = {
+//   item: {
+//     href: '#',
+//     span: 1,
+//     icon: SettingOutlined,
+//     showInFooter: false,
+//   },
+// }
 
 export const Logo = Template.bind({})
 Logo.args = {

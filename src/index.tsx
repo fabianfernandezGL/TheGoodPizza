@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.less'
+import './index.css'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
@@ -10,9 +10,11 @@ import Home from 'pages/Home'
 import MainLayout from 'components/Layouts/MainLayout'
 import MenuHeader from 'components/MenuHeader'
 import Footer from 'components/Footer'
+import CssBaseline from '@mui/material/CssBaseline'
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline />
     <BrowserRouter>
       <Provider store={store}>
         <MainLayout>

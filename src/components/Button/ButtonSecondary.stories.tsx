@@ -2,7 +2,7 @@ import { theme } from '../../styles/theme'
 import styled from 'styled-components'
 import Button from './Button'
 
-const { black, red } = theme.colors
+const { black } = theme.colors
 
 interface LayoutProps {}
 
@@ -20,9 +20,7 @@ export default {
 
 export const Small = () => (
   <>
-    <Button color={red.DEFAULT} size="small" type="default">
-      Button
-    </Button>
+    <Button variant="outlined">Button</Button>
   </>
 )
 
@@ -36,9 +34,7 @@ Small.decorators = [
 
 export const Middle = () => (
   <>
-    <Button color={red.DEFAULT} size="middle" type="default">
-      Button
-    </Button>
+    <Button variant="outlined">Button</Button>
   </>
 )
 
@@ -52,9 +48,7 @@ Middle.decorators = [
 
 export const Large = () => (
   <>
-    <Button color={red.DEFAULT} size="large" type="default">
-      Button
-    </Button>
+    <Button variant="outlined">Button</Button>
   </>
 )
 

@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd'
 import MenuOption from 'components/MenuHeader/MenuItem'
 import MenuOptions from 'constants/menuOptions'
 import { MenuItemData } from 'global.types'
@@ -8,6 +7,7 @@ import {
   TypographySubtitle,
   TypographyText,
 } from 'components/Typography/Typography'
+import { Grid } from '@mui/material'
 
 interface LayoutProps {}
 
@@ -18,13 +18,13 @@ const Layout = styled.div<LayoutProps>`
 const OurLinks = () => {
   return (
     <Layout>
-      <Row gutter={[0, 24]} align="bottom">
-        <Col span={24}>
+      <Grid container>
+        <Grid item sm={12}>
           <TypographySubtitle color={theme.colors.white.DEFAULT}>
             Our Links
           </TypographySubtitle>
-        </Col>
-        <Col span={24}>
+        </Grid>
+        <Grid item sm={12}>
           {MenuOptions.filter(
             (option: MenuItemData) => option.showInFooter
           ).map((option: MenuItemData, idx: number) => (
@@ -41,8 +41,8 @@ const OurLinks = () => {
               }}
             />
           ))}
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

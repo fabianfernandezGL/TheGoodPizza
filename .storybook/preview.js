@@ -1,5 +1,5 @@
 import React from 'react'
-import '../src/index.less'
+import '../src/index.css'
 import { addDecorator } from '@storybook/react'
 import { MemoryRouter } from 'react-router'
 

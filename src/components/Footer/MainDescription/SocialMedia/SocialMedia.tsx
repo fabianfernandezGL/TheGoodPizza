@@ -1,21 +1,12 @@
-import { Space } from 'antd'
-import {
-  FacebookFilled,
-  TwitterSquareFilled,
-  LinkedinFilled,
-  YoutubeFilled,
-  InstagramFilled,
-} from '@ant-design/icons'
+import { Grid } from '@mui/material'
 
 const SocialMedia = () => {
   return (
-    <Space style={{ fontSize: '32px' }}>
-      <FacebookFilled width={60} />
-      <TwitterSquareFilled />
-      <LinkedinFilled />
-      <YoutubeFilled />
-      <InstagramFilled />
-    </Space>
+    <Grid container style={{ fontSize: '32px' }}>
+      <Grid item>
+        <p>Here social media icons</p>
+      </Grid>
+    </Grid>
   )
 }
 

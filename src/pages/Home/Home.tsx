@@ -1,4 +1,4 @@
-import { Col, Row, Space } from 'antd'
+import { Grid } from '@mui/material'
 import Button from 'components/Button'
 import ContainerLayout from 'components/Layouts/ContainerLayout'
 import {
@@ -25,8 +25,8 @@ export default function Home({}: HomeProps): JSX.Element {
 
   return (
     <Layout>
-      <Row align="middle">
-        <Col span={10}>
+      <Grid container>
+        <Grid item sm={4}>
           <ContainerLayout
             colSpan={24}
             radiusValue="388px"
@@ -35,8 +35,8 @@ export default function Home({}: HomeProps): JSX.Element {
             backgroundImg={MainBG}
             height={'1080px'}
           />
-        </Col>
-        <Col span={14}>
+        </Grid>
+        <Grid item sm={6}>
           <TypographyBigTitle
             data-testid="title"
             color={theme.colors.yellow.DEFAULT}
@@ -47,16 +47,16 @@ export default function Home({}: HomeProps): JSX.Element {
           <TypographySmallTitle color={theme.colors.yellow.DEFAULT}>
             {subtitle}
           </TypographySmallTitle>
-          <Space>
-            <Col>
-              <Button type="default">Log In</Button>
-            </Col>
-            <Col>
-              <Button type="primary">Sign Up</Button>
-            </Col>
-          </Space>
-        </Col>
-      </Row>
+          <Grid container>
+            <Grid item>
+              <Button variant="outlined">Log In</Button>
+            </Grid>
+            <Grid item>
+              <Button variant="contained">Sign Up</Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

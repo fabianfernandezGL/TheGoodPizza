@@ -1,7 +1,7 @@
 import { ContainerLayoutProps, Corner } from 'global.types'
 import styled from 'styled-components'
-import { Col, Row } from 'antd'
 import MainLayout from '../MainLayout'
+import { Grid } from '@mui/material'
 
 const getRadiusValue = (
   corner: Corner,
@@ -45,8 +45,8 @@ const Layout = styled.div<LayoutProps>`
 const ContainerLayout = (props: ContainerLayoutProps) => {
   return (
     <MainLayout>
-      <Row align="bottom">
-        <Col span={props.colSpan}>
+      <Grid container>
+        <Grid item sm={props.colSpan}>
           <Layout
             backgroundColor={props.backgroundColor}
             backgroundImg={props.backgroundImg}
@@ -57,8 +57,8 @@ const ContainerLayout = (props: ContainerLayoutProps) => {
           >
             {props.children}
           </Layout>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </MainLayout>
   )
 }
