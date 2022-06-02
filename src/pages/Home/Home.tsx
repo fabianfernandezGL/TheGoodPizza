@@ -13,7 +13,6 @@ interface HomeProps {}
 interface LayoutProps {}
 
 const Layout = styled.div<LayoutProps>`
-  height: 1080px;
   text-align: center;
   width: 100%;
 `
@@ -29,13 +28,13 @@ export default function Home({}: HomeProps): JSX.Element {
       <Row align="middle">
         <Col span={10}>
           <ContainerLayout
-            colSpan={10}
+            colSpan={24}
             radiusValue="388px"
             roundCorner="rightDown"
             withPadding={false}
-          >
-            <img src={MainBG} width="763" />
-          </ContainerLayout>
+            backgroundImg={MainBG}
+            height={'1080px'}
+          />
         </Col>
         <Col span={14}>
           <TypographyBigTitle

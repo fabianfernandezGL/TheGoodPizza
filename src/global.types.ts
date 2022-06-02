@@ -15,15 +15,29 @@ interface Image {
 
 // Types
 export type Corner = 'leftUp' | 'leftDown' | 'rightUp' | 'rightDown'
+type Range<T extends number> = number extends T ? number : _Range<T, []>
+type _Range<T extends number, R extends unknown[]> = R['length'] extends T
+  ? R['length']
+  : R['length'] | _Range<T, [T, ...R]>
+export type ColSpan = Range<24>
 
 // Props
 export interface ContainerLayoutProps {
   backgroundColor?: string
+  backgroundImg?: string
   roundCorner: Corner
   radiusValue: string
-  children?: React.ReactElement
-  colSpan: number
+  children?: React.ReactFragment
+  colSpan: ColSpan
   withPadding: boolean
+  height?: string
+}
+
+export interface PageLayoutProps {
+  children: React.ReactFragment
+  spanContent: ColSpan
+  spanImg: ColSpan
+  img?: string
 }
 
 export interface LogoProps {

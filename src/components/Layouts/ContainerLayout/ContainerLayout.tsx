@@ -14,17 +14,14 @@ const getRadiusValue = (
   return '0'
 }
 
-// interface MainLayoutProps {}
 interface LayoutProps {
   readonly backgroundColor?: string
+  readonly backgroundImg?: string
   readonly radiusValue: string
   readonly roundCorner: Corner
   readonly withPadding: boolean
+  readonly height?: string
 }
-
-// const MainLayout = styled.div<MainLayoutProps>`
-//   background-color: ;
-// `
 
 const Layout = styled.div<LayoutProps>`
   padding: ${(props) => (props.withPadding ? '6.5rem' : '0')};
@@ -39,6 +36,10 @@ const Layout = styled.div<LayoutProps>`
   width: 100%;
   background-color: ${(props) =>
     props.backgroundColor ? props.backgroundColor : ''};
+  background: ${(props) =>
+    props.backgroundImg ? `url(${props.backgroundImg}) no-repeat center` : ''};
+  background-size: cover;
+  height: ${(props) => props.height || 'auto'};
 `
 
 const ContainerLayout = (props: ContainerLayoutProps) => {
@@ -48,9 +49,11 @@ const ContainerLayout = (props: ContainerLayoutProps) => {
         <Col span={props.colSpan}>
           <Layout
             backgroundColor={props.backgroundColor}
+            backgroundImg={props.backgroundImg}
             radiusValue={props.radiusValue}
             roundCorner={props.roundCorner}
             withPadding={props.withPadding}
+            height={props.height}
           >
             {props.children}
           </Layout>
