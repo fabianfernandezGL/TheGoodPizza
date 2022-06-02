@@ -16,7 +16,7 @@ const Layout = styled.div<LayoutProps>`
 const MenuHeader = () => {
   return (
     <Layout>
-      <Grid container>
+      <Grid container item spacing={4}>
         {MenuOptions.map((option: MenuItemData, idx: number) => (
           <MenuOption key={idx} item={option} />
         ))}

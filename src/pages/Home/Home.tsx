@@ -25,8 +25,13 @@ export default function Home({}: HomeProps): JSX.Element {
 
   return (
     <Layout>
-      <Grid container>
-        <Grid item sm={4}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item sm={5}>
           <ContainerLayout
             colSpan={24}
             radiusValue="388px"
@@ -36,7 +41,7 @@ export default function Home({}: HomeProps): JSX.Element {
             height={'1080px'}
           />
         </Grid>
-        <Grid item sm={6}>
+        <Grid item sm={7}>
           <TypographyBigTitle
             data-testid="title"
             color={theme.colors.yellow.DEFAULT}
@@ -47,12 +52,22 @@ export default function Home({}: HomeProps): JSX.Element {
           <TypographySmallTitle color={theme.colors.yellow.DEFAULT}>
             {subtitle}
           </TypographySmallTitle>
-          <Grid container>
+          <Grid
+            container
+            spacing={2}
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Grid item>
-              <Button variant="outlined">Log In</Button>
+              <Button variant="outlined" size="large">
+                Log In
+              </Button>
             </Grid>
             <Grid item>
-              <Button variant="contained">Sign Up</Button>
+              <Button variant="contained" size="large">
+                Sign Up
+              </Button>
             </Grid>
           </Grid>
         </Grid>

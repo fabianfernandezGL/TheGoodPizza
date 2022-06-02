@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import { MenuItemData } from 'global.types'
-import { Grid } from '@mui/material'
+import { Grid, Link } from '@mui/material'
 
 interface MenuItemProps {
   item: MenuItemData
@@ -8,8 +7,8 @@ interface MenuItemProps {
 
 const MenuItem = ({ item }: MenuItemProps) => {
   return (
-    <Grid item sm={item.span}>
-      <Link to={item.href} key={item.idx}>
+    <Grid item xs={item.span}>
+      <Link href={item.href} key={item.idx} underline="none">
         {item.icon && (
           <item.icon style={{ fontSize: '30px' }} aria-hidden="true" />
         )}
