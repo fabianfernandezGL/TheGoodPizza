@@ -1,10 +1,17 @@
-import { ContainerLayoutProps, Corner } from 'global.types'
+import { ShapeProps, Corner } from 'global.types'
 import styled from 'styled-components'
-import MainLayout from '../MainLayout'
 import { Grid } from '@mui/material'
 
+interface LayoutProps {
+  readonly backgroundColor?: string
+  readonly backgroundImg?: string
+  readonly radiusValue: string
+  readonly roundCorner: Corner | undefined
+  readonly height?: string
+}
+
 const getRadiusValue = (
-  corner: Corner,
+  corner: Corner | undefined,
   expectedCorner: Corner,
   value: string
 ) => {
@@ -14,17 +21,7 @@ const getRadiusValue = (
   return '0'
 }
 
-interface LayoutProps {
-  readonly backgroundColor?: string
-  readonly backgroundImg?: string
-  readonly radiusValue: string
-  readonly roundCorner: Corner
-  readonly withPadding: boolean
-  readonly height?: string
-}
-
 const Layout = styled.div<LayoutProps>`
-  padding: ${(props) => (props.withPadding ? '6.5rem' : '0')};
   border-top-left-radius: ${(props) =>
     getRadiusValue(props.roundCorner, 'leftUp', props.radiusValue)};
   border-top-right-radius: ${(props) =>
@@ -42,25 +39,25 @@ const Layout = styled.div<LayoutProps>`
   height: ${(props) => props.height || 'auto'};
 `
 
-const ContainerLayout = (props: ContainerLayoutProps) => {
+const Rectangle = (props: ShapeProps) => {
   return (
-    <MainLayout>
-      <Grid container>
-        <Grid item sm={props.colSpan}>
-          <Layout
-            backgroundColor={props.backgroundColor}
-            backgroundImg={props.backgroundImg}
-            radiusValue={props.radiusValue}
-            roundCorner={props.roundCorner}
-            withPadding={props.withPadding}
-            height={props.height}
-          >
-            {props.children}
-          </Layout>
-        </Grid>
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+    >
+      <Grid item sm={props.colSpan}>
+        <Layout
+          backgroundColor={props.backgroundColor}
+          backgroundImg={props.backgroundImg}
+          radiusValue={props.radiusValue}
+          roundCorner={props.roundCorner}
+          height={props.height}
+        />
       </Grid>
-    </MainLayout>
+    </Grid>
   )
 }
 
-export default ContainerLayout
+export default Rectangle

@@ -7,19 +7,17 @@ import { Grid } from '@mui/material'
 const MainDescription = () => {
   return (
     <>
-      <Grid container>
-        <Grid item sm={24}>
+      <Grid container spacing={3}>
+        <Grid item sm={12}>
           <Logo width={101} />
         </Grid>
-        <Grid item sm={24}>
+        <Grid item sm={12}>
           <TypographyText color={theme.colors.black.DEFAULT}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             scelerisque vulputate est iaculis bibendum curabitur.
           </TypographyText>
         </Grid>
-        <Grid item sm={24}>
-          <SocialMedia />
-        </Grid>
+        <SocialMedia />
       </Grid>
     </>
   )

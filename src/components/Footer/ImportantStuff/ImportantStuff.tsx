@@ -1,19 +1,12 @@
 import MenuOption from 'components/MenuHeader/MenuItem'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
-import styled from 'styled-components'
 import routes from 'constants/routes.json'
 import {
   TypographySubtitle,
   TypographyText,
 } from 'components/Typography/Typography'
 import { Grid } from '@mui/material'
-
-interface LayoutProps {}
-
-const Layout = styled.div<LayoutProps>`
-  margin-top: 50px;
-`
 
 const MenuOptions = [
   {
@@ -47,20 +40,20 @@ const MenuOptions = [
 
 const ImportantStuff = () => {
   return (
-    <Layout>
-      <Grid container spacing={2}>
-        <Grid item sm={12}>
-          <TypographySubtitle color={theme.colors.white.DEFAULT}>
-            Important Stuff!
-          </TypographySubtitle>
-        </Grid>
-        <Grid item sm={12}>
-          {MenuOptions.map((option: MenuItemData, idx: number) => (
-            <MenuOption key={idx} item={option} />
-          ))}
-        </Grid>
+    <Grid container mt={3}>
+      <Grid item sm={12}>
+        <TypographySubtitle margin="1rem 0" color={theme.colors.white.DEFAULT}>
+          Important Stuff!
+        </TypographySubtitle>
       </Grid>
-    </Layout>
+      <Grid container item sm={12}>
+        {MenuOptions.map((option: MenuItemData, idx: number) => (
+          <Grid item sm={12} key={idx}>
+            <MenuOption item={option} />
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 

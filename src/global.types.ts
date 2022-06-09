@@ -19,25 +19,26 @@ type Range<T extends number> = number extends T ? number : _Range<T, []>
 type _Range<T extends number, R extends unknown[]> = R['length'] extends T
   ? R['length']
   : R['length'] | _Range<T, [T, ...R]>
-export type ColSpan = Range<24>
+export type ColSpan = Range<12>
 
 // Props
-export interface ContainerLayoutProps {
+export interface ShapeProps {
   backgroundColor?: string
   backgroundImg?: string
-  roundCorner: Corner
+  roundCorner?: Corner
   radiusValue: string
-  children?: React.ReactFragment
-  colSpan: ColSpan
-  withPadding: boolean
+  colSpan?: ColSpan
   height?: string
 }
 
-export interface PageLayoutProps {
+export interface SectionLayoutProps {
   children: React.ReactFragment
-  spanContent: ColSpan
-  spanImg: ColSpan
-  img?: string
+  shapeImg?: string
+  shapeColor?: string
+  shapeSpan?: ColSpan
+  height: string
+  cornerToRound?: Corner
+  radiusValue?: string
 }
 
 export interface LogoProps {
