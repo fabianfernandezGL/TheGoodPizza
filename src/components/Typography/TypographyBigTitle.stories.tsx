@@ -1,6 +1,6 @@
 import { theme } from '../../styles/theme'
 import styled from 'styled-components'
-import { TypographyBigTitle } from './Typography'
+import { BigTitle } from './Typography'
 
 const { white, black, yellow } = theme.colors
 
@@ -17,14 +17,14 @@ const Layout = styled.div<LayoutProps>`
 
 export default {
   title: 'Typography/Big Title',
-  component: TypographyBigTitle,
+  component: BigTitle,
 }
 
 export const Black = () => (
   <>
-    <TypographyBigTitle color={black.DEFAULT} margin="0">
+    <BigTitle color={black.DEFAULT} margin="0">
       Big Title
-    </TypographyBigTitle>
+    </BigTitle>
   </>
 )
 
@@ -38,9 +38,9 @@ Black.decorators = [
 
 export const Yellow = () => (
   <>
-    <TypographyBigTitle color={yellow.DEFAULT} margin="0">
+    <BigTitle color={yellow.DEFAULT} margin="0">
       Big Title
-    </TypographyBigTitle>
+    </BigTitle>
   </>
 )
 
@@ -54,9 +54,9 @@ Yellow.decorators = [
 
 export const White = () => (
   <>
-    <TypographyBigTitle color={white.DEFAULT} margin="0">
+    <BigTitle color={white.DEFAULT} margin="0">
       Big Title
-    </TypographyBigTitle>
+    </BigTitle>
   </>
 )
 

@@ -1,6 +1,6 @@
 import { theme } from '../../styles/theme'
 import styled from 'styled-components'
-import { TypographySmallTitle } from './Typography'
+import { SmallTitle } from './Typography'
 
 const { white, black, yellow } = theme.colors
 
@@ -17,14 +17,14 @@ const Layout = styled.div<LayoutProps>`
 
 export default {
   title: 'Typography/Small Title',
-  component: TypographySmallTitle,
+  component: SmallTitle,
 }
 
 export const Black = () => (
   <>
-    <TypographySmallTitle color={black.DEFAULT} margin="0">
+    <SmallTitle color={black.DEFAULT} margin="0">
       Small Title
-    </TypographySmallTitle>
+    </SmallTitle>
   </>
 )
 
@@ -38,9 +38,9 @@ Black.decorators = [
 
 export const Yellow = () => (
   <>
-    <TypographySmallTitle color={yellow.DEFAULT} margin="0">
+    <SmallTitle color={yellow.DEFAULT} margin="0">
       Small Title
-    </TypographySmallTitle>
+    </SmallTitle>
   </>
 )
 
@@ -54,9 +54,9 @@ Yellow.decorators = [
 
 export const White = () => (
   <>
-    <TypographySmallTitle color={white.DEFAULT} margin="0">
+    <SmallTitle color={white.DEFAULT} margin="0">
       Small Title
-    </TypographySmallTitle>
+    </SmallTitle>
   </>
 )
 

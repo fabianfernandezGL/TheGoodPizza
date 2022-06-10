@@ -1,9 +1,7 @@
-import { TypographyProps } from 'global.types'
+import { Typography, TypographyProps } from '@mui/material'
 import styled from 'styled-components'
 
-const TypographyText = styled.p<TypographyProps>`
-  color: ${(props) => props.color};
-  margin: ${(props) => (props.margin ? props.margin : '')};
+const TypographyText = styled(Typography)`
   font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: 400;
@@ -11,9 +9,11 @@ const TypographyText = styled.p<TypographyProps>`
   line-height: 21px;
 `
 
-const TypographyBigTitle = styled.h2<TypographyProps>`
-  color: ${(props) => props.color};
-  margin: ${(props) => (props.margin ? props.margin : '')};
+const Text = (props: TypographyProps) => {
+  return <TypographyText variant="body1" {...props} />
+}
+
+const TypographyBigTitle = styled(Typography)`
   font-family: 'Rowdies';
   font-style: normal;
   font-weight: 400;
@@ -21,9 +21,11 @@ const TypographyBigTitle = styled.h2<TypographyProps>`
   line-height: 99px;
 `
 
-const TypographySmallTitle = styled.h3<TypographyProps>`
-  color: ${(props) => props.color};
-  margin: ${(props) => (props.margin ? props.margin : '')};
+const BigTitle = (props: TypographyProps) => {
+  return <TypographyBigTitle variant="h2" {...props} />
+}
+
+const TypographySmallTitle = styled(Typography)`
   font-family: 'Rowdies';
   font-style: normal;
   font-weight: 700;
@@ -31,9 +33,11 @@ const TypographySmallTitle = styled.h3<TypographyProps>`
   line-height: 50px;
 `
 
-const TypographySubtitle = styled.h4<TypographyProps>`
-  color: ${(props) => props.color};
-  margin: ${(props) => (props.margin ? props.margin : '')};
+const SmallTitle = (props: TypographyProps) => {
+  return <TypographySmallTitle variant="h3" {...props} />
+}
+
+const TypographySubtitle = styled(Typography)`
   font-family: 'Rowdies';
   font-style: normal;
   font-weight: 700;
@@ -41,9 +45,8 @@ const TypographySubtitle = styled.h4<TypographyProps>`
   line-height: 30px;
 `
 
-export {
-  TypographyBigTitle,
-  TypographySmallTitle,
-  TypographyText,
-  TypographySubtitle,
+const Subtitle = (props: TypographyProps) => {
+  return <TypographySubtitle variant="h4" {...props} />
 }
+
+export { BigTitle, SmallTitle, Text, Subtitle }

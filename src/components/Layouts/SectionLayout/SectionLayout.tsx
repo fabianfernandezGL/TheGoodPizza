@@ -3,27 +3,36 @@ import { SectionLayoutProps } from 'global.types'
 import styled from 'styled-components'
 
 interface FrontLayoutProps {
-  readonly height: string
+  readonly height?: string
 }
 
 const FrontLayout = styled.div<FrontLayoutProps>`
-  height: ${(props) => props.height};
   z-index: 10;
-  position: absolute;
+  position: relative;
   width: 100%;
+
+  & > * {
+    display: inline-flex;
+  }
 `
 
 interface BackLayoutProps {}
 
 const BackLayout = styled.div<BackLayoutProps>`
   z-index: 5;
+  position: absolute;
   width: 100%;
+`
+
+interface LayoutProps {}
+
+const Layout = styled.div<LayoutProps>`
+  position: relative;
 `
 
 const SectionLayout = (props: SectionLayoutProps) => {
   return (
-    <>
-      <FrontLayout height={props.height}>{props.children}</FrontLayout>
+    <Layout>
       {(props.shapeImg || props.shapeColor) && (
         <BackLayout>
           <Rectangle
@@ -32,11 +41,12 @@ const SectionLayout = (props: SectionLayoutProps) => {
             roundCorner={props.cornerToRound}
             backgroundColor={props.shapeColor}
             backgroundImg={props.shapeImg}
-            height={props.height}
+            height={props.shapeHeight}
           />
         </BackLayout>
       )}
-    </>
+      <FrontLayout>{props.children}</FrontLayout>
+    </Layout>
   )
 }
 

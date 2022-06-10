@@ -6,7 +6,7 @@ interface HomeLayoutProps {
   children: JSX.Element[]
 }
 
-const height = '1080px'
+const height = '980px'
 
 export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
   return (
@@ -14,7 +14,7 @@ export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
       shapeImg={MainBG}
       cornerToRound="rightDown"
       shapeSpan={4}
-      height={height}
+      shapeHeight={height}
     >
       <Grid
         container

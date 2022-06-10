@@ -1,6 +1,6 @@
 import { theme } from '../../styles/theme'
 import styled from 'styled-components'
-import { TypographyText } from './Typography'
+import { Text } from './Typography'
 
 const { white, black, yellow } = theme.colors
 
@@ -17,16 +17,16 @@ const Layout = styled.div<LayoutProps>`
 
 export default {
   title: 'Typography/Simple Text',
-  component: TypographyText,
+  component: Text,
 }
 
 export const Black = () => (
   <>
-    <TypographyText color={black.DEFAULT} margin="0">
+    <Text color={black.DEFAULT} margin="0">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. At modi dolores,
       minus quod ipsam, perspiciatis aliquid necessitatibus vel, exercitationem
       debitis est quasi a! Quod quos odio consectetur aliquam obcaecati. Facere.
-    </TypographyText>
+    </Text>
   </>
 )
 
@@ -40,11 +40,11 @@ Black.decorators = [
 
 export const Yellow = () => (
   <>
-    <TypographyText color={yellow.DEFAULT} margin="0">
+    <Text color={yellow.DEFAULT} margin="0">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. At modi dolores,
       minus quod ipsam, perspiciatis aliquid necessitatibus vel, exercitationem
       debitis est quasi a! Quod quos odio consectetur aliquam obcaecati. Facere.
-    </TypographyText>
+    </Text>
   </>
 )
 
@@ -58,11 +58,11 @@ Yellow.decorators = [
 
 export const White = () => (
   <>
-    <TypographyText color={white.DEFAULT} margin="0">
+    <Text color={white.DEFAULT} margin="0">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. At modi dolores,
       minus quod ipsam, perspiciatis aliquid necessitatibus vel, exercitationem
       debitis est quasi a! Quod quos odio consectetur aliquam obcaecati. Facere.
-    </TypographyText>
+    </Text>
   </>
 )
 

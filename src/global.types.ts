@@ -36,7 +36,7 @@ export interface SectionLayoutProps {
   shapeImg?: string
   shapeColor?: string
   shapeSpan?: ColSpan
-  height: string
+  shapeHeight: string
   cornerToRound?: Corner
   radiusValue?: string
 }
@@ -44,10 +44,3 @@ export interface SectionLayoutProps {
 export interface LogoProps {
   width: number
 }
-
-export interface TypographyProps {
-  margin?: string
-  color: string
-}
-
-export interface ButtonProps {}

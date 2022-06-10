@@ -1,8 +1,5 @@
 import { Grid } from '@mui/material'
-import {
-  TypographyBigTitle,
-  TypographySmallTitle,
-} from 'components/Typography/Typography'
+import { BigTitle, SmallTitle } from 'components/Typography/Typography'
 import { theme } from 'styles/theme'
 
 const title = 'Welcome!'
@@ -16,18 +13,17 @@ export default function HomeTitle(): JSX.Element {
       direction="row"
       justifyContent="center"
       alignItems="center"
+      mb={4}
     >
       <Grid item>
-        <TypographyBigTitle
+        <BigTitle
           data-testid="title"
           color={theme.colors.yellow.DEFAULT}
           margin="0"
         >
           {title.toUpperCase()}
-        </TypographyBigTitle>
-        <TypographySmallTitle color={theme.colors.yellow.DEFAULT}>
-          {subtitle}
-        </TypographySmallTitle>
+        </BigTitle>
+        <SmallTitle color={theme.colors.yellow.DEFAULT}>{subtitle}</SmallTitle>
       </Grid>
     </Grid>
   )

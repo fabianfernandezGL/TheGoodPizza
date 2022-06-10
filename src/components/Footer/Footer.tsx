@@ -13,7 +13,7 @@ const Footer = () => {
       shapeColor={theme.colors.orange.DEFAULT}
       cornerToRound={'rightUp'}
       radiusValue={'367.5px'}
-      height="451px"
+      shapeHeight="451px"
     >
       <Grid container m={8} justifyContent={'space-around'}>
         <Grid item sm={2}>

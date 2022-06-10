@@ -5,7 +5,7 @@ import feed3 from '../../../images/feed/feed3.png'
 import feed4 from '../../../images/feed/feed4.png'
 import feed5 from '../../../images/feed/feed5.png'
 import feed6 from '../../../images/feed/feed6.png'
-import { TypographySubtitle } from 'components/Typography/Typography'
+import { Subtitle } from 'components/Typography/Typography'
 import { Grid, ImageList, ImageListItem } from '@mui/material'
 
 const imgs = [feed1, feed2, feed3, feed4, feed5, feed6]
@@ -14,9 +14,9 @@ const OurFeed = () => {
   return (
     <Grid container mt={3}>
       <Grid item sm={12}>
-        <TypographySubtitle margin="1rem 0" color={theme.colors.white.DEFAULT}>
+        <Subtitle margin="1rem 0" color={theme.colors.white.DEFAULT}>
           Our Feed
-        </TypographySubtitle>
+        </Subtitle>
       </Grid>
 
       <Grid item sm={12}>

@@ -1,6 +1,6 @@
 import { theme } from '../../styles/theme'
 import styled from 'styled-components'
-import { TypographySubtitle } from './Typography'
+import { Subtitle } from './Typography'
 
 const { white, black, yellow } = theme.colors
 
@@ -17,14 +17,14 @@ const Layout = styled.div<LayoutProps>`
 
 export default {
   title: 'Typography/Subtitle',
-  component: TypographySubtitle,
+  component: Subtitle,
 }
 
 export const Black = () => (
   <>
-    <TypographySubtitle color={black.DEFAULT} margin="0">
+    <Subtitle color={black.DEFAULT} margin="0">
       Subtitle
-    </TypographySubtitle>
+    </Subtitle>
   </>
 )
 
@@ -38,9 +38,9 @@ Black.decorators = [
 
 export const Yellow = () => (
   <>
-    <TypographySubtitle color={yellow.DEFAULT} margin="0">
+    <Subtitle color={yellow.DEFAULT} margin="0">
       Subtitle
-    </TypographySubtitle>
+    </Subtitle>
   </>
 )
 
@@ -54,9 +54,9 @@ Yellow.decorators = [
 
 export const White = () => (
   <>
-    <TypographySubtitle color={white.DEFAULT} margin="0">
+    <Subtitle color={white.DEFAULT} margin="0">
       Subtitle
-    </TypographySubtitle>
+    </Subtitle>
   </>
 )
 

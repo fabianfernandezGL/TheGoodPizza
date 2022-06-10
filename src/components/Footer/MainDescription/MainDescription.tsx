@@ -1,5 +1,5 @@
 import Logo from 'components/Logo'
-import { TypographyText } from 'components/Typography/Typography'
+import { Text } from 'components/Typography/Typography'
 import SocialMedia from './SocialMedia'
 import { theme } from 'styles/theme'
 import { Grid } from '@mui/material'
@@ -12,10 +12,10 @@ const MainDescription = () => {
           <Logo width={101} />
         </Grid>
         <Grid item sm={12}>
-          <TypographyText color={theme.colors.black.DEFAULT}>
+          <Text color={theme.colors.black.DEFAULT}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             scelerisque vulputate est iaculis bibendum curabitur.
-          </TypographyText>
+          </Text>
         </Grid>
         <SocialMedia />
       </Grid>
