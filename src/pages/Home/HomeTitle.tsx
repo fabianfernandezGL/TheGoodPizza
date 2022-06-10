@@ -3,7 +3,7 @@ import { BigTitle, SmallTitle } from 'components/Typography/Typography'
 import { theme } from 'styles/theme'
 
 const title = 'Welcome!'
-const subtitle = 'Make yourself at home'
+const subtitle = 'Make yourself at home.'
 
 export default function HomeTitle(): JSX.Element {
   return (
