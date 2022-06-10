@@ -34,7 +34,7 @@ const ImportantStuff = () => {
       <Grid container item sm={12}>
         {MenuOptions.map((option: MenuItemData, idx: number) => (
           <Grid item sm={12} key={idx}>
-            <MenuOption item={option} />
+            <MenuOption mt={2} data={option} />
           </Grid>
         ))}
       </Grid>

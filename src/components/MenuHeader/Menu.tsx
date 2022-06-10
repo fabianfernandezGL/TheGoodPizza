@@ -16,9 +16,13 @@ const Layout = styled.div<LayoutProps>`
 const MenuHeader = () => {
   return (
     <Layout>
-      <Grid container item spacing={4}>
+      <Grid container item spacing={4} alignItems={'center'}>
         {MenuOptions.map((option: MenuItemData, idx: number) => (
-          <MenuOption key={idx} item={option} />
+          <MenuOption
+            key={idx}
+            data={option}
+            center={option.name || option.icon ? true : false}
+          />
         ))}
       </Grid>
     </Layout>

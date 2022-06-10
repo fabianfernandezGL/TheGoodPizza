@@ -18,7 +18,8 @@ const OurLinks = () => {
           (option: MenuItemData, idx: number) => (
             <Grid item sm={12} key={idx}>
               <MenuOption
-                item={{
+                mt={2}
+                data={{
                   ...option,
                   span: 12,
                   name: (

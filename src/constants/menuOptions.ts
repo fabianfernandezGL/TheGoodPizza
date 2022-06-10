@@ -1,5 +1,6 @@
 import routes from './routes.json'
 import logo from '../images/logo-white.svg'
+import { ShoppingCart } from '@mui/icons-material'
 
 const MenuOptions = [
   {
@@ -8,7 +9,7 @@ const MenuOptions = [
       path: logo,
       width: 121,
     },
-    span: 7,
+    span: 5,
     showInFooter: false,
   },
   {
@@ -32,7 +33,7 @@ const MenuOptions = [
   {
     name: 'Login/Sign up',
     href: routes.LOGIN,
-    span: 1,
+    span: 2,
     showInFooter: false,
   },
   {
@@ -41,16 +42,16 @@ const MenuOptions = [
     span: 1,
     showInFooter: true,
   },
-  // {
-  //   icon: ShoppingCartOutlined,
-  //   href: routes.CHECKOUT_ORDER,
-  //   span: 1,
-  //   showInFooter: false,
-  // },
+  {
+    icon: ShoppingCart,
+    href: routes.CHECKOUT_ORDER,
+    span: 1,
+    showInFooter: false,
+  },
 ].map((option) => {
   return {
     ...option,
-    href: `${routes.MAIN_ROOT}${option.href}`,
+    href: `/${routes.MAIN_ROOT}${option.href}`,
   }
 })
 

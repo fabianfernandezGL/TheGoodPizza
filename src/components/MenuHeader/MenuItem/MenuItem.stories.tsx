@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof MenuItem> = (args) => (
 
 export const Text = Template.bind({})
 Text.args = {
-  item: {
+  data: {
     href: '#',
     span: 1,
     name: 'Item',
@@ -31,19 +31,9 @@ Text.args = {
   },
 }
 
-// export const Icon = Template.bind({})
-// Icon.args = {
-//   item: {
-//     href: '#',
-//     span: 1,
-//     icon: SettingOutlined,
-//     showInFooter: false,
-//   },
-// }
-
 export const Logo = Template.bind({})
 Logo.args = {
-  item: {
+  data: {
     href: '#',
     span: 1,
     img: {
