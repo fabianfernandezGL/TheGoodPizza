@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 
 const SocialMedia = () => {
   return (
-    <Grid item container sm={12} spacing={3}>
+    <Grid item container sm={12} spacing={2}>
       <Grid item>
         <FacebookIcon fontSize="large" />
       </Grid>

@@ -6,6 +6,12 @@ import OurFeed from './OurFeed/OurFeed'
 import { Grid } from '@mui/material'
 import SectionLayout from 'components/Layouts/SectionLayout'
 
+const footerSections = [
+  <OurLinks key="ourLinks" />,
+  <ImportantStuff key="importantStuff" />,
+  <OurFeed key="ourFeed" />,
+]
+
 const Footer = () => {
   return (
     <SectionLayout
@@ -16,17 +22,15 @@ const Footer = () => {
       shapeHeight="451px"
     >
       <Grid container m={8} justifyContent={'space-around'}>
-        <Grid item sm={2}>
+        <Grid item sm={2} xs={12}>
           <MainDescription />
         </Grid>
-        <Grid item sm={1}>
-          <OurLinks />
-        </Grid>
-        <Grid item sm={2}>
-          <ImportantStuff />
-        </Grid>
-        <Grid item sm={2}>
-          <OurFeed />
+        <Grid item container sm={8} xs={12}>
+          {footerSections.map((section, idx) => (
+            <Grid item key={idx}>
+              {section}
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </SectionLayout>

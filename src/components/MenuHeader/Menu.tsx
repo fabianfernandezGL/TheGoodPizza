@@ -2,30 +2,40 @@ import MenuOptions from 'constants/menuOptions'
 import MenuOption from './MenuItem'
 import { MenuItemData } from 'global.types'
 import styled from 'styled-components'
-import { Grid } from '@mui/material'
+import { AppBar as MuiAppBar, Grid, Toolbar } from '@mui/material'
+import ResponsiveMenu from './ResponsiveMenu'
 
-interface LayoutProps {}
-
-const Layout = styled.div<LayoutProps>`
-  padding: 2rem 6.5rem 6.5rem 6.5rem;
-  width: 100%;
-  z-index: 999;
-  position: absolute;
-`
+const AppBar = styled(MuiAppBar)({
+  padding: '3% 3%',
+  width: '100%',
+  position: 'absolute',
+  zIndex: 999,
+  background: 'rgba(0,0,0,0)',
+  boxShadow: 'none',
+}) as typeof MuiAppBar
 
 const MenuHeader = () => {
   return (
-    <Layout>
-      <Grid container item spacing={4} alignItems={'center'}>
-        {MenuOptions.map((option: MenuItemData, idx: number) => (
-          <MenuOption
-            key={idx}
-            data={option}
-            center={option.name || option.icon ? true : false}
-          />
-        ))}
-      </Grid>
-    </Layout>
+    <>
+      <AppBar
+        sx={{
+          display: { sm: 'none', md: 'flex' },
+        }}
+      >
+        <Toolbar>
+          <Grid container item spacing={4} alignItems={'center'}>
+            {MenuOptions.map((option: MenuItemData, idx: number) => (
+              <MenuOption
+                key={idx}
+                data={option}
+                center={option.name || option.icon ? true : false}
+              />
+            ))}
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <ResponsiveMenu />
+    </>
   )
 }
 
