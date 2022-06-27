@@ -28,6 +28,7 @@ interface LayoutProps {}
 
 const Layout = styled.div<LayoutProps>`
   position: relative;
+  height: auto;
 `
 
 const SectionLayout = (props: SectionLayoutProps) => {

@@ -6,7 +6,7 @@ import { AppBar as MuiAppBar, Grid, Toolbar } from '@mui/material'
 import ResponsiveMenu from './ResponsiveMenu'
 
 const AppBar = styled(MuiAppBar)({
-  padding: '3% 3%',
+  padding: '3% 6.5%',
   width: '100%',
   position: 'absolute',
   zIndex: 999,
