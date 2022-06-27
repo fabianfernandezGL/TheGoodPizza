@@ -4,7 +4,7 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import routes from './constants/routes.json'
 import Home from 'pages/Home'
 import MainLayout from 'components/Layouts/MainLayout'
@@ -28,6 +28,7 @@ ReactDOM.render(
                 <Route path={routes.LOGIN} element={<Login />} />
                 <Route path={routes.HOME} element={<Home />} />
               </Route>
+              <Route path="/" element={<Navigate to={routes.MAIN_ROOT} />} />
             </Routes>
             <Footer />
           </MainLayout>
