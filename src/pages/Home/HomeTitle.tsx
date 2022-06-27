@@ -3,7 +3,7 @@ import { BigTitle, SmallTitle } from 'components/Typography/Typography'
 import { theme } from 'styles/theme'
 
 const title = 'Welcome!'
-const subtitle = 'Make yourself at home.'
+const subtitle = 'Make yourself at home'
 
 export default function HomeTitle(): JSX.Element {
   return (
@@ -16,14 +16,12 @@ export default function HomeTitle(): JSX.Element {
       mb={4}
     >
       <Grid item>
-        <BigTitle
-          data-testid="title"
-          color={theme.colors.yellow.DEFAULT}
-          margin="0"
-        >
+        <BigTitle data-testid="title" align="center" margin="0">
           {title.toUpperCase()}
         </BigTitle>
-        <SmallTitle color={theme.colors.yellow.DEFAULT}>{subtitle}</SmallTitle>
+        <SmallTitle align="center" color={theme.colors.yellow.DEFAULT}>
+          {subtitle}
+        </SmallTitle>
       </Grid>
     </Grid>
   )

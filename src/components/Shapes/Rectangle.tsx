@@ -47,7 +47,7 @@ const Rectangle = (props: ShapeProps) => {
       justifyContent="flex-start"
       alignItems="flex-start"
     >
-      <Grid item sm={props.colSpan}>
+      <Grid item xs={props.colSpan}>
         <Layout
           backgroundColor={props.backgroundColor}
           backgroundImg={props.backgroundImg}

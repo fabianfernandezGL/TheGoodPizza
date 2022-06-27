@@ -23,7 +23,7 @@ export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
         alignItems="center"
         height={height}
       >
-        <Grid item sm={8}>
+        <Grid item xs={12} sm={8}>
           {children}
         </Grid>
       </Grid>

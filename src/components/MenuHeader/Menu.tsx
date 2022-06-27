@@ -19,7 +19,7 @@ const MenuHeader = () => {
     <>
       <AppBar
         sx={{
-          display: { sm: 'none', md: 'flex' },
+          display: { xs: 'none', sm: 'none', md: 'flex' },
         }}
       >
         <Toolbar>

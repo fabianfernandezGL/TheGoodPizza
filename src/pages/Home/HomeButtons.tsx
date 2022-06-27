@@ -11,19 +11,23 @@ export default function HomeButtons(): JSX.Element {
       justifyContent="center"
       alignItems="center"
     >
-      <Grid item>
+      <Grid item xs={12} sm={4} md={2}>
         <Button
           variant="outlined"
+          color="secondary"
           size="large"
+          fullWidth
           href={`${routes.MAIN_ROOT}${routes.LOGIN}`}
         >
           Log In
         </Button>
       </Grid>
-      <Grid item>
+      <Grid item xs={12} sm={4} md={2}>
         <Button
           variant="contained"
+          color="secondary"
           size="large"
+          fullWidth
           href={`${routes.MAIN_ROOT}${routes.SIGN_UP}`}
         >
           Sign Up
