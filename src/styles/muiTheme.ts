@@ -27,6 +27,7 @@ const pizzaThemeOptions: ThemeOptions = {
     h1: {
       fontFamily: 'Rowdies',
       fontSize: 120,
+      fontWeight: 700,
       color: '#F2C94C',
     },
     h2: {
@@ -38,11 +39,13 @@ const pizzaThemeOptions: ThemeOptions = {
     h3: {
       fontFamily: 'Rowdies',
       fontSize: 40,
+      fontWeight: 700,
       color: '#F2C94C',
     },
     h4: {
       fontSize: 24,
       fontFamily: 'Rowdies',
+      fontWeight: 700,
       color: '#F2C94C',
     },
     body1: {
