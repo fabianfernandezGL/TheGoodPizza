@@ -11,23 +11,27 @@ import MainLayout from 'components/Layouts/MainLayout'
 import MenuHeader from 'components/MenuHeader'
 import Footer from 'components/Footer'
 import CssBaseline from '@mui/material/CssBaseline'
+import { ThemeProvider } from '@mui/material'
+import { pizzaTheme } from 'styles/muiTheme'
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    <BrowserRouter>
-      <Provider store={store}>
-        <MainLayout>
-          <MenuHeader />
-          <Routes>
-            <Route path={routes.MAIN_ROOT}>
-              <Route path={routes.HOME} element={<Home />} />
-            </Route>
-          </Routes>
-          <Footer />
-        </MainLayout>
-      </Provider>
-    </BrowserRouter>
+    <ThemeProvider theme={pizzaTheme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <Provider store={store}>
+          <MainLayout>
+            <MenuHeader />
+            <Routes>
+              <Route path={routes.MAIN_ROOT}>
+                <Route path={routes.HOME} element={<Home />} />
+              </Route>
+            </Routes>
+            <Footer />
+          </MainLayout>
+        </Provider>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

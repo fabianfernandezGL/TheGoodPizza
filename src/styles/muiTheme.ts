@@ -1,0 +1,63 @@
+import { createTheme, ThemeOptions } from '@mui/material'
+
+const pizzaThemeOptions: ThemeOptions = {
+  palette: {
+    primary: {
+      main: '#F2C94C',
+      contrastText: '#F2F2F2',
+    },
+    secondary: {
+      main: '#EB5757',
+    },
+    text: {
+      primary: '#f2f2f2',
+      secondary: '#676767',
+    },
+    success: {
+      main: '#27AE60',
+    },
+    background: {
+      default: '#1f1f1f',
+      paper: '#1f1f1f',
+    },
+  },
+  typography: {
+    fontFamily: 'Red Hat Display',
+    fontSize: 16,
+    h1: {
+      fontFamily: 'Rowdies',
+      fontSize: 120,
+      color: '#F2C94C',
+    },
+    h2: {
+      fontFamily: 'Rowdies',
+      fontSize: 80,
+      fontWeight: 400,
+      color: '#F2C94C',
+    },
+    h3: {
+      fontFamily: 'Rowdies',
+      fontSize: 40,
+      color: '#F2C94C',
+    },
+    h4: {
+      fontSize: 24,
+      fontFamily: 'Rowdies',
+      color: '#F2C94C',
+    },
+    body1: {
+      fontSize: 16,
+    },
+    button: {
+      fontFamily: 'Rowdies',
+      fontWeight: 400,
+      fontSize: 20,
+    },
+    caption: {
+      fontSize: 12,
+      fontWeight: 500,
+    },
+  },
+}
+
+export const pizzaTheme = createTheme(pizzaThemeOptions)
