@@ -21,11 +21,11 @@ const Footer = () => {
       radiusValue={'367.5px'}
       shapeHeight="451px"
     >
-      <Grid container m={8} justifyContent={'space-around'}>
+      <Grid container p={8} justifyContent={'space-around'}>
         <Grid item sm={2} xs={12}>
           <MainDescription />
         </Grid>
-        <Grid item container sm={8} xs={12}>
+        <Grid item container sm={9} xs={12}>
           {footerSections.map((section, idx) => (
             <Grid item key={idx}>
               {section}
