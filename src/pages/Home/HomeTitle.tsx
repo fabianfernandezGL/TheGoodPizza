@@ -19,7 +19,11 @@ export default function HomeTitle(): JSX.Element {
         <BigTitle data-testid="title" align="center" margin="0">
           {title.toUpperCase()}
         </BigTitle>
-        <SmallTitle align="center" color={theme.colors.yellow.DEFAULT}>
+        <SmallTitle
+          data-testid="subtitle"
+          align="center"
+          color={theme.colors.yellow.DEFAULT}
+        >
           {subtitle}
         </SmallTitle>
       </Grid>

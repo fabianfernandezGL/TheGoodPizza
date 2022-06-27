@@ -2,7 +2,7 @@
   "MAIN_ROOT": "PizzaCart-UI",
   "HOME": "",
   "NOT_FOUND": "/404",
-  "LOGIN": "/login",
+  "LOGIN": "login",
   "SIGN_UP": "/signUp",
   "MENU": "/menu",
   "ABOUT_US": "/aboutUs",

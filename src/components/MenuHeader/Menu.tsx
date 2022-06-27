@@ -5,10 +5,14 @@ import styled from 'styled-components'
 import { AppBar as MuiAppBar, Grid, Toolbar } from '@mui/material'
 import ResponsiveMenu from './ResponsiveMenu'
 
+const MenuLayout = styled.div`
+  position: absolute;
+  width: 100%;
+`
+
 const AppBar = styled(MuiAppBar)({
   padding: '3% 6.5%',
   width: '100%',
-  position: 'absolute',
   zIndex: 999,
   background: 'rgba(0,0,0,0)',
   boxShadow: 'none',
@@ -16,8 +20,9 @@ const AppBar = styled(MuiAppBar)({
 
 const MenuHeader = () => {
   return (
-    <>
+    <MenuLayout>
       <AppBar
+        position="relative"
         sx={{
           display: { xs: 'none', sm: 'none', md: 'flex' },
         }}
@@ -35,7 +40,7 @@ const MenuHeader = () => {
         </Toolbar>
       </AppBar>
       <ResponsiveMenu />
-    </>
+    </MenuLayout>
   )
 }
 

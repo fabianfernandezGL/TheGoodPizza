@@ -2,13 +2,15 @@ import { Grid } from '@mui/material'
 import SectionLayout from 'components/Layouts/SectionLayout'
 import MainBG from '../../images/home/bg.png'
 
-interface HomeLayoutProps {
-  children: JSX.Element[]
+interface LoginLayoutProps {
+  children: JSX.Element | JSX.Element[]
 }
 
 const height = '980px'
 
-export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
+export default function LoginLayout({
+  children,
+}: LoginLayoutProps): JSX.Element {
   return (
     <SectionLayout
       shapeImg={MainBG}
@@ -22,11 +24,13 @@ export default function HomeLayout({ children }: HomeLayoutProps): JSX.Element {
         justifyContent="flex-end"
         alignItems="center"
         height={height}
-        mt={46}
+        mt={24}
+        mb={8}
       >
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={6}>
           {children}
         </Grid>
+        <Grid item xs={12} sm={1} />
       </Grid>
     </SectionLayout>
   )

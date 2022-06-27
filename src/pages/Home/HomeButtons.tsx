@@ -13,22 +13,24 @@ export default function HomeButtons(): JSX.Element {
     >
       <Grid item xs={12} sm={4} md={2}>
         <Button
+          data-testid="login-btn"
           variant="outlined"
           color="secondary"
           size="large"
           fullWidth
-          href={`${routes.MAIN_ROOT}${routes.LOGIN}`}
+          href={`/${routes.MAIN_ROOT}/${routes.LOGIN}`}
         >
           Log In
         </Button>
       </Grid>
       <Grid item xs={12} sm={4} md={2}>
         <Button
+          data-testid="sign-up-btn"
           variant="contained"
           color="secondary"
           size="large"
           fullWidth
-          href={`${routes.MAIN_ROOT}${routes.SIGN_UP}`}
+          href={`/${routes.MAIN_ROOT}/${routes.SIGN_UP}`}
         >
           Sign Up
         </Button>

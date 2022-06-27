@@ -13,6 +13,7 @@ import Footer from 'components/Footer'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material'
 import { pizzaTheme } from 'styles/muiTheme'
+import Login from 'pages/Login/Login'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.render(
             <MenuHeader />
             <Routes>
               <Route path={routes.MAIN_ROOT}>
+                <Route path={routes.LOGIN} element={<Login />} />
                 <Route path={routes.HOME} element={<Home />} />
               </Route>
             </Routes>

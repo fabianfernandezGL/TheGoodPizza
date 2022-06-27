@@ -1,6 +1,9 @@
 import Home from './'
 import { render, screen } from '@testing-library/react'
 
+const title = 'WELCOME!'
+const subtitle = 'Make yourself at home'
+
 const mock = () => {}
 
 Object.defineProperty(window, 'matchMedia', {
@@ -19,7 +22,22 @@ Object.defineProperty(window, 'matchMedia', {
   },
 })
 
-test('renders component', () => {
+test('renders greatings text', () => {
   render(<Home />)
-  expect(screen.getByTestId('title').textContent).toContain('WELCOME!')
+  expect(screen.getByTestId('title').textContent).toContain(title)
+})
+
+test('renders subtitle text', () => {
+  render(<Home />)
+  expect(screen.getByTestId('subtitle').textContent).toContain(subtitle)
+})
+
+test('renders login button', () => {
+  render(<Home />)
+  expect(screen.getByTestId('login-btn')).toBeDefined()
+})
+
+test('renders sign up button', () => {
+  render(<Home />)
+  expect(screen.getByTestId('sign-up-btn')).toBeDefined()
 })

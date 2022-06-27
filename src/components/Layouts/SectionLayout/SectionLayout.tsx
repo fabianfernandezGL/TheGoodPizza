@@ -3,16 +3,18 @@ import { SectionLayoutProps } from 'global.types'
 import styled from 'styled-components'
 
 interface FrontLayoutProps {
-  readonly height?: string
+  readonly minHeight?: string
 }
 
 const FrontLayout = styled.div<FrontLayoutProps>`
   z-index: 10;
   position: relative;
   width: 100%;
+  min-height: ${(props) => props.minHeight ?? 'auto'};
 
   & > * {
     display: inline-flex;
+    height: fit-content;
   }
 `
 
@@ -45,7 +47,7 @@ const SectionLayout = (props: SectionLayoutProps) => {
           />
         </BackLayout>
       )}
-      <FrontLayout>{props.children}</FrontLayout>
+      <FrontLayout minHeight={props.shapeHeight}>{props.children}</FrontLayout>
     </Layout>
   )
 }

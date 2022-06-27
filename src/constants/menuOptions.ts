@@ -58,7 +58,7 @@ const MenuOptions = [
 ].map((option) => {
   return {
     ...option,
-    href: `/${routes.MAIN_ROOT}${option.href}`,
+    href: `/${routes.MAIN_ROOT}/${option.href}`,
   }
 })
 
