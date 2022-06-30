@@ -1,4 +1,4 @@
-export interface MenuItemData {
+export type MenuItemData = {
   name?: string | undefined | React.ReactElement
   icon?: any
   href: string
@@ -8,7 +8,7 @@ export interface MenuItemData {
   idx?: number
 }
 
-interface Image {
+type Image = {
   path: string
   width: number
 }
@@ -22,7 +22,7 @@ type _Range<T extends number, R extends unknown[]> = R['length'] extends T
 export type ColSpan = Range<12>
 
 // Props
-export interface ShapeProps {
+export type ShapeProps = {
   backgroundColor?: string
   backgroundImg?: string
   roundCorner?: Corner
@@ -31,7 +31,7 @@ export interface ShapeProps {
   height?: string
 }
 
-export interface SectionLayoutProps {
+export type SectionLayoutProps = {
   children: React.ReactFragment
   shapeImg?: string
   shapeColor?: string
@@ -41,6 +41,14 @@ export interface SectionLayoutProps {
   radiusValue?: string
 }
 
-export interface LogoProps {
+export type LogoProps = {
   width: number
+}
+
+export type TextfieldProps = {
+  placeholder?: string
+  label?: string
+  error?: string
+  type?: React.HTMLInputTypeAttribute
+  mt?: number
 }

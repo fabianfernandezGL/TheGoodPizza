@@ -9,10 +9,6 @@ const pizzaThemeOptions: ThemeOptions = {
     secondary: {
       main: '#EB5757',
     },
-    text: {
-      primary: '#f2f2f2',
-      secondary: '#676767',
-    },
     success: {
       main: '#27AE60',
     },
@@ -59,6 +55,16 @@ const pizzaThemeOptions: ThemeOptions = {
     caption: {
       fontSize: 12,
       fontWeight: 500,
+    },
+  },
+  components: {
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: '10px',
+          background: '#F2F2F2',
+        },
+      },
     },
   },
 }

@@ -9,6 +9,14 @@ const Text = (props: TypographyProps) => {
   return <TypographyText variant="body1" {...props} />
 }
 
+const TypographyHugeTitle = styled(Typography)`
+  line-height: 99px;
+`
+
+const HugeTitle = (props: TypographyProps) => {
+  return <TypographyHugeTitle variant="h2" {...props} />
+}
+
 const TypographyBigTitle = styled(Typography)`
   line-height: 99px;
 `
@@ -33,4 +41,4 @@ const Subtitle = (props: TypographyProps) => {
   return <TypographySubtitle variant="h4" {...props} />
 }
 
-export { BigTitle, SmallTitle, Text, Subtitle }
+export { HugeTitle, BigTitle, SmallTitle, Text, Subtitle }

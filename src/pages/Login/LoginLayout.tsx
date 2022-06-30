@@ -24,13 +24,13 @@ export default function LoginLayout({
         justifyContent="flex-end"
         alignItems="center"
         height={height}
-        mt={24}
+        mt={32}
         mb={8}
       >
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           {children}
         </Grid>
-        <Grid item xs={12} sm={1} />
+        <Grid item xs={12} sm={2} />
       </Grid>
     </SectionLayout>
   )
