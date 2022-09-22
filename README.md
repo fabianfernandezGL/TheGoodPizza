@@ -1,4 +1,4 @@
-# Pizza Cart
+# The Good Pizza Project
 
 Gorilla Logic recently created a new fast food business. They will be starting a pilot selling food to the Gorillas in the company.
 
