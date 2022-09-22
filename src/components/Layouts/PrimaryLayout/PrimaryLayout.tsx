@@ -1,16 +1,16 @@
 import { Grid } from '@mui/material'
 import SectionLayout from 'components/Layouts/SectionLayout'
-import MainBG from '../../images/home/bg.png'
+import MainBG from 'images/home/bg.png'
 
-interface LoginLayoutProps {
+interface PrimaryLayoutProps {
   children: JSX.Element | JSX.Element[]
 }
 
-const height = '980px'
+const height = '985px'
 
-export default function LoginLayout({
+export default function PrimaryLayout({
   children,
-}: LoginLayoutProps): JSX.Element {
+}: PrimaryLayoutProps): JSX.Element {
   return (
     <SectionLayout
       shapeImg={MainBG}

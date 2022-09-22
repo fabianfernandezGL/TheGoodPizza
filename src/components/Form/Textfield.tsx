@@ -10,9 +10,21 @@ import { Text } from 'components/Typography/Typography'
 import LockIcon from '@mui/icons-material/Lock'
 import EmailIcon from '@mui/icons-material/Email'
 
-const TextField = ({ error, label, placeholder, type, mt }: TextfieldProps) => {
+const iconsPerType = {
+  password: <LockIcon />,
+  email: <EmailIcon />,
+}
+
+const TextField = ({
+  error,
+  label,
+  placeholder,
+  type = 'text',
+  mt,
+}: TextfieldProps) => {
   const theme = useTheme()
   const hasError = error ? true : false
+  const inputType: string = type
 
   return (
     <>
@@ -28,8 +40,9 @@ const TextField = ({ error, label, placeholder, type, mt }: TextfieldProps) => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                {type === 'password' ? <LockIcon /> : null}
-                {type === 'email' ? <EmailIcon /> : null}
+                {type &&
+                  type in iconsPerType &&
+                  iconsPerType[inputType as keyof typeof iconsPerType]}
               </InputAdornment>
             ),
           }}

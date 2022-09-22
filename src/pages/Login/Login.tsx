@@ -1,11 +1,15 @@
-import Button from 'components/Button'
+import { Divider, Link } from '@mui/material'
+import { Box } from '@mui/system'
 import TextField from 'components/Form/Textfield'
-import { SmallTitle } from 'components/Typography/Typography'
-import LoginLayout from './LoginLayout'
+import { SmallTitle, Text } from 'components/Typography/Typography'
+import LoginButtons from './LoginButtons'
+import { theme } from 'styles/theme'
+import routes from '../../constants/routes.json'
+import PrimaryLayout from 'components/Layouts/PrimaryLayout'
 
 export default function Login(): JSX.Element {
   return (
-    <LoginLayout>
+    <PrimaryLayout>
       <SmallTitle>Welcome back!</SmallTitle>
       <form>
         <TextField
@@ -17,13 +21,18 @@ export default function Login(): JSX.Element {
         <TextField
           label="Password"
           type="password"
-          placeholder="hello"
+          placeholder="••••••••••"
           mt={3}
         />
-        <Button type="submit" variant="contained" color="success">
-          Log In
-        </Button>
+        <LoginButtons />
       </form>
-    </LoginLayout>
+      <Box mt={5} mx="auto" width="50%">
+        <Divider color={theme.colors.white.DEFAULT} />
+      </Box>
+      <Text mt={2} align="center" color={theme.colors.white.DEFAULT}>
+        Not on <strong>Good Pizza Club</strong> yet?{' '}
+        <Link href={routes.SIGN_UP}>Sign up</Link>
+      </Text>
+    </PrimaryLayout>
   )
 }

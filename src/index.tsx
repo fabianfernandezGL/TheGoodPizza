@@ -7,13 +7,15 @@ import { store } from './redux/store'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import routes from './constants/routes.json'
 import Home from 'pages/Home'
-import MainLayout from 'components/Layouts/MainLayout'
+import MainLayout from 'components/Layouts/BaseLayout'
 import MenuHeader from 'components/MenuHeader'
 import Footer from 'components/Footer'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material'
 import { pizzaTheme } from 'styles/muiTheme'
-import Login from 'pages/Login/Login'
+import SignUp from 'pages/SignUp'
+import Menu from 'pages/Menu'
+import Login from 'pages/Login'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,8 +27,10 @@ ReactDOM.render(
             <MenuHeader />
             <Routes>
               <Route path={routes.MAIN_ROOT}>
-                <Route path={routes.LOGIN} element={<Login />} />
                 <Route path={routes.HOME} element={<Home />} />
+                <Route path={routes.LOGIN} element={<Login />} />
+                <Route path={routes.SIGN_UP} element={<SignUp />} />
+                <Route path={routes.MENU} element={<Menu />} />
               </Route>
               <Route path="/" element={<Navigate to={routes.MAIN_ROOT} />} />
             </Routes>
