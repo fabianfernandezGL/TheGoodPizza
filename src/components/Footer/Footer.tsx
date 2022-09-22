@@ -25,7 +25,15 @@ const Footer = () => {
         <Grid item sm={2} xs={12}>
           <MainDescription />
         </Grid>
-        <Grid item container sm={9} xs={12}>
+        <Grid
+          item
+          container
+          sm={9}
+          xs={12}
+          direction="row"
+          justifyContent="space-around"
+          alignItems="flex-start"
+        >
           {footerSections.map((section, idx) => (
             <Grid item key={idx}>
               {section}
