@@ -52,3 +52,19 @@ export type TextfieldProps = {
   type?: React.HTMLInputTypeAttribute
   mt?: number
 }
+
+export type CardColors = {
+  gradiend0: string
+  gradiend100: string
+}
+
+export type PizzaInformation = {
+  name: string
+  weight: number
+  weightType: string
+  calories: number
+  description: string
+  price: number
+  img: string
+  colors: CardColors
+}

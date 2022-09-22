@@ -11,6 +11,7 @@ const pizzaThemeOptions: ThemeOptions = {
     },
     success: {
       main: '#27AE60',
+      contrastText: '#F2F2F2',
     },
     background: {
       default: '#1f1f1f',

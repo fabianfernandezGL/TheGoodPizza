@@ -1,6 +1,6 @@
 <svg width="308" height="223" viewBox="0 0 308 223" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_43:2252)">
-<g filter="url(#filter0_d_43:2252)">
+<g clip-path="url(#clip0_43_2252)">
+<g filter="url(#filter0_d_43_2252)">
 <path d="M-129.265 70.7768L308.369 218.21C308.369 218.21 373.086 55.8078 285.021 -134.266L-129.265 70.7768Z" fill="#A7423C"/>
 </g>
 <path d="M240.706 -112.334C302.784 32.3134 271.463 164.232 260.134 201.962L308.369 218.21C308.369 218.21 373.086 55.8078 285.021 -134.266L240.706 -112.334Z" fill="#DDB56C"/>
@@ -53,17 +53,17 @@
 <path d="M203.827 102.084C203.927 108.934 202.506 115.721 199.665 121.957C196.824 128.192 192.635 133.721 187.399 138.145C182.163 142.568 176.01 145.777 169.383 147.54C162.757 149.303 155.821 149.575 149.077 148.339C142.332 147.102 135.946 144.387 130.378 140.388C124.81 136.389 120.198 131.206 116.876 125.213C113.553 119.22 111.602 112.566 111.163 105.729C110.724 98.8917 111.808 92.0425 114.337 85.6743L107.664 83.3572C104.804 90.6696 103.593 98.5222 104.119 106.355C104.644 114.189 106.893 121.81 110.704 128.675C114.515 135.541 119.795 141.482 126.168 146.076C132.541 150.669 139.849 153.801 147.572 155.25C155.295 156.698 163.243 156.427 170.85 154.455C178.456 152.483 185.533 148.859 191.577 143.841C197.621 138.824 202.483 132.536 205.816 125.427C209.149 118.317 210.872 110.561 210.861 102.71L203.827 102.084Z" fill="#E7E1DA"/>
 </g>
 <defs>
-<filter id="filter0_d_43:2252" x="-137.265" y="-138.266" width="476.554" height="368.476" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_43_2252" x="-137.265" y="-138.266" width="476.554" height="368.476" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
 <feGaussianBlur stdDeviation="4"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_43:2252"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_43:2252" result="shape"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_43_2252"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_43_2252" result="shape"/>
 </filter>
-<clipPath id="clip0_43:2252">
+<clipPath id="clip0_43_2252">
 <rect width="460.481" height="352.666" fill="white" transform="translate(-131.023 -130.635) rotate(-0.5)"/>
 </clipPath>
 </defs>
