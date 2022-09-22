@@ -8,9 +8,9 @@ Click [here](https://fabianfernandezgl.github.io/PizzaCart-UI/) to see the app r
 
 ## Deploy and Test Coverage Status
 
-| Deploy                                                                                | Test Coverage                                                                                                                                        |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![CI/CD](https://github.com/fabianfernandezGL/PizzaCart-UI/workflows/CI/CD/badge.svg) | [![codecov](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI/branch/main/graph/badge.svg)](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI) |
+| Status                                                                                | Test Coverage                                                                                                                                        | Deploy                                                                                                                                                            |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![CI/CD](https://github.com/fabianfernandezGL/PizzaCart-UI/workflows/CI/CD/badge.svg) | [![codecov](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI/branch/main/graph/badge.svg)](https://codecov.io/gh/fabianfernandezGL/PizzaCart-UI) | [![Netlify Status](https://api.netlify.com/api/v1/badges/4b72e41d-bc9d-48a4-8a89-284e4d10a5ad/deploy-status)](https://app.netlify.com/sites/thegoodpizza/deploys) |
 
 ## About the Code
 
