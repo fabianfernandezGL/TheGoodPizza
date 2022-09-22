@@ -35,7 +35,7 @@ const MenuItem = ({
   center,
   ...gridProps
 }: MenuItemProps & GridProps) => {
-  const isActive = location.pathname === data.href
+  const isActive = location.pathname === `/${data.href}`
   const content = (
     <>
       {data.icon && (
