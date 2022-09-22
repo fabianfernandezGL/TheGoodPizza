@@ -55,11 +55,6 @@ const MenuOptions = [
     span: 1,
     showInFooter: false,
   },
-].map((option) => {
-  return {
-    ...option,
-    href: `/${routes.MAIN_ROOT}/${option.href}`,
-  }
-})
+]
 
 export default MenuOptions

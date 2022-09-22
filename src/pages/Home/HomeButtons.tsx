@@ -18,7 +18,7 @@ export default function HomeButtons(): JSX.Element {
           color="secondary"
           size="large"
           fullWidth
-          href={`/${routes.MAIN_ROOT}/${routes.LOGIN}`}
+          href={`/${routes.LOGIN}`}
         >
           Log In
         </Button>
@@ -30,7 +30,7 @@ export default function HomeButtons(): JSX.Element {
           color="secondary"
           size="large"
           fullWidth
-          href={`/${routes.MAIN_ROOT}/${routes.SIGN_UP}`}
+          href={`/${routes.SIGN_UP}`}
         >
           Sign Up
         </Button>

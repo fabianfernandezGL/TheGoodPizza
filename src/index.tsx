@@ -27,13 +27,11 @@ ReactDOM.render(
           <MainLayout>
             <MenuHeader />
             <Routes>
-              <Route path={routes.MAIN_ROOT}>
-                <Route path={routes.HOME} element={<Home />} />
-                <Route path={routes.LOGIN} element={<Login />} />
-                <Route path={routes.SIGN_UP} element={<SignUp />} />
-                <Route path={routes.MENU} element={<Menu />} />
-              </Route>
-              <Route path="/" element={<Navigate to={routes.MAIN_ROOT} />} />
+              <Route path={routes.HOME} element={<Home />} />
+              <Route path={routes.LOGIN} element={<Login />} />
+              <Route path={routes.SIGN_UP} element={<SignUp />} />
+              <Route path={routes.MENU} element={<Menu />} />
+              <Route path="/" element={<Navigate to={routes.HOME} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

@@ -8,17 +8,17 @@ import { Grid } from '@mui/material'
 const MenuOptions = [
   {
     name: <Text color={theme.colors.black.DEFAULT}>Terms & Conditions</Text>,
-    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
+    href: `${routes.HOME}`,
     span: 12,
   },
   {
     name: <Text color={theme.colors.black.DEFAULT}>Privacy Policy</Text>,
-    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
+    href: `${routes.HOME}`,
     span: 12,
   },
   {
     name: <Text color={theme.colors.black.DEFAULT}>Careers</Text>,
-    href: `${routes.MAIN_ROOT}/${routes.HOME}`,
+    href: `${routes.HOME}`,
     span: 12,
   },
 ]
