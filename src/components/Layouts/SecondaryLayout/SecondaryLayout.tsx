@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import SectionLayout from 'components/Layouts/SectionLayout'
-import { HugeTitle } from 'components/Typography/Typography'
+import { HugeTitle } from 'components/Typography'
 
 interface SecondaryLayoutProps {
   children?: JSX.Element | JSX.Element[]

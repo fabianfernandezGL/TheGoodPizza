@@ -1,7 +1,7 @@
 import { Divider, Link } from '@mui/material'
 import { Box } from '@mui/system'
 import TextField from 'components/Form/Textfield'
-import { SmallTitle, Text } from 'components/Typography/Typography'
+import { SmallTitle, Text } from 'components/Typography'
 import LoginButtons from './LoginButtons'
 import { theme } from 'styles/theme'
 import routes from '../../constants/routes.json'

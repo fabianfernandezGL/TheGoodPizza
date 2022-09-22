@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import { BigTitle, SmallTitle } from 'components/Typography/Typography'
+import { BigTitle, SmallTitle } from 'components/Typography'
 import { theme } from 'styles/theme'
 
 const title = 'Welcome!'

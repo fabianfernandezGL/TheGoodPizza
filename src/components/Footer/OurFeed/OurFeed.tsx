@@ -5,7 +5,7 @@ import feed3 from '../../../images/feed/feed3.png'
 import feed4 from '../../../images/feed/feed4.png'
 import feed5 from '../../../images/feed/feed5.png'
 import feed6 from '../../../images/feed/feed6.png'
-import { Subtitle } from 'components/Typography/Typography'
+import { Subtitle } from 'components/Typography'
 import { Grid, ImageList, ImageListItem } from '@mui/material'
 
 const imgs = [feed1, feed2, feed3, feed4, feed5, feed6]

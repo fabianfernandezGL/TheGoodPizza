@@ -1,5 +1,5 @@
 import Logo from 'components/Logo'
-import { Text } from 'components/Typography/Typography'
+import { Text } from 'components/Typography'
 import SocialMedia from './SocialMedia'
 import { theme } from 'styles/theme'
 import { Grid } from '@mui/material'

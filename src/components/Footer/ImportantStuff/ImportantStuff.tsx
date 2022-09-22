@@ -2,7 +2,7 @@ import MenuOption from 'components/MenuHeader/MenuItem'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
 import routes from 'constants/routes.json'
-import { Subtitle, Text } from 'components/Typography/Typography'
+import { Subtitle, Text } from 'components/Typography'
 import { Grid } from '@mui/material'
 
 const MenuOptions = [

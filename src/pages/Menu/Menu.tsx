@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import SecondaryLayout from 'components/Layouts/SecondaryLayout'
 import { MenuOptionCard } from 'components/Menu'
-import { SmallTitle } from 'components/Typography/Typography'
+import { SmallTitle } from 'components/Typography'
 import mainBg from 'images/menu/bg.png'
 import { theme } from 'styles/theme'
 import Pizzas from 'constants/pizzaOptions'

@@ -1,4 +1,4 @@
-import { BigTitle, Subtitle } from 'components/Typography/Typography'
+import { BigTitle, Subtitle } from 'components/Typography'
 import PrimaryLayout from 'components/Layouts/PrimaryLayout'
 import { theme } from 'styles/theme'
 

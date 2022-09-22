@@ -6,7 +6,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { TextfieldProps } from 'global.types'
-import { Text } from 'components/Typography/Typography'
+import { Text } from 'components/Typography'
 import LockIcon from '@mui/icons-material/Lock'
 import EmailIcon from '@mui/icons-material/Email'
 

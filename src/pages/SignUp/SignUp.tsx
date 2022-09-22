@@ -1,6 +1,6 @@
 import TextField from 'components/Form/Textfield'
 import PrimaryLayout from 'components/Layouts/PrimaryLayout'
-import { SmallTitle } from 'components/Typography/Typography'
+import { SmallTitle } from 'components/Typography'
 import LoginButtons from './SignUpButtons'
 
 export default function SignUp(): JSX.Element {
