@@ -1,6 +1,6 @@
 {
   "MAIN_ROOT": "TheGoodPizza",
-  "HOME": "",
+  "HOME": "home",
   "LOGIN": "login",
   "SIGN_UP": "signUp",
   "MENU": "menu",
