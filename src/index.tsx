@@ -16,6 +16,7 @@ import { pizzaTheme } from 'styles/muiTheme'
 import SignUp from 'pages/SignUp'
 import Menu from 'pages/Menu'
 import Login from 'pages/Login'
+import NotFound from 'pages/NotFound'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,6 +34,7 @@ ReactDOM.render(
                 <Route path={routes.MENU} element={<Menu />} />
               </Route>
               <Route path="/" element={<Navigate to={routes.MAIN_ROOT} />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
           </MainLayout>

@@ -1,16 +1,16 @@
 {
   "MAIN_ROOT": "PizzaCart-UI",
   "HOME": "",
-  "NOT_FOUND": "/404",
   "LOGIN": "login",
   "SIGN_UP": "signUp",
   "MENU": "menu",
-  "ABOUT_US": "/aboutUs",
-  "CONTACT": "/contact",
-  "HELP": "/help",
-  "CHECKOUT_ORDER": "/checkout/order",
-  "CHECKOUT_ADDRESS": "/checkout/address",
-  "CHECKOUT_PAYMENT": "/checkout/payment",
-  "CHECKOUT_SUMMARY": "/checkout/summary",
-  "CHECKOUT_FINALIZED": "/checkout/finalized"
+  "ABOUT_US": "aboutUs",
+  "CONTACT": "contact",
+  "HELP": "help",
+  "CHECKOUT_ROOT": "checkout",
+  "CHECKOUT_ORDER": "order",
+  "CHECKOUT_ADDRESS": "address",
+  "CHECKOUT_PAYMENT": "payment",
+  "CHECKOUT_SUMMARY": "summary",
+  "CHECKOUT_FINALIZED": "finalized"
 }
