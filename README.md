@@ -4,7 +4,7 @@ Gorilla Logic recently created a new fast food business. They will be starting a
 
 ## Live demo
 
-Click [here](https://fabianfernandezgl.github.io/PizzaCart-UI/) to see the app running.
+Click [here](https://thegoodpizza.netlify.app/home) to see the app running.
 
 ## Deploy and Test Coverage Status
 
