@@ -68,3 +68,17 @@ export type PizzaInformation = {
   img: string
   colors: CardColors
 }
+
+export type PizzaOrderItem = {
+  item: PizzaInformation
+  quantity: number
+  total: number
+}
+
+export type PizzaOrder = {
+  items: Array<PizzaOrderItem>
+  tax: number
+  subTotalPrice: number
+  expressPrice: number
+  savingsPercent: number
+}

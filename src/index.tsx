@@ -17,6 +17,7 @@ import SignUp from 'pages/SignUp'
 import Menu from 'pages/Menu'
 import Login from 'pages/Login'
 import NotFound from 'pages/NotFound'
+import Order from 'pages/Order'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -31,6 +32,9 @@ ReactDOM.render(
               <Route path={routes.LOGIN} element={<Login />} />
               <Route path={routes.SIGN_UP} element={<SignUp />} />
               <Route path={routes.MENU} element={<Menu />} />
+              <Route path={routes.CHECKOUT_ROOT} element={<Order />}>
+                <Route path={routes.CHECKOUT_ORDER} element={<Order />} />
+              </Route>
               <Route path="/" element={<Navigate to={routes.HOME} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -51,7 +51,7 @@ const MenuOptions = [
   {
     icon: ShoppingCart,
     responsiveName: 'Shopping Cart',
-    href: routes.CHECKOUT_ORDER,
+    href: routes.CHECKOUT_ROOT,
     span: 1,
     showInFooter: false,
   },

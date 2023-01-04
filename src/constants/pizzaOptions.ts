@@ -1,4 +1,4 @@
-import eggBasilURL from 'images/menu/pizzas/EggBrazil.svg'
+import eggBasilURL from 'images/menu/pizzas/EggBrazil.png'
 import VeggieFestURL from 'images/menu/pizzas/VeggieFest.svg'
 import SalamiTomatoURL from 'images/menu/pizzas/SalamiTomato.svg'
 import PepperoniEggURL from 'images/menu/pizzas/PepperoniEgg.svg'

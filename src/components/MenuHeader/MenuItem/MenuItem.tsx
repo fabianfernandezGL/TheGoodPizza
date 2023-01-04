@@ -46,7 +46,7 @@ const MenuItem = ({
     </>
   )
   const menuProps: LinkProps = {
-    href: data.href,
+    href: `/${data.href}`,
     underline: 'none',
   }
 
