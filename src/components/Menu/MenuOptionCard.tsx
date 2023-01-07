@@ -7,7 +7,9 @@ import styled from 'styled-components'
 import { Caption, Subtitle, Text } from 'components/Typography'
 import Price from './Price'
 import { theme } from 'styles/theme'
-import { CardColors, PizzaInformation } from 'global.types'
+import { CardColors, PizzaInformation, PizzaOrderItem } from 'global.types'
+import { useAppDispatch } from 'redux/hooks'
+import { add } from 'redux/slices/cart'
 
 const generateCard = ({ gradiend0, gradiend100 }: CardColors) =>
   styled(CardMui)({
@@ -22,6 +24,18 @@ interface MenuOptionCardProps {
   data: PizzaInformation
 }
 
+const generateMenuItemData = (data: PizzaInformation): PizzaOrderItem => {
+  return {
+    itemInfo: {
+      ...data,
+      colors: undefined,
+      img: undefined,
+    },
+    quantity: 1,
+    total: data.price,
+  }
+}
+
 export function MenuOptionCard({ data }: MenuOptionCardProps) {
   const {
     name,
@@ -33,7 +47,10 @@ export function MenuOptionCard({ data }: MenuOptionCardProps) {
     weightType,
     colors,
   } = data
-  const Card = generateCard(colors)
+  const Card = generateCard(
+    colors ?? { gradiend0: '#FFF', gradiend100: '#000' }
+  )
+  const dispatch = useAppDispatch()
 
   return (
     <Card>
@@ -79,7 +96,14 @@ export function MenuOptionCard({ data }: MenuOptionCardProps) {
             <Price price={price} />
           </Grid>
           <Grid item>
-            <Button variant="contained" color="secondary" size="large">
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={() => {
+                dispatch(add({ item: generateMenuItemData(data) }))
+              }}
+            >
               Add
             </Button>
           </Grid>

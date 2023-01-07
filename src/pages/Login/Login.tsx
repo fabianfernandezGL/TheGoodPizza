@@ -1,5 +1,4 @@
-import { Divider, Link } from '@mui/material'
-import { Box } from '@mui/system'
+import { Box, Divider, Link } from '@mui/material'
 import TextField from 'components/Form/Textfield'
 import { SmallTitle, Text } from 'components/Typography'
 import LoginButtons from './LoginButtons'

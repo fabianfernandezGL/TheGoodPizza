@@ -1,7 +1,8 @@
 import { MenuItemData } from 'global.types'
-import { Grid, GridProps, Link, LinkProps } from '@mui/material'
+import { Badge, Grid, GridProps, Link, LinkProps } from '@mui/material'
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { useAppSelector } from 'redux/hooks'
 
 const NormalLink = styled(Link)`
   font-family: 'Rowdies';
@@ -30,6 +31,32 @@ interface MenuItemProps {
   center: boolean
 }
 
+const badgeWrapper = (
+  children: JSX.Element,
+  addBadge: boolean,
+  count?: number
+) => {
+  if (addBadge) {
+    return (
+      <Badge badgeContent={count} color="secondary">
+        {children}
+      </Badge>
+    )
+  }
+  return children
+}
+
+const renderIcon = (
+  { icon: Icon, addBadge, selector }: MenuItemData,
+  useSelector: typeof useAppSelector
+) =>
+  Icon &&
+  badgeWrapper(
+    <Icon style={{ fontSize: '30px' }} aria-hidden="true" />,
+    addBadge ?? false,
+    selector ? useSelector(selector) : 0
+  )
+
 const MenuItem = ({
   data,
   center,
@@ -38,9 +65,7 @@ const MenuItem = ({
   const isActive = location.pathname === `/${data.href}`
   const content = (
     <>
-      {data.icon && (
-        <data.icon style={{ fontSize: '30px' }} aria-hidden="true" />
-      )}
+      {renderIcon(data, useAppSelector)}
       {data.name}
       {data.img && <img src={data.img.path} width={data.img.width} />}
     </>

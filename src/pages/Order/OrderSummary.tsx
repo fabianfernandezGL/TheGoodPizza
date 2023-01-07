@@ -67,9 +67,9 @@ export function OrderSummary({ order }: OrderSummaryProps) {
           my={4}
         >
           {order.items.map(
-            ({ item, quantity, total }: PizzaOrderItem, idx: number) => {
+            ({ itemInfo, quantity, total }: PizzaOrderItem, idx: number) => {
               return (
-                <React.Fragment key={`${item.name}-${idx}`}>
+                <React.Fragment key={`${itemInfo.name}-${idx}`}>
                   <Grid item xs={1}>
                     <Caption color={theme.colors.white.DEFAULT}>
                       {quantity}
@@ -77,7 +77,7 @@ export function OrderSummary({ order }: OrderSummaryProps) {
                   </Grid>
                   <Grid item xs={9}>
                     <Caption color={theme.colors.white.DEFAULT}>
-                      Medium {capitalizeText(item.name)}
+                      {capitalizeText(itemInfo.name)}
                     </Caption>
                   </Grid>
                   <Grid item xs={2} textAlign="right">
@@ -104,7 +104,7 @@ export function OrderSummary({ order }: OrderSummaryProps) {
           {generateRow('Total Savings', subTotalPrice * savingsPercent)}
           <Box my={3} />
           {generateRow('Express', expressPrice)}
-          {generateRow('Taxes', tax)}
+          {generateRow('Taxes (13%)', tax)}
           {generateRow(
             'Total',
             tax + expressPrice + subTotalPrice - subTotalPrice * savingsPercent

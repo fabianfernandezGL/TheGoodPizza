@@ -1,11 +1,16 @@
+import { SvgIconComponent } from '@mui/icons-material'
+import { RootState } from 'redux/store'
+
 export type MenuItemData = {
   name?: string | undefined | React.ReactElement
-  icon?: any
+  icon?: SvgIconComponent
   href: string
   span: number
   img?: Image
   showInFooter?: boolean
   idx?: number
+  addBadge?: boolean
+  selector?: (state: RootState) => number
 }
 
 type Image = {
@@ -65,12 +70,12 @@ export type PizzaInformation = {
   calories: number
   description: string
   price: number
-  img: string
-  colors: CardColors
+  img?: string
+  colors?: CardColors
 }
 
 export type PizzaOrderItem = {
-  item: PizzaInformation
+  itemInfo: PizzaInformation
   quantity: number
   total: number
 }

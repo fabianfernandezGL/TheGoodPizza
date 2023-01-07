@@ -1,3 +1,4 @@
+import { selectCartItemsQty } from './../redux/slices/cart/index'
 import routes from './routes.json'
 import logo from '../images/logo-white.svg'
 import { ShoppingCart } from '@mui/icons-material'
@@ -54,6 +55,8 @@ const MenuOptions = [
     href: routes.CHECKOUT_ROOT,
     span: 1,
     showInFooter: false,
+    addBadge: true,
+    selector: selectCartItemsQty,
   },
 ]
 
