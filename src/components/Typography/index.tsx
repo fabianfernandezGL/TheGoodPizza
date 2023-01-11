@@ -5,4 +5,5 @@ export {
   Subtitle,
   Text,
   Caption,
+  BigText,
 } from './Typography'

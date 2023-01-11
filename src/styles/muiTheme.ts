@@ -40,18 +40,24 @@ const pizzaThemeOptions: ThemeOptions = {
       color: '#F2C94C',
     },
     h4: {
-      fontSize: 24,
       fontFamily: 'Rowdies',
+      fontSize: 24,
       fontWeight: 700,
       color: '#F2C94C',
     },
     body1: {
       fontSize: 16,
+      fontWeight: 400,
+    },
+    body2: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: '#FFF',
     },
     button: {
       fontFamily: 'Rowdies',
-      fontWeight: 400,
       fontSize: 20,
+      fontWeight: 400,
     },
     caption: {
       fontSize: 12,
@@ -64,6 +70,13 @@ const pizzaThemeOptions: ThemeOptions = {
         root: {
           borderRadius: '10px',
           background: '#F2F2F2',
+        },
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          color: '#FFF',
         },
       },
     },

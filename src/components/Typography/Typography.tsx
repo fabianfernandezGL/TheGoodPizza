@@ -1,14 +1,6 @@
 import { Typography, TypographyProps } from '@mui/material'
 import styled from 'styled-components'
 
-const TypographyText = styled(Typography)`
-  line-height: 21px;
-`
-
-const Text = (props: TypographyProps) => {
-  return <TypographyText variant="body1" {...props} />
-}
-
 const TypographyHugeTitle = styled(Typography)`
   line-height: 120px;
 `
@@ -41,6 +33,22 @@ const Subtitle = (props: TypographyProps) => {
   return <TypographySubtitle variant="h4" {...props} />
 }
 
+const TypographyBigText = styled(Typography)`
+  line-height: 26px;
+`
+
+const BigText = (props: TypographyProps) => {
+  return <TypographyBigText variant="body2" {...props} />
+}
+
+const TypographyText = styled(Typography)`
+  line-height: 21px;
+`
+
+const Text = (props: TypographyProps) => {
+  return <TypographyText variant="body1" {...props} />
+}
+
 const TypographyCaption = styled(Typography)`
   line-height: 14.9px;
 `
@@ -49,4 +57,4 @@ const Caption = (props: TypographyProps) => {
   return <TypographyCaption variant="caption" {...props} />
 }
 
-export { HugeTitle, BigTitle, SmallTitle, Text, Subtitle, Caption }
+export { HugeTitle, BigTitle, SmallTitle, BigText, Text, Subtitle, Caption }

@@ -65,7 +65,7 @@ export const cartSlice = createSlice({
       const updatedCart: PizzaOrder = calculateTotals({
         ...state.cart,
         items: removeItemQtyFromCart(
-          state.cart.items,
+          [...state.cart.items],
           payload.item.itemInfo.name,
           payload.quantity ?? 1
         ),

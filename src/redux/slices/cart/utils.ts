@@ -22,8 +22,9 @@ export const removeItemFromCart = (
   items: Array<PizzaOrderItem>,
   itemNameToRemove: string
 ) => {
+  console.log('items', [...items])
   return items.filter(
-    (item) => item.itemInfo.name === itemNameToRemove || item.quantity === 0
+    (item) => item.itemInfo.name !== itemNameToRemove && item.quantity > 0
   )
 }
 
@@ -33,11 +34,12 @@ export const removeItemQtyFromCart = (
   qty: number
 ) => {
   for (let index = 0; index < items.length; index++) {
-    const item = items[index]
-    if (itemNameToRemove === item.itemInfo.name) {
-      item.quantity -= qty
+    if (itemNameToRemove === items[index].itemInfo.name) {
+      items[index].quantity -= qty
+      break
     }
   }
+  console.log('items', [...items])
 
   return removeItemFromCart(items, '')
 }
@@ -48,11 +50,12 @@ export const addItemQtyFromCart = (
   qty: number
 ) => {
   for (let index = 0; index < items.length; index++) {
-    const item = items[index]
-    if (itemNameToAdd === item.itemInfo.name) {
-      item.quantity += qty
+    if (itemNameToAdd === items[index].itemInfo.name) {
+      items[index].quantity += qty
+      break
     }
   }
+  console.log('items', [...items])
 
   return items
 }

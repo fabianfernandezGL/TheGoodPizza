@@ -7,9 +7,10 @@ import styled from 'styled-components'
 import { Caption, Subtitle, Text } from 'components/Typography'
 import Price from './Price'
 import { theme } from 'styles/theme'
-import { CardColors, PizzaInformation, PizzaOrderItem } from 'global.types'
+import { CardColors, PizzaInformation } from 'global.types'
 import { useAppDispatch } from 'redux/hooks'
 import { add } from 'redux/slices/cart'
+import { generateMenuItemData } from 'utils/cartHelper'
 
 const generateCard = ({ gradiend0, gradiend100 }: CardColors) =>
   styled(CardMui)({
@@ -22,18 +23,6 @@ const generateCard = ({ gradiend0, gradiend100 }: CardColors) =>
 
 interface MenuOptionCardProps {
   data: PizzaInformation
-}
-
-const generateMenuItemData = (data: PizzaInformation): PizzaOrderItem => {
-  return {
-    itemInfo: {
-      ...data,
-      colors: undefined,
-      img: undefined,
-    },
-    quantity: 1,
-    total: data.price,
-  }
 }
 
 export function MenuOptionCard({ data }: MenuOptionCardProps) {
