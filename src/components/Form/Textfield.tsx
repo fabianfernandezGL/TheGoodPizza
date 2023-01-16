@@ -9,6 +9,7 @@ import { TextfieldProps } from 'global.types'
 import { Text } from 'components/Typography'
 import LockIcon from '@mui/icons-material/Lock'
 import EmailIcon from '@mui/icons-material/Email'
+import { Controller } from 'react-hook-form'
 
 const iconsPerType = {
   password: <LockIcon />,
@@ -16,38 +17,49 @@ const iconsPerType = {
 }
 
 const TextField = ({
-  error,
+  name,
+  control,
+  fieldError,
   label,
   placeholder,
   type = 'text',
-  mt,
+  topMargin,
 }: TextfieldProps) => {
   const theme = useTheme()
-  const hasError = error ? true : false
   const inputType: string = type
 
   return (
     <>
-      <Text color={theme.palette.grey[100]} mb={1} mt={mt}>
+      <Text color={theme.palette.grey[100]} mb={1} mt={topMargin}>
         {label}
       </Text>
-      <FormControl error={hasError} fullWidth>
-        <TextFieldMui
-          fullWidth
-          error={hasError}
-          placeholder={placeholder}
-          type={type}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                {type &&
-                  type in iconsPerType &&
-                  iconsPerType[inputType as keyof typeof iconsPerType]}
-              </InputAdornment>
-            ),
-          }}
+      <FormControl error={!!fieldError} fullWidth>
+        <Controller
+          name={name}
+          control={control}
+          key={name}
+          render={({ field: { onChange } }) => (
+            <TextFieldMui
+              fullWidth
+              placeholder={placeholder}
+              onChange={onChange}
+              error={!!fieldError}
+              type={type}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    {type &&
+                      type in iconsPerType &&
+                      iconsPerType[inputType as keyof typeof iconsPerType]}
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
         />
-        {error && <FormHelperText id="error-text">{error}</FormHelperText>}
+        {fieldError && (
+          <FormHelperText id="error-text">{fieldError.message}</FormHelperText>
+        )}
       </FormControl>
     </>
   )

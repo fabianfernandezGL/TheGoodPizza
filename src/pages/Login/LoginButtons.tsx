@@ -16,12 +16,12 @@ export default function LoginButtons(): JSX.Element {
           </Button>
         </Grid>
         <Grid item xs={8} mb={4}>
-          <Button fullWidth type="submit" variant="outlined" color="error">
+          <Button fullWidth variant="outlined" color="error">
             Log In with Google
           </Button>
         </Grid>
         <Grid item xs={8}>
-          <Button fullWidth type="submit" variant="outlined" color="error">
+          <Button fullWidth variant="outlined" color="error">
             Log In with Facebook
           </Button>
         </Grid>

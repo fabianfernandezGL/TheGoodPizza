@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import TextField from './Textfield'
 import { theme } from '../../styles/theme'
+import { FieldError } from 'react-hook-form'
 
 const { black } = theme.colors
 
@@ -18,6 +19,7 @@ export default {
 export const Normal = () => (
   <>
     <TextField
+      name="errorTextInput"
       label="Email"
       type="email"
       placeholder="example@goodpizzaclub.com"
@@ -36,8 +38,9 @@ Normal.decorators = [
 export const Error = () => (
   <>
     <TextField
+      name="errorTextInput"
       label="Email"
-      error="This is an error!"
+      fieldError={{ message: 'This is an error!' } as FieldError}
       placeholder="example@goodpizzaclub.com"
     />
   </>

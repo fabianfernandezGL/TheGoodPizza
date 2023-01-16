@@ -36,18 +36,18 @@ const MenuOptions = [
     showInFooter: true,
   },
   {
-    name: 'Login/Sign up',
-    responsiveName: 'Login/Sign up',
-    href: routes.LOGIN,
-    span: 2,
-    showInFooter: false,
-  },
-  {
     name: 'Help',
     responsiveName: 'Help',
     href: routes.HELP,
-    span: 1,
+    span: 2,
     showInFooter: true,
+  },
+  {
+    name: 'Login',
+    responsiveName: 'Login',
+    href: routes.LOGIN,
+    span: 1,
+    showInFooter: false,
   },
   {
     icon: ShoppingCart,

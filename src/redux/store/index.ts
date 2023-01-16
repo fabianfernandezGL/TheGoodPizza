@@ -1,16 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import thunk from 'redux-thunk'
 
 import cartReducer from 'redux/slices/cart'
+import userReducer from 'redux/slices/user'
 
 const persistConfig = {
-  key: 'theGoodPizzaPersistCart',
+  key: 'theGoodPizzaPersist',
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, cartReducer)
+const combinedReducers = combineReducers({
+  user: userReducer,
+  cart: cartReducer,
+})
+
+const persistedReducer = persistReducer(persistConfig, combinedReducers)
 
 export const store = configureStore({
   reducer: persistedReducer,
