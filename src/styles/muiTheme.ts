@@ -17,6 +17,9 @@ const pizzaThemeOptions: ThemeOptions = {
       default: '#1f1f1f',
       paper: '#1f1f1f',
     },
+    action: {
+      disabled: '#4F4F4F',
+    },
   },
   typography: {
     fontFamily: 'Red Hat Display',

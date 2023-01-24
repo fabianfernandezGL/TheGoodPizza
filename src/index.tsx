@@ -18,7 +18,7 @@ const SignUp = React.lazy(() => import('pages/SignUp'))
 const Menu = React.lazy(() => import('pages/Menu'))
 const Login = React.lazy(() => import('pages/Login'))
 const NotFound = React.lazy(() => import('pages/NotFound'))
-const Order = React.lazy(() => import('pages/Order'))
+const Checkout = React.lazy(() => import('pages/Checkout'))
 const Home = React.lazy(() => import('pages/Home'))
 
 const suspenseWrapper = (component: JSX.Element) => (
@@ -62,11 +62,11 @@ ReactDOM.render(
                 <Route path={routes.MENU} element={suspenseWrapper(<Menu />)} />
                 <Route
                   path={routes.CHECKOUT_ROOT}
-                  element={suspenseWrapper(<Order />)}
+                  element={suspenseWrapper(<Checkout />)}
                 >
                   <Route
                     path={routes.CHECKOUT_ORDER}
-                    element={suspenseWrapper(<Order />)}
+                    element={suspenseWrapper(<Checkout />)}
                   />
                 </Route>
                 <Route path="/" element={<Navigate to={routes.HOME} />} />

@@ -20,5 +20,12 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'require-jsdoc': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }

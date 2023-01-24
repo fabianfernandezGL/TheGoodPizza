@@ -1,5 +1,5 @@
 import { Box, Divider, Grid } from '@mui/material'
-import { Caption } from 'components/Typography'
+import { Text } from 'components/Typography'
 import { theme } from 'styles/theme'
 import { PizzaOrder } from 'global.types'
 
@@ -21,19 +21,16 @@ const generateRow = (text: string, price: number) => {
   return (
     <>
       <Grid item xs={9}>
-        <Caption
-          fontWeight={text === 'Total' ? '700' : '500'}
-          color={textColor}
-        >
+        <Text fontWeight={text === 'Total' ? '700' : '500'} color={textColor}>
           {text}
-        </Caption>
+        </Text>
       </Grid>
       <Grid item xs={2} textAlign="right">
-        <Caption color={priceColor}>
+        <Text color={priceColor}>
           <strong>
             {extraSymbols}${price.toFixed(2)}
           </strong>
-        </Caption>
+        </Text>
       </Grid>
     </>
   )
@@ -47,6 +44,7 @@ export function OrderCosts({ order }: OrderCostsProps) {
       direction="row"
       justifyContent="flex-end"
       alignItems="flex-start"
+      spacing={1}
       mt={4}
     >
       <Grid item xs={11} mb={1}>

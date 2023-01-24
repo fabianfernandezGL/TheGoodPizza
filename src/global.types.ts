@@ -90,6 +90,35 @@ export type User = {
   tokens: Tokens
 }
 
+export type Address = {
+  name: string
+  street1: string
+  street2: string
+  city: string
+  state: string
+  zip: string
+  phoneNumber: string
+  isDefault: boolean
+}
+
+export type Payment = {
+  name: string
+  cardNumber: string
+  nameOnCard: string
+  expiration: string
+  cvv: string
+  isDefault: boolean
+}
+
+export enum CardType {
+  'amex',
+  'visa',
+  'diners',
+  'mastercard',
+  'jcb',
+  'discover',
+}
+
 // Props
 export type ShapeProps = {
   backgroundColor?: string

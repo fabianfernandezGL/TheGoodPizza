@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import { Caption } from 'components/Typography'
+import { Text } from 'components/Typography'
 import { theme } from 'styles/theme'
 import { PizzaOrderItem } from 'global.types'
 import { capitalizeText } from 'utils/textHelper'
@@ -17,17 +17,15 @@ export function OrderLine({ orderLine }: OrderLineProps) {
   return (
     <>
       <Grid item xs={1}>
-        <Caption color={theme.colors.white.DEFAULT}>{quantity}</Caption>
+        <Text color={theme.colors.white.DEFAULT}>{quantity}</Text>
       </Grid>
       <Grid item xs={9}>
-        <Caption color={theme.colors.white.DEFAULT}>
-          {capitalizeText(name)}
-        </Caption>
+        <Text color={theme.colors.white.DEFAULT}>{capitalizeText(name)}</Text>
       </Grid>
       <Grid item xs={2} textAlign="right">
-        <Caption color={theme.colors.white.DEFAULT}>
+        <Text color={theme.colors.white.DEFAULT}>
           <strong>${total.toFixed(2)}</strong>
-        </Caption>
+        </Text>
       </Grid>
     </>
   )

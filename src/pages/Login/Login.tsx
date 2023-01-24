@@ -12,7 +12,7 @@ import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from 'constants/general'
 import { ApiError, LoginProps, User } from 'global.types'
 import { loginUser } from 'services'
 import { setTokens } from 'utils/tokenHelper'
-import { setUserInfo } from 'redux/slices/user'
+import { logIn } from 'redux/slices/user'
 import { useAppDispatch } from 'redux/hooks'
 import { useState } from 'react'
 
@@ -47,7 +47,7 @@ export default function Login(): JSX.Element {
       .then(({ data }) => {
         const { tokens, user } = data as User
         setTokens(tokens)
-        dispatch(setUserInfo(user))
+        dispatch(logIn(user))
       })
       .catch((err) => {
         setApiError({

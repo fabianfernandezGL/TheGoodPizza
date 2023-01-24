@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import { PizzaOrderItem } from 'global.types'
-import { OrderLine } from 'components/Order/Summary/OrderLine'
+import { OrderLine } from 'components/Checkout/Summary/OrderLine'
 
 interface OrderItemsProps {
   items: Array<PizzaOrderItem>
@@ -14,6 +14,7 @@ export function OrderItems({ items }: OrderItemsProps) {
       justifyContent="flex-start"
       alignItems="flex-start"
       my={4}
+      spacing={1}
     >
       {items.map((item: PizzaOrderItem, idx: number) => {
         return (

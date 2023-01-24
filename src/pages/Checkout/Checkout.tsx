@@ -1,15 +1,17 @@
-import { Box, Grid, Link } from '@mui/material'
+import { Box, Grid, Link, Stack } from '@mui/material'
 import SecondaryLayout from 'components/Layouts/SecondaryLayout'
-import mainBg from 'images/menu/bg.png'
+import mainBg from 'images/checkout/bg.png'
 import { OrderSummary } from './Summary/OrderSummary'
 import { useAppSelector } from 'redux/hooks'
 import { selectCart } from 'redux/slices/cart'
-import { ItemsTable } from './ItemsTable/ItemsTable'
+import { ItemsTable } from './ItemsTable'
 import Button from 'components/Button'
 import { Subtitle } from 'components/Typography'
 import MenuOptions from 'constants/menuOptions'
+import { Address } from './Address'
+import { Payment } from './Payment'
 
-export default function Order(): JSX.Element {
+export default function Checkout(): JSX.Element {
   const order = useAppSelector(selectCart)
   return (
     <SecondaryLayout
@@ -26,7 +28,11 @@ export default function Order(): JSX.Element {
         mb={12}
       >
         <Grid item xs={8}>
-          <ItemsTable items={order.items} />
+          <Stack spacing={16}>
+            <ItemsTable items={order.items} />
+            <Address />
+            <Payment />
+          </Stack>
         </Grid>
         <Grid item xs={3}>
           <OrderSummary order={order} />

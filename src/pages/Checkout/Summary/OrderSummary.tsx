@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import { Subtitle } from 'components/Typography'
 import { theme } from 'styles/theme'
 import { PizzaOrder } from 'global.types'
-import { OrderCosts } from 'components/Order/Summary/OrderCosts'
-import { OrderItems } from 'components/Order/Summary/OrderItems'
+import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
+import { OrderItems } from 'components/Checkout/Summary/OrderItems'
 
 const Card = styled(CardMui)({
   background: theme.colors.black.light,
