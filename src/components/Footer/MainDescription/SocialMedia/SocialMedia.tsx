@@ -1,4 +1,4 @@
-import { Grid, useTheme } from '@mui/material'
+import { Stack, useTheme } from '@mui/material'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
@@ -16,13 +16,15 @@ const SocialMedia = () => {
   ]
 
   return (
-    <Grid item container sm={12} spacing={2}>
+    <Stack direction="row" spacing={2.5}>
       {icons.map((Icon, idx) => (
-        <Grid item key={idx}>
-          <Icon htmlColor={theme.palette.background.default} fontSize="large" />
-        </Grid>
+        <Icon
+          htmlColor={theme.palette.background.default}
+          fontSize="large"
+          key={`social-icon-${idx}`}
+        />
       ))}
-    </Grid>
+    </Stack>
   )
 }
 

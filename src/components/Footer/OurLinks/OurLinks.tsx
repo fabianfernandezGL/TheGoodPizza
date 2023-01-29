@@ -3,37 +3,31 @@ import MenuOptions from 'constants/menuOptions'
 import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
 import { Subtitle, Text } from 'components/Typography'
-import { Grid } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
 
 const OurLinks = () => {
   return (
-    <Grid container mt={3}>
-      <Grid item sm={12}>
-        <Subtitle margin="1rem 0" color={theme.colors.white.DEFAULT}>
-          Our Links
-        </Subtitle>
-      </Grid>
-      <Grid item container sm={12}>
+    <Stack spacing={4}>
+      <Subtitle margin="0" color={theme.colors.white.DEFAULT}>
+        Our Links
+      </Subtitle>
+      <Grid container>
         {MenuOptions.filter((option: MenuItemData) => option.showInFooter).map(
-          (option: MenuItemData, idx: number) => (
-            <Grid item sm={12} key={idx}>
-              <MenuOption
-                mt={2}
-                data={{
-                  ...option,
-                  span: 12,
-                  name: (
-                    <Text color={theme.colors.black.DEFAULT}>
-                      {option.name}
-                    </Text>
-                  ),
-                }}
-              />
-            </Grid>
-          )
+          (option: MenuItemData, idx: number) => {
+            const customData = {
+              ...option,
+              name: (
+                <Text m={0} color={theme.colors.black.DEFAULT}>
+                  {option.name}
+                </Text>
+              ),
+              span: 12,
+            }
+            return <MenuOption mt={2} key={idx} data={customData} />
+          }
         )}
       </Grid>
-    </Grid>
+    </Stack>
   )
 }
 

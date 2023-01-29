@@ -3,8 +3,9 @@ import MainDescription from './MainDescription/MainDescription'
 import OurLinks from './OurLinks/OurLinks'
 import ImportantStuff from './ImportantStuff/ImportantStuff'
 import OurFeed from './OurFeed/OurFeed'
-import { Grid } from '@mui/material'
+import { Stack } from '@mui/material'
 import SectionLayout from 'components/Layouts/SectionLayout'
+import { Fragment } from 'react'
 
 const footerSections = [
   <OurLinks key="ourLinks" />,
@@ -21,26 +22,20 @@ const Footer = () => {
       radiusValue={'367.5px'}
       shapeHeight="451px"
     >
-      <Grid container p={8} justifyContent={'space-around'}>
-        <Grid item sm={2} xs={12}>
-          <MainDescription />
-        </Grid>
-        <Grid
-          item
-          container
-          sm={9}
-          xs={12}
+      <Stack p={8} direction="row" justifyContent="space-around">
+        <MainDescription />
+        <Stack
           direction="row"
           justifyContent="space-around"
           alignItems="flex-start"
+          width="100%"
+          mt={8}
         >
           {footerSections.map((section, idx) => (
-            <Grid item key={idx}>
-              {section}
-            </Grid>
+            <Fragment key={idx}>{section}</Fragment>
           ))}
-        </Grid>
-      </Grid>
+        </Stack>
+      </Stack>
     </SectionLayout>
   )
 }
