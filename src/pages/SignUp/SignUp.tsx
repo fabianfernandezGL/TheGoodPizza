@@ -14,6 +14,13 @@ import LoginButtons from './SignUpButtons'
 import { Box, Divider, Link } from '@mui/material'
 import routes from 'constants/routes.json'
 import { theme } from 'styles/theme'
+import { ApiError, SignUpProps, UserInfo } from 'global.types'
+import { AxiosError } from 'axios'
+import { useState } from 'react'
+import { logIn } from 'redux/slices/user'
+import { registerUser } from 'services'
+import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from 'redux/hooks'
 
 const signUpSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -23,6 +30,16 @@ const signUpSchema = z.object({
 })
 
 export default function SignUp(): JSX.Element {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const [apiError, setApiError] = useState<{
+    isError: boolean
+    errorMessage: string
+  }>({
+    isError: false,
+    errorMessage: '',
+  })
+
   const {
     control,
     handleSubmit,
@@ -32,7 +49,21 @@ export default function SignUp(): JSX.Element {
     resolver: zodResolver(signUpSchema),
     reValidateMode: 'onChange',
   })
-  const onSubmit = (data: any) => console.log(data)
+
+  const onSubmit = async (userData: SignUpProps) => {
+    setApiError({ isError: false, errorMessage: '' })
+    registerUser(userData)
+      .then((userInfo: UserInfo) => {
+        dispatch(logIn({ userInfo }))
+        navigate(`/${routes.MENU}`)
+      })
+      .catch((err: AxiosError) =>
+        setApiError({
+          isError: true,
+          errorMessage: (err.response?.data as ApiError).message,
+        })
+      )
+  }
 
   return (
     <PrimaryLayout>
@@ -57,7 +88,7 @@ export default function SignUp(): JSX.Element {
           topMargin={3}
         />
         <TextField
-          name="fullName"
+          name="name"
           fieldError={errors.name}
           control={control}
           label="Full Name"
@@ -74,6 +105,11 @@ export default function SignUp(): JSX.Element {
           placeholder="+(506) 1234 5678"
           topMargin={3}
         />
+        {apiError.isError && (
+          <Text mt={2} align="center" color={theme.colors.red.DEFAULT}>
+            {apiError.errorMessage}
+          </Text>
+        )}
         <LoginButtons />
       </form>
       <Box mt={5} mx="auto" width="60%">
