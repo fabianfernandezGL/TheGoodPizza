@@ -2,8 +2,22 @@ import MenuOptions from 'constants/menuOptions'
 import MenuOption from './MenuItem'
 import { MenuItemData } from 'global.types'
 import styled from 'styled-components'
-import { AppBar as MuiAppBar, Grid, Toolbar } from '@mui/material'
+import {
+  AppBar as MuiAppBar,
+  Toolbar,
+  Avatar,
+  Chip,
+  Stack,
+  Box,
+} from '@mui/material'
 import ResponsiveMenu from './ResponsiveMenu'
+import { useAppSelector } from 'redux/hooks'
+import { selectUserInfo } from 'redux/slices/user'
+import logo from 'images/logo-white.svg'
+
+type MenuHeaderProps = {
+  isAuthenticated: boolean
+}
 
 const MenuLayout = styled.div`
   position: absolute;
@@ -18,25 +32,46 @@ const AppBar = styled(MuiAppBar)({
   boxShadow: 'none',
 }) as typeof MuiAppBar
 
-const MenuHeader = () => {
+const appBarResponsiveStyle = {
+  display: { xs: 'none', sm: 'none', md: 'flex' },
+}
+
+const MenuHeader = ({ isAuthenticated }: MenuHeaderProps) => {
+  const userInfo = useAppSelector(selectUserInfo)
   return (
     <MenuLayout>
-      <AppBar
-        position="relative"
-        sx={{
-          display: { xs: 'none', sm: 'none', md: 'flex' },
-        }}
-      >
+      <AppBar position="relative" sx={appBarResponsiveStyle}>
         <Toolbar>
-          <Grid container item spacing={4} alignItems={'center'}>
-            {MenuOptions.map((option: MenuItemData, idx: number) => (
-              <MenuOption
-                key={idx}
-                data={option}
-                center={option.name || option.icon ? true : false}
-              />
+          <Stack
+            spacing={9}
+            alignItems="center"
+            direction="row"
+            justifyContent="space-between"
+            width="100%"
+          >
+            <Box width="15%">
+              <img src={logo} width={122} />
+            </Box>
+            {MenuOptions.filter(
+              ({ showWhenAuthActive, showWhenAuthInactive }: MenuItemData) => {
+                if (isAuthenticated) {
+                  return showWhenAuthActive
+                }
+                return showWhenAuthInactive
+              }
+            ).map((option: MenuItemData, idx: number) => (
+              <MenuOption key={idx} data={option} />
             ))}
-          </Grid>
+            {isAuthenticated && (
+              <>
+                <Chip
+                  avatar={<Avatar>{userInfo.name?.charAt(0)}</Avatar>}
+                  label={userInfo.name}
+                  color="info"
+                />
+              </>
+            )}
+          </Stack>
         </Toolbar>
       </AppBar>
       <ResponsiveMenu />

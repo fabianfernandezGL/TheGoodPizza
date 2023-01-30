@@ -29,7 +29,7 @@ const Pizzas: Array<PizzaInformation> = [
     weightType: 'g',
     calories: 1000,
     description:
-      'Mushrooms, purple basil, capers and our famous secret veggie mix.',
+      'We think in veggies! Mushrooms, purple basil, capers and our famous secret veggie mix.',
     price: 12,
     img: VeggieFestURL,
     colors: {

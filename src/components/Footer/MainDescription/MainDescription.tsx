@@ -6,7 +6,7 @@ import { Stack } from '@mui/material'
 
 const MainDescription = () => {
   return (
-    <Stack spacing={3}>
+    <Stack spacing={4}>
       <Logo width={101} />
       <Text color={theme.colors.black.DEFAULT}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec

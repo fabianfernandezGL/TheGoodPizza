@@ -1,26 +1,19 @@
-import { SvgIconComponent } from '@mui/icons-material'
+import { AnyAction, Dispatch } from '@reduxjs/toolkit'
 import { Control, FieldError } from 'react-hook-form'
-import { RootState } from 'redux/store'
-
-type Image = {
-  path: string
-  width: number
-}
 
 // Types
 export type MenuItemData = {
-  name?: string | undefined | React.ReactElement
-  icon?: SvgIconComponent
-  href: string
-  span: number
-  img?: Image
+  name: string | React.ReactElement
   showInFooter?: boolean
+  showWhenAuthInactive: boolean
+  showWhenAuthActive: boolean
+  onClick?: (dispatch: Dispatch<AnyAction>) => void
+  href?: string
   idx?: number
-  addBadge?: boolean
-  selector?: (state: RootState) => number
 }
 
 export type Corner = 'leftUp' | 'leftDown' | 'rightUp' | 'rightDown'
+
 type Range<T extends number> = number extends T ? number : _Range<T, []>
 type _Range<T extends number, R extends unknown[]> = R['length'] extends T
   ? R['length']

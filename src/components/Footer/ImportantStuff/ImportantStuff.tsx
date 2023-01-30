@@ -3,26 +3,20 @@ import { MenuItemData } from 'global.types'
 import { theme } from 'styles/theme'
 import routes from 'constants/routes.json'
 import { Subtitle, Text } from 'components/Typography'
-import { Grid, Stack } from '@mui/material'
+import { Stack } from '@mui/material'
 
-const MenuOptions: Array<MenuItemData> = [
+const MenuOptions: Array<Partial<MenuItemData>> = [
   {
     name: <Text color={theme.colors.black.DEFAULT}>Terms & Conditions</Text>,
     href: `${routes.HOME}`,
-    span: 12,
-    authRequired: false,
   },
   {
     name: <Text color={theme.colors.black.DEFAULT}>Privacy Policy</Text>,
     href: `${routes.HOME}`,
-    span: 12,
-    authRequired: false,
   },
   {
     name: <Text color={theme.colors.black.DEFAULT}>Careers</Text>,
     href: `${routes.HOME}`,
-    span: 12,
-    authRequired: false,
   },
 ]
 
@@ -32,13 +26,11 @@ const ImportantStuff = () => {
       <Subtitle margin="0" color={theme.colors.white.DEFAULT}>
         Important Stuff!
       </Subtitle>
-      <Grid container item sm={12}>
-        {MenuOptions.map((option: MenuItemData, idx: number) => (
-          <Grid item sm={12} key={idx}>
-            <MenuOption mt={2} data={option} />
-          </Grid>
+      <Stack spacing={2}>
+        {MenuOptions.map((option, idx: number) => (
+          <MenuOption mt={2} key={idx} data={option} />
         ))}
-      </Grid>
+      </Stack>
     </Stack>
   )
 }

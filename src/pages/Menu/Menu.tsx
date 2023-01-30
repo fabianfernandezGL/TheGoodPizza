@@ -7,7 +7,11 @@ import { theme } from 'styles/theme'
 import Pizzas from 'constants/pizzaOptions'
 import { PizzaInformation } from 'global.types'
 
-export default function Menu(): JSX.Element {
+type MenuProps = {
+  isAuthenticated: boolean
+}
+
+export default function Menu({ isAuthenticated }: MenuProps): JSX.Element {
   return (
     <SecondaryLayout backgroundImg={mainBg} title="OUR MOST BELOVED MENU">
       <SmallTitle align="center" color={theme.colors.white.DEFAULT}>
@@ -23,7 +27,10 @@ export default function Menu(): JSX.Element {
       >
         {Pizzas.map((pizzaData: PizzaInformation, idx: number) => (
           <Grid mt={4} item xs={'auto'} key={idx} justifyContent="center">
-            <MenuOptionCard data={pizzaData} />
+            <MenuOptionCard
+              data={pizzaData}
+              isAuthenticated={isAuthenticated}
+            />
           </Grid>
         ))}
       </Grid>

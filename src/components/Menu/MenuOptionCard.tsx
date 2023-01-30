@@ -1,4 +1,4 @@
-import { Card as CardMui, Grid } from '@mui/material'
+import { Card as CardMui, CardProps, Stack } from '@mui/material'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -12,20 +12,24 @@ import { useAppDispatch } from 'redux/hooks'
 import { add } from 'redux/slices/cart'
 import { generateMenuItemData } from 'utils/cartHelper'
 
-const generateCard = ({ gradiend0, gradiend100 }: CardColors) =>
-  styled(CardMui)({
-    maxWidth: '308px',
-    // minHeight: '450px',
-    background: `radial-gradient(187.18% 90.09% at 50% 9.91%, ${gradiend0} 0%, ${gradiend100} 100%)`,
-    boxShadow: '0px 4px 16px 12px rgba(0, 0, 0, 0.14)',
-    borderRadius: '10px 100px 10px 10px',
-  }) as typeof CardMui
+const Card = styled(CardMui)<CardProps & CardColors>`
+  max-width: 308px;
+  background: ${(props: CardColors) =>
+    'radial-gradient(187.18% 90.09% at 50% 9.91%, ' +
+    props.gradiend0 +
+    ' 0%, ' +
+    props.gradiend100 +
+    ' 100%)'};
+  box-shadow: 0px 4px 16px 12px rgba(0, 0, 0, 0.14);
+  border-radius: 10px 100px 10px 10px;
+`
 
 interface MenuOptionCardProps {
   data: PizzaInformation
+  isAuthenticated: boolean
 }
 
-export function MenuOptionCard({ data }: MenuOptionCardProps) {
+export function MenuOptionCard({ data, isAuthenticated }: MenuOptionCardProps) {
   const {
     name,
     description,
@@ -36,13 +40,14 @@ export function MenuOptionCard({ data }: MenuOptionCardProps) {
     weightType,
     colors,
   } = data
-  const Card = generateCard(
-    colors ?? { gradiend0: '#FFF', gradiend100: '#000' }
-  )
+
   const dispatch = useAppDispatch()
 
   return (
-    <Card>
+    <Card
+      gradiend0={colors?.gradiend0 ?? '#FFF'}
+      gradiend100={colors?.gradiend100 ?? '#000'}
+    >
       <CardMedia
         component="img"
         height="233px"
@@ -54,37 +59,31 @@ export function MenuOptionCard({ data }: MenuOptionCardProps) {
       <CardContent>
         <Subtitle color={theme.colors.black.DEFAULT}>{name}</Subtitle>
 
-        <Grid
-          container
+        <Stack
           direction="row"
           justifyContent="flex-start"
           alignItems="flex-start"
+          spacing={4}
           my={1}
         >
-          <Grid item xs={4}>
-            <Caption color={theme.colors.white.DEFAULT}>
-              {weight}
-              {weightType}
-            </Caption>
-          </Grid>
-          <Grid item xs={4}>
-            <Caption color={theme.colors.white.DEFAULT}>{calories}c</Caption>
-          </Grid>
-        </Grid>
+          <Caption color={theme.colors.white.DEFAULT}>
+            {weight}
+            {weightType}
+          </Caption>
+          <Caption color={theme.colors.white.DEFAULT}>{calories}c</Caption>
+        </Stack>
         <Text>{description}</Text>
       </CardContent>
       <CardActions>
-        <Grid
-          container
-          direction="row"
+        <Stack
+          p={2}
           justifyContent="space-between"
           alignItems="flex-end"
-          p={2}
+          direction="row"
+          spacing={16}
         >
-          <Grid item>
-            <Price price={price} />
-          </Grid>
-          <Grid item>
+          <Price price={price} />
+          {isAuthenticated && (
             <Button
               variant="contained"
               color="secondary"
@@ -95,8 +94,8 @@ export function MenuOptionCard({ data }: MenuOptionCardProps) {
             >
               Add
             </Button>
-          </Grid>
-        </Grid>
+          )}
+        </Stack>
       </CardActions>
     </Card>
   )

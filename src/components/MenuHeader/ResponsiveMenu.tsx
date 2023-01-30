@@ -65,9 +65,7 @@ const ResponsiveMenu = () => {
           >
             {MenuOptions.map((page, idx) => (
               <MenuItem key={idx} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  {page.responsiveName}
-                </Typography>
+                <Typography textAlign="center">{page.name}</Typography>
               </MenuItem>
             ))}
           </Menu>

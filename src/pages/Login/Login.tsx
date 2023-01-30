@@ -9,12 +9,13 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from 'constants/general'
-import { ApiError, LoginProps, User } from 'global.types'
+import { ApiError, LoginProps, UserInfo } from 'global.types'
 import { loginUser } from 'services'
-import { setTokens } from 'utils/tokenHelper'
 import { logIn } from 'redux/slices/user'
 import { useAppDispatch } from 'redux/hooks'
 import { useState } from 'react'
+import { AxiosError } from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const loginSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -22,6 +23,8 @@ const loginSchema = z.object({
 })
 
 export default function Login(): JSX.Element {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [apiError, setApiError] = useState<{
     isError: boolean
     errorMessage: string
@@ -29,7 +32,6 @@ export default function Login(): JSX.Element {
     isError: false,
     errorMessage: '',
   })
-  const dispatch = useAppDispatch()
 
   const {
     control,
@@ -44,17 +46,16 @@ export default function Login(): JSX.Element {
   const onSubmit = async (credentials: LoginProps) => {
     setApiError({ isError: false, errorMessage: '' })
     loginUser(credentials)
-      .then(({ data }) => {
-        const { tokens, user } = data as User
-        setTokens(tokens)
-        dispatch(logIn(user))
+      .then((userInfo: UserInfo) => {
+        dispatch(logIn({ userInfo }))
+        navigate(`/${routes.MENU}`)
       })
-      .catch((err) => {
+      .catch((err: AxiosError) =>
         setApiError({
           isError: true,
-          errorMessage: (err.response.data as ApiError).message,
+          errorMessage: (err.response?.data as ApiError).message,
         })
-      })
+      )
   }
 
   return (

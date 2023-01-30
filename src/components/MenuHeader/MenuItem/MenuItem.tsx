@@ -1,8 +1,8 @@
 import { MenuItemData } from 'global.types'
-import { Badge, Grid, GridProps, Link, LinkProps } from '@mui/material'
+import { GridProps, Link, LinkProps } from '@mui/material'
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
-import { useAppSelector } from 'redux/hooks'
+import { useAppDispatch } from 'redux/hooks'
 
 const NormalLink = styled(Link)`
   font-family: 'Rowdies';
@@ -10,6 +10,7 @@ const NormalLink = styled(Link)`
   font-weight: 300;
   font-size: 24px;
   line-height: 30px;
+  cursor: pointer;
   color: ${theme.colors.white.DEFAULT};
 
   &:hover {
@@ -27,73 +28,27 @@ const ActiveLink = styled(NormalLink)`
 `
 
 interface MenuItemProps {
-  data: MenuItemData
-  center: boolean
+  data: Partial<MenuItemData>
 }
 
-const badgeWrapper = (
-  children: JSX.Element,
-  addBadge: boolean,
-  count?: number
-) => {
-  if (addBadge) {
-    return (
-      <Badge badgeContent={count} color="secondary">
-        {children}
-      </Badge>
-    )
-  }
-  return children
-}
-
-const renderIcon = (
-  { icon: Icon, addBadge, selector }: MenuItemData,
-  useSelector: typeof useAppSelector
-) =>
-  Icon &&
-  badgeWrapper(
-    <Icon style={{ fontSize: '30px' }} aria-hidden="true" />,
-    addBadge ?? false,
-    selector ? useSelector(selector) : 0
-  )
-
-const MenuItem = ({
-  data,
-  center,
-  ...gridProps
-}: MenuItemProps & GridProps) => {
+const MenuItem = ({ data }: MenuItemProps & GridProps) => {
+  const dispatch = useAppDispatch()
   const isActive = location.pathname === `/${data.href}`
-  const content = (
-    <>
-      {renderIcon(data, useAppSelector)}
-      {data.name}
-      {data.img && <img src={data.img.path} width={data.img.width} />}
-    </>
-  )
   const menuProps: LinkProps = {
-    href: `/${data.href}`,
+    href: data.href ? `/${data.href}` : undefined,
     underline: 'none',
+    onClick: () => data.onClick?.(dispatch),
   }
 
   return (
-    <Grid
-      item
-      xs={data.span}
-      key={data.idx}
-      textAlign={center ? 'center' : 'inherit'}
-      {...gridProps}
-    >
+    <>
       {isActive ? (
-        <ActiveLink {...menuProps}>{content}</ActiveLink>
+        <ActiveLink {...menuProps}>{data.name}</ActiveLink>
       ) : (
-        <NormalLink {...menuProps}>{content}</NormalLink>
+        <NormalLink {...menuProps}>{data.name}</NormalLink>
       )}
-    </Grid>
+    </>
   )
-}
-
-MenuItem.defaultProps = {
-  center: false,
 }
 
 export default MenuItem

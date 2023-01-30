@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { theme } from '../../../styles/theme'
+import { theme } from 'styles/theme'
 import MenuItem from './MenuItem'
-import logo from '../../../images/logo-white.svg'
 
 const { black } = theme.colors
 
@@ -25,21 +24,9 @@ export const Text = Template.bind({})
 Text.args = {
   data: {
     href: '#',
-    span: 1,
     name: 'Item',
     showInFooter: false,
-  },
-}
-
-export const Logo = Template.bind({})
-Logo.args = {
-  data: {
-    href: '#',
-    span: 1,
-    img: {
-      path: logo,
-      width: 60,
-    },
-    showInFooter: false,
+    showWhenAuthActive: true,
+    showWhenAuthInactive: true,
   },
 }

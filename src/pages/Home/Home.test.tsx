@@ -23,21 +23,21 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 test('renders greatings text', () => {
-  render(<Home />)
+  render(<Home isAuthenticated />)
   expect(screen.getByTestId('title').textContent).toContain(title)
 })
 
 test('renders subtitle text', () => {
-  render(<Home />)
+  render(<Home isAuthenticated />)
   expect(screen.getByTestId('subtitle').textContent).toContain(subtitle)
 })
 
 test('renders login button', () => {
-  render(<Home />)
+  render(<Home isAuthenticated />)
   expect(screen.getByTestId('login-btn')).toBeDefined()
 })
 
 test('renders sign up button', () => {
-  render(<Home />)
+  render(<Home isAuthenticated />)
   expect(screen.getByTestId('sign-up-btn')).toBeDefined()
 })

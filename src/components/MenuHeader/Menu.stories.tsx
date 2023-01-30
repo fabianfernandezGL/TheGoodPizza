@@ -15,7 +15,7 @@ export default {
   component: MenuHeader,
 }
 
-export const DefaultState = () => <MenuHeader />
+export const DefaultState = () => <MenuHeader isAuthenticated={true} />
 DefaultState.decorators = [
   (Story: any) => (
     <Layout>

@@ -1,15 +1,17 @@
 import { Address, Payment, UserInfo } from 'global.types'
 import { RootState } from 'redux/store'
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { clearTokens } from 'utils/tokenHelper'
 
 type UserState = {
   info: Partial<UserInfo>
   addresses: Array<Address>
   payments: Array<Payment>
+  isAuth: boolean
 }
 
 type UserAction = {
-  payload: UserInfo
+  userInfo: UserInfo
 }
 
 type AddressAction = {
@@ -68,14 +70,21 @@ const initialState: UserState = {
       isDefault: false,
     },
   ],
+  isAuth: false,
 }
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    logIn: (state, { payload }: UserAction) => {
-      state.info = payload as UserInfo
+    logIn: (state, { payload }: PayloadAction<UserAction>) => {
+      state.info = payload.userInfo as UserInfo
+      state.isAuth = true
+    },
+    logOut: (state) => {
+      clearTokens()
+      state.info = initialState.info
+      state.isAuth = false
     },
     addAddress: (state, { payload }: AddressAction) => {
       const addresses = [...state.addresses]
@@ -116,9 +125,11 @@ export const {
   addAddress,
   setDefaultPayment,
   addPayment,
+  logOut,
 } = userSlice.actions
 
 export const selectUserInfo = (state: RootState) => state.user.info
+export const selectIsAuth = (state: RootState) => state.user.isAuth
 export const selectUserAddresses = (state: RootState) => state.user.addresses
 export const selectUserPayments = (state: RootState) => state.user.payments
 
