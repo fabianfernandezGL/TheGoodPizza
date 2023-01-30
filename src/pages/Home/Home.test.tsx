@@ -32,12 +32,17 @@ test('renders subtitle text', () => {
   expect(screen.getByTestId('subtitle').textContent).toContain(subtitle)
 })
 
-test('renders login button', () => {
-  render(<Home isAuthenticated />)
+test('renders login button when no-auth', () => {
+  render(<Home isAuthenticated={false} />)
   expect(screen.getByTestId('login-btn')).toBeDefined()
 })
 
-test('renders sign up button', () => {
-  render(<Home isAuthenticated />)
+test('renders sign up button when no-auth', () => {
+  render(<Home isAuthenticated={false} />)
   expect(screen.getByTestId('sign-up-btn')).toBeDefined()
+})
+
+test('renders menu button when auth', () => {
+  render(<Home isAuthenticated />)
+  expect(screen.getByTestId('menu-btn')).toBeDefined()
 })
