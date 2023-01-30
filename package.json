@@ -67,6 +67,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "test:ci": "yarn test -- --coverage .",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "lint": "eslint src",
@@ -106,6 +107,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
     ],
     "testMatch": [
