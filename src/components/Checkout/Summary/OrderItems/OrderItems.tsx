@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Stack } from '@mui/material'
 import { PizzaOrderItem } from 'global.types'
 import { OrderLine } from 'components/Checkout/Summary/OrderLine'
 
@@ -8,12 +8,10 @@ interface OrderItemsProps {
 
 export function OrderItems({ items }: OrderItemsProps) {
   return (
-    <Grid
-      container
-      direction="row"
+    <Stack
       justifyContent="flex-start"
       alignItems="flex-start"
-      my={4}
+      mt={4}
       spacing={1}
     >
       {items.map((item: PizzaOrderItem, idx: number) => {
@@ -24,6 +22,6 @@ export function OrderItems({ items }: OrderItemsProps) {
           />
         )
       })}
-    </Grid>
+    </Stack>
   )
 }

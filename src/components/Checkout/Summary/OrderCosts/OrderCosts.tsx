@@ -1,10 +1,11 @@
-import { Box, Divider, Grid } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { Text } from 'components/Typography'
 import { theme } from 'styles/theme'
 import { PizzaOrder } from 'global.types'
 
 interface OrderCostsProps {
   order: PizzaOrder
+  denseRows: boolean
 }
 
 const generateRow = (text: string, price: number) => {
@@ -19,37 +20,23 @@ const generateRow = (text: string, price: number) => {
     extraSymbols = '-'
   }
   return (
-    <>
-      <Grid item xs={9}>
-        <Text fontWeight={text === 'Total' ? '700' : '500'} color={textColor}>
-          {text}
-        </Text>
-      </Grid>
-      <Grid item xs={2} textAlign="right">
-        <Text color={priceColor}>
-          <strong>
-            {extraSymbols}${price.toFixed(2)}
-          </strong>
-        </Text>
-      </Grid>
-    </>
+    <Stack direction="row" justifyContent="space-between">
+      <Text fontWeight={text === 'Total' ? '700' : '500'} color={textColor}>
+        {text}
+      </Text>
+      <Text color={priceColor} textAlign="right">
+        <strong>
+          {extraSymbols}${price.toFixed(2)}
+        </strong>
+      </Text>
+    </Stack>
   )
 }
 
-export function OrderCosts({ order }: OrderCostsProps) {
+export function OrderCosts({ order, denseRows }: OrderCostsProps) {
   const { expressPrice, savingsPercent, subTotalPrice, tax } = order
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="flex-end"
-      alignItems="flex-start"
-      spacing={1}
-      mt={4}
-    >
-      <Grid item xs={11} mb={1}>
-        <Divider sx={{ borderColor: theme.colors.gray.light }} />
-      </Grid>
+    <Stack spacing={denseRows ? 1 : 3}>
       {generateRow('Subtotal', subTotalPrice)}
       {generateRow('Total Savings', subTotalPrice * savingsPercent)}
       <Box my={3} />
@@ -59,6 +46,10 @@ export function OrderCosts({ order }: OrderCostsProps) {
         'Total',
         tax + expressPrice + subTotalPrice - subTotalPrice * savingsPercent
       )}
-    </Grid>
+    </Stack>
   )
+}
+
+OrderCosts.defaultProps = {
+  denseRows: false,
 }

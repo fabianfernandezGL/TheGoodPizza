@@ -83,6 +83,13 @@ const pizzaThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        textColorPrimary: {
+          color: '#FFF',
+        },
+      },
+    },
   },
 }
 

@@ -1,13 +1,13 @@
-import { Link, Stack } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
+import { IsUser } from 'components/Checkout/IsUser'
 import { PaymentAddNew, PaymentDisplay } from 'components/Checkout/Payments'
-import { SmallTitle, Text } from 'components/Typography'
+import { SmallTitle } from 'components/Typography'
 import { useAppSelector } from 'redux/hooks'
-import { selectUserInfo, selectUserPayments } from 'redux/slices/user'
+import { selectUserPayments } from 'redux/slices/user'
 import { theme } from 'styles/theme'
 
 export function Payment() {
   const payments = useAppSelector(selectUserPayments)
-  const user = useAppSelector(selectUserInfo)
 
   return (
     <Stack spacing={8}>
@@ -15,20 +15,15 @@ export function Payment() {
         <SmallTitle color={theme.colors.white.DEFAULT}>
           Your Payments
         </SmallTitle>
-        {user.name && (
-          <Text color={theme.colors.white.DEFAULT}>
-            {user.name}, not you?{' '}
-            <Link color="primary" onClick={() => {}} sx={{ cursor: 'pointer' }}>
-              Click here
-            </Link>
-          </Text>
-        )}
+        <IsUser />
       </Stack>
-      <Stack direction="row" spacing={2}>
+      <Grid container justifyContent="flex-start">
         {payments?.map((payment, idx) => (
-          <PaymentDisplay payment={payment} index={idx} key={payment.name} />
+          <Grid item mr={2} mb={2} key={`${payment.name}-${idx}`}>
+            <PaymentDisplay payment={payment} index={idx} />
+          </Grid>
         ))}
-      </Stack>
+      </Grid>
       <PaymentAddNew />
     </Stack>
   )

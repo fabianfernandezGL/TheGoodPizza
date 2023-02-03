@@ -1,4 +1,4 @@
-import { Card as CardMui, Grid } from '@mui/material'
+import { Card as CardMui, Divider, Grid } from '@mui/material'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from 'components/Button'
@@ -25,9 +25,22 @@ export function OrderSummary({ order }: OrderSummaryProps) {
     <Card>
       <CardContent>
         <Subtitle color={theme.colors.yellow.DEFAULT}>Summary</Subtitle>
-
         <OrderItems items={order.items} />
-        <OrderCosts order={order} />
+        <Grid
+          container
+          direction="row"
+          justifyContent="flex-end"
+          alignItems="flex-start"
+          spacing={1}
+          mt={1}
+        >
+          <Grid item xs={11} mb={1}>
+            <Divider sx={{ borderColor: theme.colors.gray.light }} />
+          </Grid>
+          <Grid item xs={11}>
+            <OrderCosts order={order} denseRows />
+          </Grid>
+        </Grid>
       </CardContent>
       <CardActions>
         <Grid container direction="row" justifyContent="flex-end">

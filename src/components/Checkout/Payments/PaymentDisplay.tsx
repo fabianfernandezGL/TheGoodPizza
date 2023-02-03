@@ -7,7 +7,7 @@ import { PaymentBox } from './PaymentBox'
 import { theme } from 'styles/theme'
 import { FavoriteButton } from 'components/FavoriteButton'
 import { useAppDispatch } from 'redux/hooks'
-import { setDefaultPayment } from 'redux/slices/user'
+import { removePayment, setDefaultPayment } from 'redux/slices/user'
 import AmexIconURL from 'images/checkout/card-types/amex.svg'
 import VisaIconURL from 'images/checkout/card-types/visa.svg'
 import MasterCardIconURL from 'images/checkout/card-types/mastercard.svg'
@@ -17,7 +17,7 @@ import DinersIconURL from 'images/checkout/card-types/diners.svg'
 
 const componentTextColor = theme.colors.white.DEFAULT
 
-const cardTypeIcon = {
+export const cardTypeIcon = {
   [CardType.amex]: AmexIconURL,
   [CardType.diners]: DinersIconURL,
   [CardType.discover]: DiscoverIconURL,
@@ -28,14 +28,17 @@ const cardTypeIcon = {
 
 type PaymentDisplayProps = {
   payment: Payment
-  index: number
+  index?: number
 }
 
 export function PaymentDisplay({ payment, index }: PaymentDisplayProps) {
   const { cardNumber, expiration, isDefault, name, nameOnCard } = payment
   const dispatch = useAppDispatch()
   const setDefault = () => {
-    dispatch(setDefaultPayment({ payment, index }))
+    dispatch(setDefaultPayment({ payment, index: index ?? 0 }))
+  }
+  const deleteCard = () => {
+    dispatch(removePayment({ payment, index: index ?? 0 }))
   }
   return (
     <PaymentBox>
@@ -44,7 +47,7 @@ export function PaymentDisplay({ payment, index }: PaymentDisplayProps) {
           <Subtitle color={componentTextColor}>{name}</Subtitle>
           <img src={cardTypeIcon[getCardType(cardNumber) ?? 0]} width="50px" />
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <Text color={componentTextColor}>
             <span>{formatCreditCard(cardNumber)}</span>
             <br />
@@ -55,17 +58,24 @@ export function PaymentDisplay({ payment, index }: PaymentDisplayProps) {
             <strong>Security Code:</strong> <span>XXX</span>
           </Text>
         </Stack>
-        <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" color="secondary">
-            Delete
-          </Button>
-          <FavoriteButton
-            nonDefaultTextDisplay="Use this card"
-            defaultTextDisplay="Using this card"
-            setDefault={setDefault}
-            isDefault={isDefault}
-          />
-        </Stack>
+        {index !== undefined && (
+          <Stack direction="row" justifyContent="space-between">
+            <Button
+              variant="outlined"
+              color="secondary"
+              disabled={isDefault}
+              onClick={deleteCard}
+            >
+              Delete
+            </Button>
+            <FavoriteButton
+              nonDefaultTextDisplay="Use this card"
+              defaultTextDisplay="Using this card"
+              setDefault={setDefault}
+              isDefault={isDefault}
+            />
+          </Stack>
+        )}
       </Stack>
     </PaymentBox>
   )

@@ -83,3 +83,47 @@ export function getCardType(cardNumber: string): CardType | undefined {
 
   return undefined
 }
+
+/**
+ * Returns if a card number is valid.
+ * @param {string} input Card number to validate.
+ * @return {boolean} is valid.
+ */
+export function validateCardNumber(input: string): boolean {
+  const cardNumberRegex: RegExp = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/
+  return cardNumberRegex.test(input)
+}
+
+/**
+ * Returns if a CVV number is valid.
+ * @param {string} cvvNumber CVV to validate.
+ * @return {boolean} is valid.
+ */
+export function validateCVV(cvvNumber: string): boolean {
+  const cvvRegEx = /^[0-9]{3,4}$/
+  return cvvRegEx.test(cvvNumber)
+}
+
+/**
+ * Returns if a expiration date is valid.
+ * @param {string} expirationDate CVV to validate.
+ * @return {boolean} is valid.
+ */
+export function validateCreditCardExpirationDate(
+  expirationDate: string
+): boolean {
+  const [month, year] = expirationDate.split('/')
+  const currentDate: Date = new Date()
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = currentDate.getMonth()
+
+  if (parseInt(month) > currentMonth) {
+    if (year.length == 2 && parseInt(year) > currentYear - 2000) {
+      return true
+    }
+    if (parseInt(year) > currentYear || parseInt(year) === currentYear) {
+      return true
+    }
+  }
+  return false
+}

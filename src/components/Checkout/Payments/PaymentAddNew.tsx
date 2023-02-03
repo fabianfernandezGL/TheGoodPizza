@@ -26,7 +26,7 @@ export function PaymentAddNew() {
             >
               New
             </Button>
-            <Text color={componentTextColor}>Add new address</Text>
+            <Text color={componentTextColor}>Add new payment</Text>
           </Stack>
         )}
         {showForm && <PaymentForm onSubmitForm={() => setShowForm(false)} />}

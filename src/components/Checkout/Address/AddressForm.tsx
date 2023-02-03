@@ -8,6 +8,7 @@ import { z } from 'zod'
 import { PHONE_VALIDATION } from 'constants/general'
 import { useAppDispatch } from 'redux/hooks'
 import { addAddress } from 'redux/slices/user'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const componentTextColor = theme.colors.white.DEFAULT
 
@@ -33,11 +34,14 @@ export function AddressForm({ onSubmitForm }: AddressFormModalProps) {
   const {
     control,
     handleSubmit,
-    formState: { errors },
-  } = useForm<z.infer<typeof addressSchema>>()
+    formState: { errors, isValid },
+  } = useForm<z.infer<typeof addressSchema>>({
+    mode: 'onChange',
+    resolver: zodResolver(addressSchema),
+    reValidateMode: 'onChange',
+  })
 
   const onSubmit = (address: z.infer<typeof addressSchema>) => {
-    console.log({ address })
     dispatch(addAddress({ address: { ...address, isDefault: true }, index: 0 }))
     onSubmitForm()
   }
@@ -105,7 +109,12 @@ export function AddressForm({ onSubmitForm }: AddressFormModalProps) {
           />
         </Stack>
         <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" type="submit" color="secondary">
+          <Button
+            variant="outlined"
+            type="submit"
+            color="secondary"
+            disabled={!isValid}
+          >
             Add
           </Button>
         </Stack>

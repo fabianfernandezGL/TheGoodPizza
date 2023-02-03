@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Stack } from '@mui/material'
 import { Text } from 'components/Typography'
 import { theme } from 'styles/theme'
 import { PizzaOrderItem } from 'global.types'
@@ -15,18 +15,19 @@ export function OrderLine({ orderLine }: OrderLineProps) {
     total,
   } = orderLine
   return (
-    <>
-      <Grid item xs={1}>
+    <Stack
+      direction="row"
+      justifyContent="space-between"
+      spacing={1}
+      width="100%"
+    >
+      <Stack direction="row" justifyContent="space-between" spacing={2}>
         <Text color={theme.colors.white.DEFAULT}>{quantity}</Text>
-      </Grid>
-      <Grid item xs={9}>
         <Text color={theme.colors.white.DEFAULT}>{capitalizeText(name)}</Text>
-      </Grid>
-      <Grid item xs={2} textAlign="right">
-        <Text color={theme.colors.white.DEFAULT}>
-          <strong>${total.toFixed(2)}</strong>
-        </Text>
-      </Grid>
-    </>
+      </Stack>
+      <Text color={theme.colors.white.DEFAULT} textAlign="right">
+        <strong>${total.toFixed(2)}</strong>
+      </Text>
+    </Stack>
   )
 }

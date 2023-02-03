@@ -13,7 +13,7 @@ const componentTextColor = theme.colors.white.DEFAULT
 
 type AddressDisplayProps = {
   address: Address
-  index: number
+  index?: number
 }
 
 export function AddressDisplay({ address, index }: AddressDisplayProps) {
@@ -21,7 +21,7 @@ export function AddressDisplay({ address, index }: AddressDisplayProps) {
     address
   const dispatch = useAppDispatch()
   const setDefault = () => {
-    dispatch(setDefaultAddress({ address, index }))
+    dispatch(setDefaultAddress({ address, index: index ?? 0 }))
   }
   return (
     <AddressBox>
@@ -39,17 +39,19 @@ export function AddressDisplay({ address, index }: AddressDisplayProps) {
             phoneNumber
           )}`}</Text>
         </Stack>
-        <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" color="secondary">
-            Edit
-          </Button>
-          <FavoriteButton
-            nonDefaultTextDisplay="Make favorite"
-            defaultTextDisplay="Default address"
-            setDefault={setDefault}
-            isDefault={isDefault}
-          />
-        </Stack>
+        {index !== undefined && (
+          <Stack direction="row" justifyContent="space-between">
+            <Button variant="outlined" color="secondary">
+              Edit
+            </Button>
+            <FavoriteButton
+              nonDefaultTextDisplay="Make favorite"
+              defaultTextDisplay="Default address"
+              setDefault={setDefault}
+              isDefault={isDefault}
+            />
+          </Stack>
+        )}
       </Stack>
     </AddressBox>
   )

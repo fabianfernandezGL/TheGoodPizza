@@ -108,6 +108,14 @@ export const userSlice = createSlice({
       }
       state.payments.push(payload.payment)
     },
+    removePayment: (state, { payload }: PaymentAction) => {
+      const payments = [
+        ...state.payments.filter(
+          (payment) => payment.cardNumber !== payload.payment.cardNumber
+        ),
+      ]
+      state.payments = payments
+    },
     setDefaultPayment: (state, { payload }: PaymentAction) => {
       const payments = [...state.payments]
       for (const payment of payments) {
@@ -121,16 +129,21 @@ export const userSlice = createSlice({
 
 export const {
   logIn,
-  setDefaultAddress,
   addAddress,
-  setDefaultPayment,
+  setDefaultAddress,
   addPayment,
+  removePayment,
+  setDefaultPayment,
   logOut,
 } = userSlice.actions
 
 export const selectUserInfo = (state: RootState) => state.user.info
 export const selectIsAuth = (state: RootState) => state.user.isAuth
 export const selectUserAddresses = (state: RootState) => state.user.addresses
+export const selectUserDefaultAddress = (state: RootState) =>
+  state.user.addresses.filter((address) => address.isDefault)[0]
 export const selectUserPayments = (state: RootState) => state.user.payments
+export const selectUserDefaultPayment = (state: RootState) =>
+  state.user.payments.filter((payment) => payment.isDefault)[0]
 
 export default userSlice.reducer

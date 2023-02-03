@@ -5,23 +5,37 @@ import { theme } from 'styles/theme'
 import { useForm } from 'react-hook-form'
 import TextField from 'components/Form/Textfield'
 import { z } from 'zod'
-import { PHONE_VALIDATION } from 'constants/general'
 import { useAppDispatch } from 'redux/hooks'
-import { addAddress } from 'redux/slices/user'
+import { addPayment } from 'redux/slices/user'
+import {
+  formatCreditCard,
+  validateCVV,
+  validateCardNumber,
+  validateCreditCardExpirationDate,
+} from 'utils/textHelper'
+import { CreditCard } from './CreditCard'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const componentTextColor = theme.colors.white.DEFAULT
 
-const addressSchema = z.object({
-  name: z.string().min(2, 'Name is required'),
-  street1: z.string().min(2, 'Street 1 is required'),
-  street2: z.string(),
-  city: z.string().min(2, 'City is required'),
-  state: z.string().min(2, 'State is required'),
-  zip: z
+const paymentSchema = z.object({
+  name: z.string().min(2, 'Name is required').max(18, 'Keep a simple name!'),
+  nameOnCard: z.string().min(2, 'Name is required'),
+  cardNumber: z
     .string()
-    .min(5, 'Valid ZIP is required')
-    .max(5, 'Valid ZIP is required'),
-  phoneNumber: PHONE_VALIDATION,
+    .min(16, 'Enter a valid card number')
+    .refine(validateCardNumber, 'Enter a valid card number'),
+  cvv: z
+    .string()
+    .min(3, 'Enter a valid CVV')
+    .refine(validateCVV, 'Enter a valid CVV'),
+  expiration: z
+    .string()
+    .min(5, 'Enter a valid expiration date with format: MM/YY or MM/YYYY')
+    .refine(
+      validateCreditCardExpirationDate,
+      'Enter a valid expiration date with format: MM/YY or MM/YYYY'
+    ),
 })
 
 type PaymentFormModalProps = {
@@ -33,19 +47,28 @@ export function PaymentForm({ onSubmitForm }: PaymentFormModalProps) {
   const {
     control,
     handleSubmit,
-    formState: { errors },
-  } = useForm<z.infer<typeof addressSchema>>()
+    watch,
+    formState: { errors, isValid },
+  } = useForm<z.infer<typeof paymentSchema>>({
+    mode: 'onChange',
+    resolver: zodResolver(paymentSchema),
+    reValidateMode: 'onChange',
+  })
 
-  const onSubmit = (address: z.infer<typeof addressSchema>) => {
-    console.log({ address })
-    dispatch(addAddress({ address: { ...address, isDefault: true }, index: 0 }))
+  const onSubmit = (payment: z.infer<typeof paymentSchema>) => {
+    dispatch(addPayment({ payment: { ...payment, isDefault: true }, index: 0 }))
     onSubmitForm()
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
-        <Subtitle color={componentTextColor}>Add Address</Subtitle>
+        <Subtitle color={componentTextColor}>Add Payment</Subtitle>
+        <CreditCard
+          cardNumber={watch('cardNumber')}
+          expiration={watch('expiration')}
+          nameOnCard={watch('nameOnCard')}
+        />
         <Stack spacing={2}>
           <TextField
             name="name"
@@ -53,59 +76,48 @@ export function PaymentForm({ onSubmitForm }: PaymentFormModalProps) {
             control={control}
             label="Name"
             type="text"
-            placeholder="Home"
+            placeholder="MasterCard Black"
           />
           <TextField
-            name="street1"
-            fieldError={errors.street1}
+            name="nameOnCard"
+            fieldError={errors.nameOnCard}
             control={control}
-            label="Street 1"
+            label="Name on card"
             type="text"
-            placeholder="456 Bourbon Street"
+            placeholder="Jane Doe"
           />
           <TextField
-            name="street2"
-            fieldError={errors.street2}
+            name="cardNumber"
+            fieldError={errors.cardNumber}
             control={control}
-            label="Street 2"
+            label="Card Number"
             type="text"
-            placeholder="Ingrid Complex"
+            placeholder={formatCreditCard('8888888888888888') ?? ''}
           />
           <TextField
-            name="city"
-            fieldError={errors.city}
+            name="cvv"
+            fieldError={errors.cvv}
             control={control}
-            label="City"
+            label="CVV"
             type="text"
-            placeholder="New Orleans"
+            placeholder="XXX"
           />
           <TextField
-            name="state"
-            fieldError={errors.state}
+            name="expiration"
+            fieldError={errors.expiration}
             control={control}
-            label="State"
+            label="Expiration"
             type="text"
-            placeholder="LA"
-          />
-          <TextField
-            name="zip"
-            fieldError={errors.zip}
-            control={control}
-            label="ZIP"
-            type="text"
-            placeholder="09873"
-          />
-          <TextField
-            name="phoneNumber"
-            fieldError={errors.phoneNumber}
-            control={control}
-            label="Phone Number"
-            type="text"
-            placeholder="88888888"
+            placeholder="MM/YYYY"
           />
         </Stack>
         <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" type="submit" color="secondary">
+          <Button
+            variant="outlined"
+            type="submit"
+            color="secondary"
+            disabled={!isValid}
+          >
             Add
           </Button>
         </Stack>
