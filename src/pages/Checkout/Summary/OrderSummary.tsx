@@ -18,9 +18,19 @@ const Card = styled(CardMui)({
 
 interface OrderSummaryProps {
   order: PizzaOrder
+  nextStep: () => void
+  prevStep: () => void
+  isNextAvailable: boolean
+  isPrevAvailable: boolean
 }
 
-export function OrderSummary({ order }: OrderSummaryProps) {
+export function OrderSummary({
+  order,
+  nextStep,
+  prevStep,
+  isPrevAvailable,
+  isNextAvailable,
+}: OrderSummaryProps) {
   return (
     <Card>
       <CardContent>
@@ -43,17 +53,33 @@ export function OrderSummary({ order }: OrderSummaryProps) {
         </Grid>
       </CardContent>
       <CardActions>
-        <Grid container direction="row" justifyContent="flex-end">
-          <Grid item xs={11}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="secondary"
-              size="large"
-            >
-              Next Step
-            </Button>
-          </Grid>
+        <Grid container direction="row" spacing={1} justifyContent="flex-end">
+          {isPrevAvailable && (
+            <Grid item xs={11}>
+              <Button
+                fullWidth
+                variant="outlined"
+                color="secondary"
+                size="large"
+                onClick={prevStep}
+              >
+                Go back
+              </Button>
+            </Grid>
+          )}
+          {isNextAvailable && (
+            <Grid item xs={11}>
+              <Button
+                fullWidth
+                variant="contained"
+                color="secondary"
+                size="large"
+                onClick={nextStep}
+              >
+                Next Step
+              </Button>
+            </Grid>
+          )}
         </Grid>
       </CardActions>
     </Card>

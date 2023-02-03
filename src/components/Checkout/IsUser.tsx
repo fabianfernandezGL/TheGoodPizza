@@ -10,7 +10,7 @@ export function IsUser() {
   const user = useAppSelector(selectUserInfo)
 
   const logOutUser = () => {
-    dispatch(logOut)
+    dispatch(logOut())
   }
 
   return (

@@ -93,6 +93,16 @@ export const userSlice = createSlice({
       }
       state.addresses.push(payload.address)
     },
+    removeAddress: (state, { payload }: AddressAction) => {
+      const addresses = [
+        ...state.addresses.filter(
+          (address) =>
+            address.name !== payload.address.name &&
+            address.street1 !== payload.address.street1
+        ),
+      ]
+      state.addresses = addresses
+    },
     setDefaultAddress: (state, { payload }: AddressAction) => {
       const addresses = [...state.addresses]
       for (const address of addresses) {
@@ -130,6 +140,7 @@ export const userSlice = createSlice({
 export const {
   logIn,
   addAddress,
+  removeAddress,
   setDefaultAddress,
   addPayment,
   removePayment,

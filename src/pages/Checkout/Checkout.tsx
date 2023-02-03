@@ -5,11 +5,8 @@ import { OrderSummary, FullSummary } from './Summary'
 import { useAppSelector } from 'redux/hooks'
 import { selectCart } from 'redux/slices/cart'
 import { ItemsSummary } from './ItemsSummary'
-import Button from 'components/Button'
-import { Subtitle } from 'components/Typography'
 import { Address } from './Address'
 import { Payment } from './Payment'
-import { theme } from 'styles/theme'
 import { useState } from 'react'
 import { capitalizeText } from 'utils/textHelper'
 
@@ -21,6 +18,20 @@ export default function Checkout(): JSX.Element {
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabSelected(newValue)
+  }
+
+  const setNext = () => {
+    const tabIdx = tabs.indexOf(tabSelected)
+    if (tabIdx + 1 < tabs.length) {
+      setTabSelected(tabs[tabIdx + 1])
+    }
+  }
+
+  const setPrev = () => {
+    const tabIdx = tabs.indexOf(tabSelected)
+    if (tabIdx - 1 >= 0) {
+      setTabSelected(tabs[tabIdx - 1])
+    }
   }
 
   return (
@@ -56,36 +67,18 @@ export default function Checkout(): JSX.Element {
             {tabSelected === tabs[1] && <Address />}
             {tabSelected === tabs[2] && <Payment />}
             {tabSelected === tabs[3] && (
-              <>
-                <FullSummary order={order} />
-                <Stack direction="row" justifyContent="space-between">
-                  <Button
-                    size="large"
-                    color="secondary"
-                    variant="outlined"
-                    sx={{ width: '381px', height: '93px' }}
-                  >
-                    <Subtitle color={theme.colors.red.DEFAULT}>
-                      Go back
-                    </Subtitle>
-                  </Button>
-                  <Button
-                    size="large"
-                    color="secondary"
-                    variant="contained"
-                    sx={{ width: '381px', height: '93px' }}
-                  >
-                    <Subtitle color={theme.colors.white.DEFAULT}>
-                      Place Order
-                    </Subtitle>
-                  </Button>
-                </Stack>
-              </>
+              <FullSummary order={order} prevStep={setPrev} />
             )}
           </Stack>
         </Grid>
         <Grid item xs={4}>
-          <OrderSummary order={order} />
+          <OrderSummary
+            order={order}
+            nextStep={setNext}
+            prevStep={setPrev}
+            isNextAvailable={tabSelected !== tabs[3]}
+            isPrevAvailable={tabSelected !== tabs[0]}
+          />
         </Grid>
       </Grid>
     </SecondaryLayout>

@@ -7,7 +7,7 @@ import { AddressBox } from './AddressBox'
 import { theme } from 'styles/theme'
 import { FavoriteButton } from 'components/FavoriteButton'
 import { useAppDispatch } from 'redux/hooks'
-import { setDefaultAddress } from 'redux/slices/user'
+import { removeAddress, setDefaultAddress } from 'redux/slices/user'
 
 const componentTextColor = theme.colors.white.DEFAULT
 
@@ -22,6 +22,9 @@ export function AddressDisplay({ address, index }: AddressDisplayProps) {
   const dispatch = useAppDispatch()
   const setDefault = () => {
     dispatch(setDefaultAddress({ address, index: index ?? 0 }))
+  }
+  const deleteAddress = () => {
+    dispatch(removeAddress({ address, index: index ?? 0 }))
   }
   return (
     <AddressBox>
@@ -41,8 +44,13 @@ export function AddressDisplay({ address, index }: AddressDisplayProps) {
         </Stack>
         {index !== undefined && (
           <Stack direction="row" justifyContent="space-between">
-            <Button variant="outlined" color="secondary">
-              Edit
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={deleteAddress}
+              disabled={isDefault}
+            >
+              Delete
             </Button>
             <FavoriteButton
               nonDefaultTextDisplay="Make favorite"

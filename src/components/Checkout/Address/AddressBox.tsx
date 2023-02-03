@@ -6,7 +6,7 @@ const Card = styled(CardMui)({
   background: theme.colors.black.light,
   borderRadius: '10px',
   padding: '20px',
-  width: '345px',
+  width: '380px',
 }) as typeof CardMui
 
 type AddressBoxProps = {
