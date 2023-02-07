@@ -5,7 +5,13 @@ import MenuHeader from 'components/MenuHeader'
 import { ProtectedRoute } from 'components/ProtectedRoute'
 import routes from 'constants/routes.json'
 import React, { Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from 'react-router-dom'
 import { useAppSelector } from 'redux/hooks'
 import { selectIsAuth } from 'redux/slices/user'
 
@@ -14,6 +20,7 @@ const Menu = React.lazy(() => import('pages/Menu'))
 const Login = React.lazy(() => import('pages/Login'))
 const NotFound = React.lazy(() => import('pages/NotFound'))
 const Checkout = React.lazy(() => import('pages/Checkout'))
+const Order = React.lazy(() => import('pages/Order'))
 const Home = React.lazy(() => import('pages/Home'))
 
 const suspenseWrapper = (component: JSX.Element) => (
@@ -56,19 +63,23 @@ export function AppRoutes() {
               <Menu isAuthenticated={isAuthenticated} />
             )}
           />
-          <Route
-            path={routes.CHECKOUT_ROOT}
-            element={suspenseWrapper(
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Checkout />
-              </ProtectedRoute>
-            )}
-          >
+          <Route path={`/${routes.CHECKOUT_ROOT}`} element={<Outlet />}>
             <Route
-              path={routes.CHECKOUT_ORDER}
+              index
               element={suspenseWrapper(
                 <ProtectedRoute isAuthenticated={isAuthenticated}>
                   <Checkout />
+                </ProtectedRoute>
+              )}
+            ></Route>
+            <Route
+              path={`${routes.CHECKOUT_ORDER}/:orderId`}
+              loader={({ params }) => {
+                console.log(params.orderId) // "hotspur"
+              }}
+              element={suspenseWrapper(
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Order />
                 </ProtectedRoute>
               )}
             />

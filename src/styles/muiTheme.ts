@@ -90,6 +90,13 @@ const pizzaThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          fontSize: '32px',
+        },
+      },
+    },
   },
 }
 
