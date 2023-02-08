@@ -48,6 +48,13 @@ export type PizzaOrder = {
   subTotalPrice: number
   expressPrice: number
   savingsPercent: number
+  address?: Address
+  payment?: Payment
+}
+
+export type PizzaOrderConfirmation = PizzaOrder & {
+  num: string
+  email: string
 }
 
 export type ApiError = {
@@ -65,6 +72,8 @@ export type UserInfo = {
   isEmailVerified: boolean
   name: string
   email: string
+  addresses: Array<Address>
+  payments: Array<Payment>
   id: string
 }
 

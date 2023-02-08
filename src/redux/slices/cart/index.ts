@@ -18,7 +18,7 @@ const initialState: CartState = {
     expressPrice: 5,
     items: [],
     savingsPercent: 0.05,
-    subTotalPrice: 5,
+    subTotalPrice: 0,
     tax: 0,
   },
 }
@@ -37,6 +37,9 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    reset: (state) => {
+      state.itemsDetails = initialState.itemsDetails
+    },
     add: (state, { payload }: CartAction) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -82,7 +85,7 @@ export const cartSlice = createSlice({
   },
 })
 
-export const { add, remove, removeItemQty } = cartSlice.actions
+export const { add, remove, removeItemQty, reset } = cartSlice.actions
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

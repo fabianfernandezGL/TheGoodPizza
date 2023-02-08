@@ -2,12 +2,18 @@ import { Grid, Stack } from '@mui/material'
 import { IsUser } from 'components/Checkout/IsUser'
 import { PaymentAddNew, PaymentDisplay } from 'components/Checkout/Payments'
 import { SmallTitle } from 'components/Typography'
+import { useEffect } from 'react'
 import { useAppSelector } from 'redux/hooks'
 import { selectUserPayments } from 'redux/slices/user'
+import { savePayments } from 'services/user'
 import { theme } from 'styles/theme'
 
 export function Payment() {
   const payments = useAppSelector(selectUserPayments)
+
+  useEffect(() => {
+    savePayments(payments)
+  }, [payments])
 
   return (
     <Stack spacing={8}>

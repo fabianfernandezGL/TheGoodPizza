@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material'
 import { SmallTitle, Subtitle } from 'components/Typography'
-import { PizzaOrder } from 'global.types'
-import { useAppSelector } from 'redux/hooks'
+import { PizzaOrder, PizzaOrderConfirmation } from 'global.types'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import {
   selectUserDefaultAddress,
   selectUserDefaultPayment,
@@ -13,6 +13,10 @@ import { AddressDisplay } from 'components/Checkout/Address'
 import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
 import { IsUser } from 'components/Checkout/IsUser'
 import Button from 'components/Button'
+import { addOrder } from 'services/user'
+import { useNavigate } from 'react-router-dom'
+import routes from 'constants/routes.json'
+import { reset } from 'redux/slices/cart'
 
 type FullSummaryProps = {
   order: PizzaOrder
@@ -22,6 +26,21 @@ type FullSummaryProps = {
 export function FullSummary({ order, prevStep }: FullSummaryProps) {
   const defaultPayment = useAppSelector(selectUserDefaultPayment)
   const defaultAddress = useAppSelector(selectUserDefaultAddress)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const placeOrder = () => {
+    addOrder({
+      ...order,
+      address: defaultAddress,
+      payment: defaultPayment,
+    }).then((orderConfirm: PizzaOrderConfirmation) => {
+      dispatch(reset())
+      navigate(
+        `/${routes.CHECKOUT_ROOT}/${routes.CHECKOUT_ORDER}/${orderConfirm.num}`
+      )
+    })
+  }
 
   return (
     <Stack spacing={8}>
@@ -54,6 +73,10 @@ export function FullSummary({ order, prevStep }: FullSummaryProps) {
           color="secondary"
           variant="contained"
           sx={{ width: '381px', height: '93px' }}
+          disabled={
+            !defaultAddress || !defaultPayment || order.items.length === 0
+          }
+          onClick={placeOrder}
         >
           <Subtitle color={theme.colors.white.DEFAULT}>Place Order</Subtitle>
         </Button>

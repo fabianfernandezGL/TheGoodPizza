@@ -4,9 +4,10 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { clearTokens } from 'utils/tokenHelper'
 
 type UserState = {
-  info: Partial<UserInfo>
-  addresses: Array<Address>
-  payments: Array<Payment>
+  info: Partial<UserInfo> & {
+    addresses: Array<Address>
+    payments: Array<Payment>
+  }
   isAuth: boolean
 }
 
@@ -29,47 +30,10 @@ type PaymentAction = {
 }
 
 const initialState: UserState = {
-  info: {},
-  addresses: [
-    {
-      name: 'Home',
-      street1: '456 Bourbon Street',
-      street2: 'Ingrid Complex, #504',
-      city: 'New Orleans',
-      state: 'LA',
-      zip: '09873',
-      phoneNumber: '86373889',
-      isDefault: true,
-    },
-    {
-      name: 'Work',
-      street1: '456 Bourbon Street',
-      street2: 'Ingrid Complex, #504',
-      city: 'New Orleans',
-      state: 'LA',
-      zip: '09873',
-      phoneNumber: '67863738',
-      isDefault: false,
-    },
-  ],
-  payments: [
-    {
-      cardNumber: '5303876870748650',
-      cvv: '443',
-      expiration: '08/2028',
-      name: 'BAC Debit',
-      nameOnCard: 'Helin Bazhaev',
-      isDefault: true,
-    },
-    {
-      cardNumber: '4897715478934962',
-      cvv: '300',
-      expiration: '02/2025',
-      name: 'Scotiabank Visa',
-      nameOnCard: 'Sesuna Finch',
-      isDefault: false,
-    },
-  ],
+  info: {
+    addresses: [],
+    payments: [],
+  },
   isAuth: false,
 }
 
@@ -87,52 +51,52 @@ export const userSlice = createSlice({
       state.isAuth = false
     },
     addAddress: (state, { payload }: AddressAction) => {
-      const addresses = [...state.addresses]
+      const addresses = [...state.info.addresses]
       for (const address of addresses) {
         address.isDefault = false
       }
-      state.addresses.push(payload.address)
+      state.info.addresses.push(payload.address)
     },
     removeAddress: (state, { payload }: AddressAction) => {
       const addresses = [
-        ...state.addresses.filter(
+        ...state.info.addresses.filter(
           (address) =>
             address.name !== payload.address.name &&
             address.street1 !== payload.address.street1
         ),
       ]
-      state.addresses = addresses
+      state.info.addresses = addresses
     },
     setDefaultAddress: (state, { payload }: AddressAction) => {
-      const addresses = [...state.addresses]
+      const addresses = [...state.info.addresses]
       for (const address of addresses) {
         address.isDefault = false
       }
       addresses[payload.index].isDefault = true
-      state.addresses = [...addresses]
+      state.info.addresses = [...addresses]
     },
     addPayment: (state, { payload }: PaymentAction) => {
-      const payments = [...state.payments]
+      const payments = [...state.info.payments]
       for (const payment of payments) {
         payment.isDefault = false
       }
-      state.payments.push(payload.payment)
+      state.info.payments.push(payload.payment)
     },
     removePayment: (state, { payload }: PaymentAction) => {
       const payments = [
-        ...state.payments.filter(
+        ...state.info.payments.filter(
           (payment) => payment.cardNumber !== payload.payment.cardNumber
         ),
       ]
-      state.payments = payments
+      state.info.payments = payments
     },
     setDefaultPayment: (state, { payload }: PaymentAction) => {
-      const payments = [...state.payments]
+      const payments = [...state.info.payments]
       for (const payment of payments) {
         payment.isDefault = false
       }
       payments[payload.index].isDefault = true
-      state.payments = [...payments]
+      state.info.payments = [...payments]
     },
   },
 })
@@ -150,11 +114,12 @@ export const {
 
 export const selectUserInfo = (state: RootState) => state.user.info
 export const selectIsAuth = (state: RootState) => state.user.isAuth
-export const selectUserAddresses = (state: RootState) => state.user.addresses
+export const selectUserAddresses = (state: RootState) =>
+  state.user.info.addresses
 export const selectUserDefaultAddress = (state: RootState) =>
-  state.user.addresses.filter((address) => address.isDefault)[0]
-export const selectUserPayments = (state: RootState) => state.user.payments
+  state.user.info.addresses.filter((address) => address.isDefault)[0]
+export const selectUserPayments = (state: RootState) => state.user.info.payments
 export const selectUserDefaultPayment = (state: RootState) =>
-  state.user.payments.filter((payment) => payment.isDefault)[0]
+  state.user.info.payments.filter((payment) => payment.isDefault)[0]
 
 export default userSlice.reducer

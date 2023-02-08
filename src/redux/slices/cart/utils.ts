@@ -55,8 +55,6 @@ export const addItemQtyFromCart = (
       break
     }
   }
-  console.log('items', [...items])
-
   return items
 }
 

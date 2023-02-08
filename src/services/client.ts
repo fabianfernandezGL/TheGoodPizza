@@ -1,8 +1,12 @@
 import axios, { AxiosError } from 'axios'
-import { refreshToken } from './user'
+import { refreshToken } from './auth'
+import { getAuthToken } from 'utils/tokenHelper'
 
 const API_URL = process.env.REACT_APP_API_BASE_URL
 const apiClient = axios.create({ baseURL: API_URL })
+const apiConfig = {
+  headers: { Authorization: `Bearer ${getAuthToken()}` },
+}
 
 apiClient.interceptors.response.use(
   (response) => {
@@ -25,4 +29,4 @@ apiClient.interceptors.response.use(
   }
 )
 
-export { apiClient }
+export { apiClient, apiConfig }

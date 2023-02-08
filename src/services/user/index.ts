@@ -1,47 +1,48 @@
-import { AxiosError } from 'axios'
-import { LoginProps, SignUpProps, User } from 'global.types'
-import { apiClient } from 'services/client'
-import { clearTokens, getRefreshToken, setTokens } from 'utils/tokenHelper'
+import {
+  Address,
+  Payment,
+  PizzaOrderConfirmation,
+  PizzaOrder,
+} from 'global.types'
+import { apiClient, apiConfig } from 'services/client'
 
-const LOGIN_URI = '/auth/login'
-const REGISTER_URI = '/auth/register'
-const REFRESH_TOKENS_URI = '/auth/refresh-tokens'
+const MANAGE_ADDRESSES_URI = '/users/addresses'
+const MANAGE_PAYMENTS_URI = '/users/payments'
+const ADD_ORDER_URI = '/users/orders'
+const GET_ORDER_URI = '/users/orders/'
 
-const loginUser = (credentials: LoginProps) => {
+const saveAddresses = (addresses: Array<Address>) => {
   return apiClient
-    .post(LOGIN_URI, credentials, { headers: { 'skip-auth': true } })
+    .post(MANAGE_ADDRESSES_URI, addresses, apiConfig)
     .then(({ data }) => {
-      const { tokens, user } = data as User
-      setTokens(tokens)
-      return user
+      const addresses = data as Array<Address>
+      return addresses
     })
 }
 
-const registerUser = (credentials: SignUpProps) => {
+const savePayments = (payments: Array<Payment>) => {
   return apiClient
-    .post(REGISTER_URI, credentials, { headers: { 'skip-auth': true } })
+    .post(MANAGE_PAYMENTS_URI, payments, apiConfig)
     .then(({ data }) => {
-      const { tokens, user } = data as User
-      setTokens(tokens)
-      return user
+      const addresses = data as Array<Payment>
+      return addresses
     })
 }
 
-const refreshToken = () => {
+const addOrder = (order: Required<PizzaOrder>) => {
+  return apiClient.post(ADD_ORDER_URI, order, apiConfig).then(({ data }) => {
+    const order = data as PizzaOrderConfirmation
+    return order
+  })
+}
+
+const getOrderInfo = (orderId: string) => {
   return apiClient
-    .post(REFRESH_TOKENS_URI, {
-      refreshToken: getRefreshToken(),
-    })
+    .get(`${GET_ORDER_URI}${orderId}`, apiConfig)
     .then(({ data }) => {
-      setTokens({
-        refresh: data.refresh,
-        access: data.access,
-      })
-    })
-    .catch((err: AxiosError) => {
-      clearTokens()
-      throw err
+      const order = data as PizzaOrderConfirmation & PizzaOrder
+      return order
     })
 }
 
-export { loginUser, registerUser, refreshToken }
+export { saveAddresses, savePayments, addOrder, getOrderInfo }
