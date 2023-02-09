@@ -2,6 +2,11 @@ import { z } from 'zod'
 
 export const TAX = 0.13
 
+export const THE_GOOD_PIZZA_POSITION: google.maps.LatLngLiteral = {
+  lat: 9.939034,
+  lng: -84.1093,
+}
+
 // Form constants
 export const EMAIL_VALIDATION = z
   .string()
