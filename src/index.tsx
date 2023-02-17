@@ -12,6 +12,7 @@ import { ErrorDispatcher } from 'components/Alert'
 
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { InfoDispatcher } from 'components/Alert/InfoDispatcher'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,9 +20,9 @@ ReactDOM.render(
       <ThemeProvider theme={pizzaTheme}>
         <PersistGate loading={null} persistor={persistor}>
           <CssBaseline />
-          <ErrorDispatcher>
-            <AppRoutes />
-          </ErrorDispatcher>
+          <ErrorDispatcher />
+          <InfoDispatcher />
+          <AppRoutes />
         </PersistGate>
       </ThemeProvider>
     </Provider>

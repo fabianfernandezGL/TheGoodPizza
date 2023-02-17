@@ -5,13 +5,7 @@ import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { Alert } from 'components/Alert'
 import { resetError, selectError } from 'redux/slices/error'
 
-type ErrorDispatcherProps = {
-  children: JSX.Element
-}
-
-export function ErrorDispatcher({
-  children,
-}: ErrorDispatcherProps): JSX.Element {
+export function ErrorDispatcher(): JSX.Element {
   const error = useAppSelector(selectError)
   const dispatch = useAppDispatch()
 
@@ -25,9 +19,11 @@ export function ErrorDispatcher({
   return (
     <>
       {error.isError && (
-        <Alert alertProps={{ severity: 'error' }} text={`${error.message}`} />
+        <Alert
+          alertProps={{ severity: 'error', variant: 'filled' }}
+          text={`${error.message}`}
+        />
       )}
-      {children}
     </>
   )
 }

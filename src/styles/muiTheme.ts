@@ -1,24 +1,25 @@
 import { createTheme, ThemeOptions } from '@mui/material'
+import { theme } from './theme'
 
 const pizzaThemeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: '#F2C94C',
-      contrastText: '#F2F2F2',
+      main: theme.colors.yellow.DEFAULT,
+      contrastText: theme.colors.white.DEFAULT,
     },
     secondary: {
-      main: '#EB5757',
+      main: theme.colors.red.DEFAULT,
     },
     success: {
-      main: '#27AE60',
-      contrastText: '#F2F2F2',
+      main: theme.colors.green.DEFAULT,
+      contrastText: theme.colors.white.DEFAULT,
     },
     background: {
-      default: '#1f1f1f',
-      paper: '#1f1f1f',
+      default: theme.colors.gray.dark,
+      paper: theme.colors.gray.dark,
     },
     action: {
-      disabled: '#4F4F4F',
+      disabled: theme.colors.gray.light,
     },
   },
   typography: {
@@ -28,25 +29,25 @@ const pizzaThemeOptions: ThemeOptions = {
       fontFamily: 'Rowdies',
       fontSize: 120,
       fontWeight: 700,
-      color: '#F2C94C',
+      color: theme.colors.yellow.DEFAULT,
     },
     h2: {
       fontFamily: 'Rowdies',
       fontSize: 80,
       fontWeight: 400,
-      color: '#F2C94C',
+      color: theme.colors.yellow.DEFAULT,
     },
     h3: {
       fontFamily: 'Rowdies',
       fontSize: 40,
       fontWeight: 700,
-      color: '#F2C94C',
+      color: theme.colors.yellow.DEFAULT,
     },
     h4: {
       fontFamily: 'Rowdies',
       fontSize: 24,
       fontWeight: 700,
-      color: '#F2C94C',
+      color: theme.colors.yellow.DEFAULT,
     },
     body1: {
       fontSize: 16,
@@ -55,7 +56,7 @@ const pizzaThemeOptions: ThemeOptions = {
     body2: {
       fontSize: 20,
       fontWeight: 700,
-      color: '#FFF',
+      color: theme.colors.white.DEFAULT,
     },
     button: {
       fontFamily: 'Rowdies',
@@ -72,21 +73,36 @@ const pizzaThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: '10px',
-          background: '#F2F2F2',
+          background: theme.colors.white.DEFAULT,
         },
       },
     },
     MuiTable: {
       styleOverrides: {
         root: {
-          color: '#FFF',
+          color: theme.colors.white.DEFAULT,
         },
       },
     },
     MuiTab: {
       styleOverrides: {
         textColorPrimary: {
-          color: '#FFF',
+          color: theme.colors.white.DEFAULT,
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        icon: {
+          fontSize: '22px',
+        },
+        message: {
+          fontFamily: 'Red Hat Display',
+          fontSize: '16px',
+          fontWeight: 400,
+        },
+        filled: {
+          borderRadius: '25px 10px 10px 10px',
         },
       },
     },
