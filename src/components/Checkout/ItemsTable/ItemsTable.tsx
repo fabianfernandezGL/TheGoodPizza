@@ -35,7 +35,7 @@ export function ItemsTable({ items }: ItemsTableProps) {
       {items.length === 0 && (
         <Text color={theme.colors.white.DEFAULT}>
           No pizza yet! Go to our menu and select a pizza flavor (we have some
-          options there)!
+          options there 😉)!
         </Text>
       )}
       {items.length > 0 && (
