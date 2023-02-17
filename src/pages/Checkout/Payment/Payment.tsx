@@ -8,6 +8,7 @@ import { SmallTitle } from 'components/Typography'
 import { IsUser } from 'components/Checkout/IsUser'
 import { selectUserPayments } from 'redux/slices/user'
 import { PaymentAddNew, PaymentDisplay } from 'components/Checkout/Payments'
+import { Payment as PaymentType } from 'global.types'
 
 export function Payment() {
   const payments = useAppSelector(selectUserPayments)
@@ -25,7 +26,7 @@ export function Payment() {
         <IsUser />
       </Stack>
       <Grid container justifyContent="flex-start">
-        {payments?.map((payment, idx) => (
+        {payments?.map((payment: PaymentType, idx: number) => (
           <Grid item mr={2} mb={2} key={`${payment.name}-${idx}`}>
             <PaymentDisplay payment={payment} index={idx} />
           </Grid>

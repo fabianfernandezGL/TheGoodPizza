@@ -8,6 +8,7 @@ import { SmallTitle } from 'components/Typography'
 import { IsUser } from 'components/Checkout/IsUser'
 import { selectUserAddresses } from 'redux/slices/user'
 import { AddressAddNew, AddressDisplay } from 'components/Checkout/Address'
+import { Address as AddressType } from 'global.types'
 
 export function Address() {
   const addresses = useAppSelector(selectUserAddresses)
@@ -27,7 +28,7 @@ export function Address() {
         <IsUser />
       </Stack>
       <Stack direction="row" spacing={2}>
-        {addresses?.map((address, idx) => (
+        {addresses?.map((address: AddressType, idx: number) => (
           <AddressDisplay address={address} index={idx} key={address.name} />
         ))}
       </Stack>

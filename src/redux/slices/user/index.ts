@@ -113,14 +113,21 @@ export const {
   logOut,
 } = userSlice.actions
 
-export const selectUserInfo = (state: RootState) => state.user.info
-export const selectIsAuth = (state: RootState) => state.user.isAuth
+export const selectUserInfo = (state: RootState) =>
+  state.persistedReducer.user.info
+export const selectIsAuth = (state: RootState) =>
+  state.persistedReducer.user.isAuth
 export const selectUserAddresses = (state: RootState) =>
-  state.user.info.addresses
+  state.persistedReducer.user.info.addresses
 export const selectUserDefaultAddress = (state: RootState) =>
-  state.user.info.addresses.filter((address) => address.isDefault)[0]
-export const selectUserPayments = (state: RootState) => state.user.info.payments
+  state.persistedReducer.user.info.addresses.filter(
+    (address) => address.isDefault
+  )[0]
+export const selectUserPayments = (state: RootState) =>
+  state.persistedReducer.user.info.payments
 export const selectUserDefaultPayment = (state: RootState) =>
-  state.user.info.payments.filter((payment) => payment.isDefault)[0]
+  state.persistedReducer.user.info.payments.filter(
+    (payment) => payment.isDefault
+  )[0]
 
 export default userSlice.reducer

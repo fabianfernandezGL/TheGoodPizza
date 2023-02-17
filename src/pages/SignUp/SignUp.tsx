@@ -7,6 +7,7 @@ import { Box, Divider, Link } from '@mui/material'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
+  DEFAULT_ERROR,
   EMAIL_VALIDATION,
   NAME_VALIDATION,
   PASSWORD_VALIDATION,
@@ -20,9 +21,10 @@ import { useAppDispatch } from 'redux/hooks'
 import TextField from 'components/Form/Textfield'
 import { SmallTitle, Text } from 'components/Typography'
 import PrimaryLayout from 'components/Layouts/PrimaryLayout'
-import { ApiError, SignUpProps, UserInfo } from 'global.types'
+import { ApiError, CustomError, SignUpProps, UserInfo } from 'global.types'
 
 import LoginButtons from './SignUpButtons'
+import { showError } from 'redux/slices/error'
 
 const signUpSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -34,13 +36,7 @@ const signUpSchema = z.object({
 export default function SignUp(): JSX.Element {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [apiError, setApiError] = useState<{
-    isError: boolean
-    errorMessage: string
-  }>({
-    isError: false,
-    errorMessage: '',
-  })
+  const [apiError, setApiError] = useState<CustomError>(DEFAULT_ERROR)
 
   const {
     control,
@@ -53,18 +49,22 @@ export default function SignUp(): JSX.Element {
   })
 
   const onSubmit = async (userData: SignUpProps) => {
-    setApiError({ isError: false, errorMessage: '' })
+    setApiError(DEFAULT_ERROR)
     registerUser(userData)
       .then((userInfo: UserInfo) => {
         dispatch(logIn({ userInfo }))
         navigate(`/${routes.MENU}`)
       })
-      .catch((err: AxiosError) =>
-        setApiError({
-          isError: true,
-          errorMessage: (err.response?.data as ApiError).message,
-        })
-      )
+      .catch((err: AxiosError) => {
+        if (err.response) {
+          setApiError({
+            isError: true,
+            message: (err.response?.data as ApiError).message,
+          })
+        } else {
+          dispatch(showError({ message: err.message }))
+        }
+      })
   }
 
   return (
@@ -109,7 +109,7 @@ export default function SignUp(): JSX.Element {
         />
         {apiError.isError && (
           <Text mt={2} align="center" color={theme.colors.red.DEFAULT}>
-            {apiError.errorMessage}
+            {apiError.message}
           </Text>
         )}
         <LoginButtons />

@@ -75,7 +75,7 @@
     "lint": "eslint ./src/.  --ext .jsx,.tsx,.ts,.js",
     "lint:fix": "yarn lint --cache --fix",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "type-check": "tsc --strict",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },

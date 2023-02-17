@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { ThemeProvider } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
+import { PersistGate } from 'redux-persist/integration/react'
+
+import { AppRoutes } from 'routes'
+import { pizzaTheme } from 'styles/muiTheme'
+import { persistor, store } from './redux/store'
+import { ErrorDispatcher } from 'components/Alert'
+
 import './index.css'
 import reportWebVitals from './reportWebVitals'
-import { Provider } from 'react-redux'
-import { persistor, store } from './redux/store'
-import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeProvider } from '@mui/material'
-import { pizzaTheme } from 'styles/muiTheme'
-import { PersistGate } from 'redux-persist/integration/react'
-import { AppRoutes } from 'routes'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +19,9 @@ ReactDOM.render(
       <ThemeProvider theme={pizzaTheme}>
         <PersistGate loading={null} persistor={persistor}>
           <CssBaseline />
-          <AppRoutes />
+          <ErrorDispatcher>
+            <AppRoutes />
+          </ErrorDispatcher>
         </PersistGate>
       </ThemeProvider>
     </Provider>

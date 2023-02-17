@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import { Box, Divider, Link } from '@mui/material'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+import {
+  DEFAULT_ERROR,
+  EMAIL_VALIDATION,
+  PASSWORD_VALIDATION,
+} from 'constants/general'
 import { theme } from 'styles/theme'
 import { loginUser } from 'services'
 import { logIn } from 'redux/slices/user'
@@ -15,10 +20,10 @@ import { useAppDispatch } from 'redux/hooks'
 import TextField from 'components/Form/Textfield'
 import { SmallTitle, Text } from 'components/Typography'
 import PrimaryLayout from 'components/Layouts/PrimaryLayout'
-import { ApiError, LoginProps, UserInfo } from 'global.types'
-import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from 'constants/general'
+import { ApiError, CustomError, LoginProps, UserInfo } from 'global.types'
 
 import LoginButtons from './LoginButtons'
+import { showError } from 'redux/slices/error'
 
 const loginSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -28,13 +33,7 @@ const loginSchema = z.object({
 export default function Login(): JSX.Element {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [apiError, setApiError] = useState<{
-    isError: boolean
-    errorMessage: string
-  }>({
-    isError: false,
-    errorMessage: '',
-  })
+  const [apiError, setApiError] = useState<CustomError>(DEFAULT_ERROR)
 
   const {
     control,
@@ -47,19 +46,23 @@ export default function Login(): JSX.Element {
   })
 
   const onSubmit = async (credentials: LoginProps) => {
-    setApiError({ isError: false, errorMessage: '' })
+    setApiError(DEFAULT_ERROR)
     loginUser(credentials)
       .then((userInfo: UserInfo) => {
         dispatch(logIn({ userInfo }))
         dispatch(reset())
         navigate(`/${routes.MENU}`)
       })
-      .catch((err: AxiosError) =>
-        setApiError({
-          isError: true,
-          errorMessage: (err.response?.data as ApiError).message,
-        })
-      )
+      .catch((err: AxiosError) => {
+        if (err.response) {
+          setApiError({
+            isError: true,
+            message: (err.response?.data as ApiError).message,
+          })
+        } else {
+          dispatch(showError({ message: err.message }))
+        }
+      })
   }
 
   return (
@@ -86,7 +89,7 @@ export default function Login(): JSX.Element {
         />
         {apiError.isError && (
           <Text mt={2} align="center" color={theme.colors.red.DEFAULT}>
-            {apiError.errorMessage}
+            {apiError.message}
           </Text>
         )}
         <LoginButtons />
