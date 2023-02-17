@@ -1,18 +1,21 @@
-import { Stack } from '@mui/material'
-import { AddressAddNew, AddressDisplay } from 'components/Checkout/Address'
-import { IsUser } from 'components/Checkout/IsUser'
-import { SmallTitle } from 'components/Typography'
 import { useEffect } from 'react'
-import { useAppSelector } from 'redux/hooks'
-import { selectUserAddresses } from 'redux/slices/user'
-import { saveAddresses } from 'services/user'
+import { Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
+import { useAppSelector } from 'redux/hooks'
+import { saveAddresses } from 'services/user'
+import { SmallTitle } from 'components/Typography'
+import { IsUser } from 'components/Checkout/IsUser'
+import { selectUserAddresses } from 'redux/slices/user'
+import { AddressAddNew, AddressDisplay } from 'components/Checkout/Address'
 
 export function Address() {
   const addresses = useAppSelector(selectUserAddresses)
 
   useEffect(() => {
-    saveAddresses(addresses)
+    if (addresses.length > 0) {
+      saveAddresses(addresses)
+    }
   }, [addresses])
 
   return (

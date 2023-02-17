@@ -1,9 +1,10 @@
 import { Box, Link, Stack } from '@mui/material'
+
+import Button from 'components/Button'
 import { PizzaOrderItem } from 'global.types'
+import MenuOptions from 'constants/menuOptions'
 import { Subtitle } from 'components/Typography'
 import { ItemsTable } from 'components/Checkout/ItemsTable'
-import Button from 'components/Button'
-import MenuOptions from 'constants/menuOptions'
 
 interface ItemsTableProps {
   items: Array<PizzaOrderItem>

@@ -1,4 +1,3 @@
-import { CSSProperties, useCallback, useState } from 'react'
 import {
   GoogleMap,
   useJsApiLoader,
@@ -7,9 +6,11 @@ import {
   InfoWindow,
 } from '@react-google-maps/api'
 import { Box, useTheme } from '@mui/material'
+import { CSSProperties, useCallback, useState } from 'react'
+
 import Logo from 'components/Logo'
-import { THE_GOOD_PIZZA_POSITION } from 'constants/general'
 import { theme } from 'styles/theme'
+import { THE_GOOD_PIZZA_POSITION } from 'constants/general'
 
 export function Map() {
   const themeMui = useTheme()

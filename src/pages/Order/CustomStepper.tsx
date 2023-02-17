@@ -8,12 +8,13 @@ import {
   stepConnectorClasses,
   stepLabelClasses,
 } from '@mui/material'
-import { theme } from 'styles/theme'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import LocalPizzaIcon from '@mui/icons-material/LocalPizza'
-import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike'
-import HomeIcon from '@mui/icons-material/Home'
 import styled from 'styled-components'
+import HomeIcon from '@mui/icons-material/Home'
+import LocalPizzaIcon from '@mui/icons-material/LocalPizza'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike'
+
+import { theme } from 'styles/theme'
 
 const steps = [
   { label: 'Order placed', icon: ShoppingCartIcon },

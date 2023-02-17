@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import TextField from './Textfield'
-import { theme } from '../../styles/theme'
 import { FieldError } from 'react-hook-form'
+
+import { theme } from 'styles/theme'
+
+import TextField from './Textfield'
 
 const { black } = theme.colors
 

@@ -1,5 +1,6 @@
-import Home from './'
 import { render, screen } from '@testing-library/react'
+
+import Home from './'
 
 const title = 'WELCOME!'
 const subtitle = 'Make yourself at home'

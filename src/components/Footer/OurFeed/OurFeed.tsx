@@ -1,3 +1,5 @@
+import { ImageList, ImageListItem, Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
 import feed1 from 'images/feed/feed1.png'
 import feed2 from 'images/feed/feed2.png'
@@ -6,7 +8,6 @@ import feed4 from 'images/feed/feed4.png'
 import feed5 from 'images/feed/feed5.png'
 import feed6 from 'images/feed/feed6.png'
 import { Subtitle } from 'components/Typography'
-import { ImageList, ImageListItem, Stack } from '@mui/material'
 
 const imgs = [feed1, feed2, feed3, feed4, feed5, feed6]
 

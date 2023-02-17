@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
-import { Caption, Subtitle } from 'components/Typography'
+
 import { theme } from 'styles/theme'
+import { Caption, Subtitle } from 'components/Typography'
 
 interface PriceProps {
   price: number

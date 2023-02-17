@@ -1,7 +1,3 @@
-import MenuOptions from 'constants/menuOptions'
-import MenuOption from './MenuItem'
-import { MenuItemData } from 'global.types'
-import styled from 'styled-components'
 import {
   AppBar as MuiAppBar,
   Toolbar,
@@ -10,10 +6,16 @@ import {
   Stack,
   Box,
 } from '@mui/material'
-import ResponsiveMenu from './ResponsiveMenu'
-import { useAppSelector } from 'redux/hooks'
-import { selectUserInfo } from 'redux/slices/user'
+import styled from 'styled-components'
+
 import logo from 'images/logo-white.svg'
+import { MenuItemData } from 'global.types'
+import { useAppSelector } from 'redux/hooks'
+import MenuOptions from 'constants/menuOptions'
+import { selectUserInfo } from 'redux/slices/user'
+
+import MenuOption from './MenuItem'
+import ResponsiveMenu from './ResponsiveMenu'
 
 type MenuHeaderProps = {
   isAuthenticated: boolean

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { IconButton as IconButtonMui, IconButtonProps } from '@mui/material'
+
 import { theme } from 'styles/theme'
 
 const CustomIconButton = styled(IconButtonMui)({

@@ -1,22 +1,23 @@
 import { Box, Stack } from '@mui/material'
-import { SmallTitle, Subtitle } from 'components/Typography'
-import { PizzaOrder, PizzaOrderConfirmation } from 'global.types'
-import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { useNavigate } from 'react-router-dom'
+
 import {
   selectUserDefaultAddress,
   selectUserDefaultPayment,
 } from 'redux/slices/user'
 import { theme } from 'styles/theme'
-import { ItemsTable } from 'components/Checkout/ItemsTable'
-import { PaymentDisplay } from 'components/Checkout/Payments'
-import { AddressDisplay } from 'components/Checkout/Address'
-import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
-import { IsUser } from 'components/Checkout/IsUser'
 import Button from 'components/Button'
 import { addOrder } from 'services/user'
-import { useNavigate } from 'react-router-dom'
-import routes from 'constants/routes.json'
 import { reset } from 'redux/slices/cart'
+import routes from 'constants/routes.json'
+import { IsUser } from 'components/Checkout/IsUser'
+import { ItemsTable } from 'components/Checkout/ItemsTable'
+import { AddressDisplay } from 'components/Checkout/Address'
+import { SmallTitle, Subtitle } from 'components/Typography'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { PaymentDisplay } from 'components/Checkout/Payments'
+import { PizzaOrder, PizzaOrderConfirmation } from 'global.types'
+import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
 
 type FullSummaryProps = {
   order: PizzaOrder

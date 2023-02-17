@@ -1,26 +1,28 @@
 import { z } from 'zod'
+import { useState } from 'react'
+import { AxiosError } from 'axios'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { Box, Divider, Link } from '@mui/material'
+import { zodResolver } from '@hookform/resolvers/zod'
+
 import {
   EMAIL_VALIDATION,
   NAME_VALIDATION,
   PASSWORD_VALIDATION,
   PHONE_VALIDATION,
 } from 'constants/general'
-import { zodResolver } from '@hookform/resolvers/zod'
-import TextField from 'components/Form/Textfield'
-import PrimaryLayout from 'components/Layouts/PrimaryLayout'
-import { SmallTitle, Text } from 'components/Typography'
-import LoginButtons from './SignUpButtons'
-import { Box, Divider, Link } from '@mui/material'
-import routes from 'constants/routes.json'
 import { theme } from 'styles/theme'
-import { ApiError, SignUpProps, UserInfo } from 'global.types'
-import { AxiosError } from 'axios'
-import { useState } from 'react'
-import { logIn } from 'redux/slices/user'
 import { registerUser } from 'services'
-import { useNavigate } from 'react-router-dom'
+import { logIn } from 'redux/slices/user'
+import routes from 'constants/routes.json'
 import { useAppDispatch } from 'redux/hooks'
+import TextField from 'components/Form/Textfield'
+import { SmallTitle, Text } from 'components/Typography'
+import PrimaryLayout from 'components/Layouts/PrimaryLayout'
+import { ApiError, SignUpProps, UserInfo } from 'global.types'
+
+import LoginButtons from './SignUpButtons'
 
 const signUpSchema = z.object({
   email: EMAIL_VALIDATION,

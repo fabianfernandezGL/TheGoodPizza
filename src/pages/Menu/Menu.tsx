@@ -1,11 +1,12 @@
 import { Grid } from '@mui/material'
-import SecondaryLayout from 'components/Layouts/SecondaryLayout'
-import { MenuOptionCard } from 'components/Menu'
-import { SmallTitle } from 'components/Typography'
-import mainBg from 'images/menu/bg.png'
+
 import { theme } from 'styles/theme'
+import mainBg from 'images/menu/bg.png'
 import Pizzas from 'constants/pizzaOptions'
 import { PizzaInformation } from 'global.types'
+import { MenuOptionCard } from 'components/Menu'
+import { SmallTitle } from 'components/Typography'
+import SecondaryLayout from 'components/Layouts/SecondaryLayout'
 
 type MenuProps = {
   isAuthenticated: boolean

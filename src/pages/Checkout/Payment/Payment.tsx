@@ -1,12 +1,13 @@
-import { Grid, Stack } from '@mui/material'
-import { IsUser } from 'components/Checkout/IsUser'
-import { PaymentAddNew, PaymentDisplay } from 'components/Checkout/Payments'
-import { SmallTitle } from 'components/Typography'
 import { useEffect } from 'react'
-import { useAppSelector } from 'redux/hooks'
-import { selectUserPayments } from 'redux/slices/user'
-import { savePayments } from 'services/user'
+import { Grid, Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
+import { useAppSelector } from 'redux/hooks'
+import { savePayments } from 'services/user'
+import { SmallTitle } from 'components/Typography'
+import { IsUser } from 'components/Checkout/IsUser'
+import { selectUserPayments } from 'redux/slices/user'
+import { PaymentAddNew, PaymentDisplay } from 'components/Checkout/Payments'
 
 export function Payment() {
   const payments = useAppSelector(selectUserPayments)

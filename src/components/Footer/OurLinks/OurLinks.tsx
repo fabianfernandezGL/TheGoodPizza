@@ -1,9 +1,10 @@
-import MenuOption from 'components/MenuHeader/MenuItem'
-import MenuOptions from 'constants/menuOptions'
-import { MenuItemData } from 'global.types'
-import { theme } from 'styles/theme'
-import { Subtitle, Text } from 'components/Typography'
 import { Stack } from '@mui/material'
+
+import { theme } from 'styles/theme'
+import { MenuItemData } from 'global.types'
+import MenuOptions from 'constants/menuOptions'
+import { Subtitle, Text } from 'components/Typography'
+import MenuOption from 'components/MenuHeader/MenuItem'
 
 const OurLinks = () => {
   return (

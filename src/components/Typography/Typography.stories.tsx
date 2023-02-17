@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Typography } from '@mui/material'
-import { pizzaTheme } from '../../styles/muiTheme'
+
+import { pizzaTheme } from 'styles/muiTheme'
 
 const { typography } = pizzaTheme
 

@@ -1,10 +1,3 @@
-import { Box, Backdrop } from '@mui/material'
-import Footer from 'components/Footer'
-import MainLayout from 'components/Layouts/BaseLayout'
-import MenuHeader from 'components/MenuHeader'
-import { ProtectedRoute } from 'components/ProtectedRoute'
-import routes from 'constants/routes.json'
-import React, { Suspense } from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -12,16 +5,24 @@ import {
   Navigate,
   Outlet,
 } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
+import { Box, Backdrop } from '@mui/material'
+
+import Footer from 'components/Footer'
+import MainLayout from 'components/Layouts/BaseLayout'
+import MenuHeader from 'components/MenuHeader'
+import { ProtectedRoute } from 'components/ProtectedRoute'
+import routes from 'constants/routes.json'
 import { useAppSelector } from 'redux/hooks'
 import { selectIsAuth } from 'redux/slices/user'
 
-const SignUp = React.lazy(() => import('pages/SignUp'))
-const Menu = React.lazy(() => import('pages/Menu'))
-const Login = React.lazy(() => import('pages/Login'))
-const NotFound = React.lazy(() => import('pages/NotFound'))
-const Checkout = React.lazy(() => import('pages/Checkout'))
-const Order = React.lazy(() => import('pages/Order'))
-const Home = React.lazy(() => import('pages/Home'))
+const SignUp = lazy(() => import('pages/SignUp'))
+const Menu = lazy(() => import('pages/Menu'))
+const Login = lazy(() => import('pages/Login'))
+const NotFound = lazy(() => import('pages/NotFound'))
+const Checkout = lazy(() => import('pages/Checkout'))
+const Order = lazy(() => import('pages/Order'))
+const Home = lazy(() => import('pages/Home'))
 
 const suspenseWrapper = (component: JSX.Element) => (
   <Suspense

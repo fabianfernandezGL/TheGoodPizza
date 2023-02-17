@@ -1,8 +1,10 @@
-import Logo from 'components/Logo'
-import { Text } from 'components/Typography'
-import SocialMedia from './SocialMedia'
-import { theme } from 'styles/theme'
 import { Stack } from '@mui/material'
+
+import Logo from 'components/Logo'
+import { theme } from 'styles/theme'
+import { Text } from 'components/Typography'
+
+import SocialMedia from './SocialMedia'
 
 const MainDescription = () => {
   return (

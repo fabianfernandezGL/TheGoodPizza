@@ -1,6 +1,8 @@
 import axios, { AxiosError } from 'axios'
-import { refreshToken } from './auth'
+
 import { getAuthToken } from 'utils/tokenHelper'
+
+import { refreshToken } from './auth'
 
 const API_URL = process.env.REACT_APP_API_BASE_URL
 const apiClient = axios.create({ baseURL: API_URL })

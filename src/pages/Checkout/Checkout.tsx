@@ -1,14 +1,16 @@
+import { useState } from 'react'
 import { Grid, Stack, Tab, Tabs } from '@mui/material'
-import SecondaryLayout from 'components/Layouts/SecondaryLayout'
+
 import mainBg from 'images/checkout/bg.png'
-import { OrderSummary, FullSummary } from './Summary'
 import { useAppSelector } from 'redux/hooks'
 import { selectCart } from 'redux/slices/cart'
-import { ItemsSummary } from './ItemsSummary'
+import { capitalizeText } from 'utils/textHelper'
+import SecondaryLayout from 'components/Layouts/SecondaryLayout'
+
 import { Address } from './Address'
 import { Payment } from './Payment'
-import { useState } from 'react'
-import { capitalizeText } from 'utils/textHelper'
+import { ItemsSummary } from './ItemsSummary'
+import { OrderSummary, FullSummary } from './Summary'
 
 const tabs = ['order', 'address', 'payment', 'checkout']
 

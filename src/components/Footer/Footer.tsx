@@ -1,11 +1,13 @@
+import { Fragment } from 'react'
+import { Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
-import MainDescription from './MainDescription/MainDescription'
+import SectionLayout from 'components/Layouts/SectionLayout'
+
+import OurFeed from './OurFeed/OurFeed'
 import OurLinks from './OurLinks/OurLinks'
 import ImportantStuff from './ImportantStuff/ImportantStuff'
-import OurFeed from './OurFeed/OurFeed'
-import { Stack } from '@mui/material'
-import SectionLayout from 'components/Layouts/SectionLayout'
-import { Fragment } from 'react'
+import MainDescription from './MainDescription/MainDescription'
 
 const footerSections = [
   <OurLinks key="ourLinks" />,

@@ -1,5 +1,3 @@
-import React from 'react'
-import MenuOptions from 'constants/menuOptions'
 import {
   AppBar,
   Box,
@@ -9,11 +7,14 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material'
+import { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
+
+import MenuOptions from 'constants/menuOptions'
 import Logo from 'components/Logo'
 
 const ResponsiveMenu = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
   }

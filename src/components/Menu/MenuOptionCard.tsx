@@ -1,16 +1,18 @@
-import { Card as CardMui, CardProps, Stack } from '@mui/material'
+import styled from 'styled-components'
+import CardMedia from '@mui/material/CardMedia'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Button from 'components/Button'
-import styled from 'styled-components'
-import { Caption, Subtitle, Text } from 'components/Typography'
-import Price from './Price'
+import { Card as CardMui, CardProps, Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
-import { CardColors, PizzaInformation } from 'global.types'
-import { useAppDispatch } from 'redux/hooks'
+import Button from 'components/Button'
 import { add } from 'redux/slices/cart'
+import { useAppDispatch } from 'redux/hooks'
 import { generateMenuItemData } from 'utils/cartHelper'
+import { CardColors, PizzaInformation } from 'global.types'
+import { Caption, Subtitle, Text } from 'components/Typography'
+
+import Price from './Price'
 
 const Card = styled(CardMui)<CardProps & CardColors>`
   max-width: 308px;

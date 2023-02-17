@@ -1,7 +1,8 @@
-import { Address, Payment, UserInfo } from 'global.types'
-import { RootState } from 'redux/store'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
+import { RootState } from 'redux/store'
 import { clearTokens } from 'utils/tokenHelper'
+import { Address, Payment, UserInfo } from 'global.types'
 
 type UserState = {
   info: Partial<UserInfo> & {

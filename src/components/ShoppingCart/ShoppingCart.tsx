@@ -1,5 +1,6 @@
 import { Badge } from '@mui/material'
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
+
 import { useAppSelector } from 'redux/hooks'
 import { selectCartItemsQty } from 'redux/slices/cart'
 

@@ -1,7 +1,8 @@
 import { Box, Stack } from '@mui/material'
-import { Text } from 'components/Typography'
+
 import { theme } from 'styles/theme'
 import { PizzaOrder } from 'global.types'
+import { Text } from 'components/Typography'
 
 interface OrderCostsProps {
   order: PizzaOrder

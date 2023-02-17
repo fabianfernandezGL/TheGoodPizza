@@ -1,6 +1,7 @@
-import { ShapeProps, Corner } from 'global.types'
-import styled from 'styled-components'
 import { Grid } from '@mui/material'
+import styled from 'styled-components'
+
+import { ShapeProps, Corner } from 'global.types'
 
 interface LayoutProps {
   readonly backgroundColor?: string

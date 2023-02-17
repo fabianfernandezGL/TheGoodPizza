@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Stack } from '@mui/material'
+
+import { theme } from 'styles/theme'
 import Button from 'components/Button'
 import { Text } from 'components/Typography'
+
 import { AddressBox } from './AddressBox'
-import { theme } from 'styles/theme'
-import { useState } from 'react'
 import { AddressForm } from './AddressForm'
 
 const componentTextColor = theme.colors.white.DEFAULT

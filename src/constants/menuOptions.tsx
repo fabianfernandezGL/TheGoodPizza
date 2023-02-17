@@ -1,7 +1,8 @@
-import { MenuItemData } from 'global.types'
-import routes from './routes.json'
 import { logOut } from 'redux/slices/user'
+import { MenuItemData } from 'global.types'
 import { ShoppingCart } from 'components/ShoppingCart/ShoppingCart'
+
+import routes from './routes.json'
 
 const MenuOptions: Array<MenuItemData> = [
   {

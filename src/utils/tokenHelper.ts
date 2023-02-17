@@ -1,5 +1,6 @@
-import { Tokens } from 'global.types'
 import Cookies from 'universal-cookie'
+
+import { Tokens } from 'global.types'
 
 const cookies = new Cookies()
 

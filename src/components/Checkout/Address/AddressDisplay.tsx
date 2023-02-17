@@ -1,13 +1,15 @@
 import { Stack } from '@mui/material'
-import Button from 'components/Button'
-import { Subtitle, Text } from 'components/Typography'
-import { Address } from 'global.types'
-import { formatPhoneNumber } from 'utils/textHelper'
-import { AddressBox } from './AddressBox'
+
 import { theme } from 'styles/theme'
-import { FavoriteButton } from 'components/FavoriteButton'
+import Button from 'components/Button'
+import { Address } from 'global.types'
 import { useAppDispatch } from 'redux/hooks'
+import { formatPhoneNumber } from 'utils/textHelper'
+import { Subtitle, Text } from 'components/Typography'
+import { FavoriteButton } from 'components/FavoriteButton'
 import { removeAddress, setDefaultAddress } from 'redux/slices/user'
+
+import { AddressBox } from './AddressBox'
 
 const componentTextColor = theme.colors.white.DEFAULT
 

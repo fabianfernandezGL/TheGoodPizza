@@ -1,6 +1,8 @@
-import MenuHeader from './Menu'
-import { theme } from '../../styles/theme'
 import styled from 'styled-components'
+
+import { theme } from 'styles/theme'
+
+import MenuHeader from './Menu'
 
 const { black } = theme.colors
 

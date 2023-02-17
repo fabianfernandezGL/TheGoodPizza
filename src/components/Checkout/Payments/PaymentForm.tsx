@@ -1,20 +1,22 @@
-import { Stack } from '@mui/material'
-import Button from 'components/Button'
-import { Subtitle } from 'components/Typography'
-import { theme } from 'styles/theme'
-import { useForm } from 'react-hook-form'
-import TextField from 'components/Form/Textfield'
 import { z } from 'zod'
-import { useAppDispatch } from 'redux/hooks'
-import { addPayment } from 'redux/slices/user'
+import { Stack } from '@mui/material'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+
 import {
   formatCreditCard,
   validateCVV,
   validateCardNumber,
   validateCreditCardExpirationDate,
 } from 'utils/textHelper'
+import { theme } from 'styles/theme'
+import Button from 'components/Button'
+import { useAppDispatch } from 'redux/hooks'
+import { addPayment } from 'redux/slices/user'
+import { Subtitle } from 'components/Typography'
+import TextField from 'components/Form/Textfield'
+
 import { CreditCard } from './CreditCard'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 const componentTextColor = theme.colors.white.DEFAULT
 

@@ -8,6 +8,8 @@ module.exports = {
     'google',
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
+    // 'plugin:import/recommended',
+    // 'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,15 +19,40 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    // 'formatjs',
+    // 'testing-library',
+  ],
   rules: {
     'require-jsdoc': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    // 'import/no-named-as-default-member': 'error',
+    // 'import/order': [
+    //   'warn',
+    //   {
+    //     'newlines-between': 'always',
+    //     groups: [
+    //       'builtin',
+    //       'external',
+    //       ['internal', 'parent'],
+    //       'sibling',
+    //       'index',
+    //     ],
+    //   },
+    // ],
   },
   settings: {
     react: {
       version: 'detect',
     },
+    // 'import/resolver': {
+    //   typescript: true,
+    //   node: true,
+    // },
   },
+  // root: true,
 }

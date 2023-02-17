@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import { theme } from 'styles/theme'
+
 import MenuItem from './MenuItem'
 
 const { black } = theme.colors

@@ -1,9 +1,9 @@
 import { Link } from '@mui/material'
-import { Text } from 'components/Typography'
-import { useAppDispatch, useAppSelector } from 'redux/hooks'
-import { selectUserInfo } from 'redux/slices/user'
+
 import { theme } from 'styles/theme'
-import { logOut } from 'redux/slices/user'
+import { Text } from 'components/Typography'
+import { selectUserInfo, logOut } from 'redux/slices/user'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 
 export function IsUser() {
   const dispatch = useAppDispatch()

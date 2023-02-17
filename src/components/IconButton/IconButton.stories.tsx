@@ -1,7 +1,9 @@
-import { theme } from '../../styles/theme'
 import styled from 'styled-components'
-import IconButton from './IconButton'
 import { PhotoAlbumSharp } from '@mui/icons-material'
+
+import { theme } from 'styles/theme'
+
+import IconButton from './IconButton'
 
 const { black } = theme.colors
 

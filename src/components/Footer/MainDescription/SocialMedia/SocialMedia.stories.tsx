@@ -1,5 +1,6 @@
+import { theme } from 'styles/theme'
+
 import SocialMedia from './SocialMedia'
-import { theme } from '../../../../styles/theme'
 
 const { orange } = theme.colors
 

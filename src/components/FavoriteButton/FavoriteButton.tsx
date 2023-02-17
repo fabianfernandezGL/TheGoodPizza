@@ -1,9 +1,10 @@
-import StarRateIcon from '@mui/icons-material/StarRate'
-import { Text } from 'components/Typography'
-import styled from 'styled-components'
-import Button from 'components/Button'
 import { Stack } from '@mui/material'
+import styled from 'styled-components'
+import StarRateIcon from '@mui/icons-material/StarRate'
+
 import { theme } from 'styles/theme'
+import Button from 'components/Button'
+import { Text } from 'components/Typography'
 
 const ButtonStructure = styled(Button)({
   textDecoration: 'none',

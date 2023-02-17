@@ -1,11 +1,13 @@
 import { Box, Stack } from '@mui/material'
-import SecondaryLayout from 'components/Layouts/SecondaryLayout'
-import mainBg from 'images/checkout/bg.png'
-import { Subtitle, SmallTitle, Text } from 'components/Typography'
 import { useParams } from 'react-router-dom'
+
 import { theme } from 'styles/theme'
-import CustomStepper from './CustomStepper'
 import { Map } from 'components/Map'
+import mainBg from 'images/checkout/bg.png'
+import SecondaryLayout from 'components/Layouts/SecondaryLayout'
+import { Subtitle, SmallTitle, Text } from 'components/Typography'
+
+import CustomStepper from './CustomStepper'
 
 export default function Order(): JSX.Element {
   const { orderId } = useParams()

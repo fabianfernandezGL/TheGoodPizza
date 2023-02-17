@@ -1,11 +1,12 @@
-import { Card as CardMui, Divider, Grid } from '@mui/material'
+import styled from 'styled-components'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
-import Button from 'components/Button'
-import styled from 'styled-components'
-import { Subtitle } from 'components/Typography'
+import { Card as CardMui, Divider, Grid } from '@mui/material'
+
 import { theme } from 'styles/theme'
+import Button from 'components/Button'
 import { PizzaOrder } from 'global.types'
+import { Subtitle } from 'components/Typography'
 import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
 import { OrderItems } from 'components/Checkout/Summary/OrderItems'
 

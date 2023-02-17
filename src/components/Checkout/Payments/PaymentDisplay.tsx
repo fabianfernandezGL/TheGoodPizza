@@ -1,19 +1,21 @@
 import { Stack } from '@mui/material'
-import Button from 'components/Button'
-import { Subtitle, Text } from 'components/Typography'
-import { CardType, Payment } from 'global.types'
-import { formatCreditCard, getCardType } from 'utils/textHelper'
-import { PaymentBox } from './PaymentBox'
+
 import { theme } from 'styles/theme'
-import { FavoriteButton } from 'components/FavoriteButton'
+import Button from 'components/Button'
 import { useAppDispatch } from 'redux/hooks'
-import { removePayment, setDefaultPayment } from 'redux/slices/user'
+import { CardType, Payment } from 'global.types'
+import { Subtitle, Text } from 'components/Typography'
+import { FavoriteButton } from 'components/FavoriteButton'
+import JcbIconURL from 'images/checkout/card-types/jcb.svg'
 import AmexIconURL from 'images/checkout/card-types/amex.svg'
 import VisaIconURL from 'images/checkout/card-types/visa.svg'
-import MasterCardIconURL from 'images/checkout/card-types/mastercard.svg'
-import JcbIconURL from 'images/checkout/card-types/jcb.svg'
-import DiscoverIconURL from 'images/checkout/card-types/discover.svg'
+import { formatCreditCard, getCardType } from 'utils/textHelper'
 import DinersIconURL from 'images/checkout/card-types/diners.svg'
+import { removePayment, setDefaultPayment } from 'redux/slices/user'
+import DiscoverIconURL from 'images/checkout/card-types/discover.svg'
+import MasterCardIconURL from 'images/checkout/card-types/mastercard.svg'
+
+import { PaymentBox } from './PaymentBox'
 
 const componentTextColor = theme.colors.white.DEFAULT
 

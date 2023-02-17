@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material'
-import SectionLayout from 'components/Layouts/SectionLayout'
+
 import MainBG from 'images/home/bg.png'
+import SectionLayout from 'components/Layouts/SectionLayout'
 
 interface PrimaryLayoutProps {
   children: JSX.Element | JSX.Element[]

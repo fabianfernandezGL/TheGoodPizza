@@ -1,3 +1,8 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+import { RootState } from 'redux/store'
+import { PizzaOrder, PizzaOrderItem } from 'global.types'
+
 import {
   addItemQtyFromCart,
   calculateTotals,
@@ -5,9 +10,6 @@ import {
   removeItemFromCart,
   removeItemQtyFromCart,
 } from './utils'
-import { PizzaOrder, PizzaOrderItem } from 'global.types'
-import { RootState } from 'redux/store'
-import { createSlice } from '@reduxjs/toolkit'
 
 type CartState = {
   itemsDetails: PizzaOrder

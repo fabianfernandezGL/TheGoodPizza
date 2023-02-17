@@ -1,5 +1,7 @@
-import { theme } from '../../styles/theme'
 import styled from 'styled-components'
+
+import { theme } from 'styles/theme'
+
 import Button from './Button'
 
 const { black } = theme.colors

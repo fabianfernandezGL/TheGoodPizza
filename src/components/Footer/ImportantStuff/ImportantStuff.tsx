@@ -1,9 +1,10 @@
-import MenuOption from 'components/MenuHeader/MenuItem'
-import { MenuItemData } from 'global.types'
+import { Stack } from '@mui/material'
+
 import { theme } from 'styles/theme'
 import routes from 'constants/routes.json'
+import { MenuItemData } from 'global.types'
 import { Subtitle, Text } from 'components/Typography'
-import { Stack } from '@mui/material'
+import MenuOption from 'components/MenuHeader/MenuItem'
 
 const MenuOptions: Array<Partial<MenuItemData>> = [
   {

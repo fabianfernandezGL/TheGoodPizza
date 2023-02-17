@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material'
-import { Text } from 'components/Typography'
+
 import { theme } from 'styles/theme'
+import { Text } from 'components/Typography'
 import { PizzaOrderItem } from 'global.types'
 import { capitalizeText } from 'utils/textHelper'
 

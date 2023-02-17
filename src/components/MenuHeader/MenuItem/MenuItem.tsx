@@ -1,7 +1,8 @@
-import { MenuItemData } from 'global.types'
-import { GridProps, Link, LinkProps } from '@mui/material'
-import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { GridProps, Link, LinkProps } from '@mui/material'
+
+import { theme } from 'styles/theme'
+import { MenuItemData } from 'global.types'
 import { useAppDispatch } from 'redux/hooks'
 
 const NormalLink = styled(Link)`

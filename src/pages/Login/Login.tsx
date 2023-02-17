@@ -1,21 +1,24 @@
-import { Box, Divider, Link } from '@mui/material'
-import TextField from 'components/Form/Textfield'
-import { SmallTitle, Text } from 'components/Typography'
-import LoginButtons from './LoginButtons'
-import { theme } from 'styles/theme'
-import routes from 'constants/routes.json'
-import PrimaryLayout from 'components/Layouts/PrimaryLayout'
-import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from 'constants/general'
-import { ApiError, LoginProps, UserInfo } from 'global.types'
-import { loginUser } from 'services'
-import { logIn } from 'redux/slices/user'
-import { useAppDispatch } from 'redux/hooks'
 import { useState } from 'react'
 import { AxiosError } from 'axios'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { Box, Divider, Link } from '@mui/material'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+import { theme } from 'styles/theme'
+import { loginUser } from 'services'
+import { logIn } from 'redux/slices/user'
+import { reset } from 'redux/slices/cart'
+import routes from 'constants/routes.json'
+import { useAppDispatch } from 'redux/hooks'
+import TextField from 'components/Form/Textfield'
+import { SmallTitle, Text } from 'components/Typography'
+import PrimaryLayout from 'components/Layouts/PrimaryLayout'
+import { ApiError, LoginProps, UserInfo } from 'global.types'
+import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from 'constants/general'
+
+import LoginButtons from './LoginButtons'
 
 const loginSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -48,6 +51,7 @@ export default function Login(): JSX.Element {
     loginUser(credentials)
       .then((userInfo: UserInfo) => {
         dispatch(logIn({ userInfo }))
+        dispatch(reset())
         navigate(`/${routes.MENU}`)
       })
       .catch((err: AxiosError) =>

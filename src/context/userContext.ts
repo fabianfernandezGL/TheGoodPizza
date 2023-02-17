@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-const userContext = React.createContext({ user: {} })
+const userContext = createContext({ user: {} })
 const userContextProvider = userContext.Provider
 
 export { userContext, userContextProvider }

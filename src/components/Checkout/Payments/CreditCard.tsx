@@ -1,6 +1,8 @@
 import { Stack } from '@mui/material'
+
 import { Payment } from 'global.types'
 import { formatCreditCard, getCardType } from 'utils/textHelper'
+
 import { cardTypeIcon } from './PaymentDisplay'
 
 type CreditCardProps = {

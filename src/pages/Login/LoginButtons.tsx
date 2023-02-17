@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material'
+
 import Button from 'components/Button'
 
 export default function LoginButtons(): JSX.Element {

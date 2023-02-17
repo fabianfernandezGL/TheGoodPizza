@@ -1,6 +1,7 @@
+import styled from 'styled-components'
+
 import { Rectangle } from 'components/Shapes'
 import { SectionLayoutProps } from 'global.types'
-import styled from 'styled-components'
 
 interface FrontLayoutProps {
   readonly minHeight?: string

@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios'
-import { LoginProps, SignUpProps, User } from 'global.types'
+
 import { apiClient } from 'services/client'
+import { LoginProps, SignUpProps, User } from 'global.types'
 import { clearTokens, getRefreshToken, setTokens } from 'utils/tokenHelper'
 
 const LOGIN_URI = '/auth/login'

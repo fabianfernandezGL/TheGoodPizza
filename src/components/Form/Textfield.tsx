@@ -5,11 +5,12 @@ import {
   TextField as TextFieldMui,
   useTheme,
 } from '@mui/material'
-import { TextfieldProps } from 'global.types'
-import { Text } from 'components/Typography'
+import { Controller } from 'react-hook-form'
 import LockIcon from '@mui/icons-material/Lock'
 import EmailIcon from '@mui/icons-material/Email'
-import { Controller } from 'react-hook-form'
+
+import { Text } from 'components/Typography'
+import { TextfieldProps } from 'global.types'
 
 const iconsPerType = {
   password: <LockIcon />,
