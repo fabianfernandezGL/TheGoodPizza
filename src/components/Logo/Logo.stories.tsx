@@ -18,7 +18,7 @@ export default {
   component: Logo,
 }
 
-export const DefaultState = () => <Logo width={200} />
+export const DefaultState = () => <Logo color="white" width={200} />
 DefaultState.decorators = [
   (Story: any) => (
     <Layout>

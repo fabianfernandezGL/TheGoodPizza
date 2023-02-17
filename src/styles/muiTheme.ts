@@ -19,7 +19,9 @@ const pizzaThemeOptions: ThemeOptions = {
       paper: theme.colors.gray.dark,
     },
     action: {
-      disabled: theme.colors.gray.light,
+      disabled: theme.colors.white.DEFAULT,
+      disabledBackground: theme.colors.gray.light,
+      disabledOpacity: 50,
     },
   },
   typography: {

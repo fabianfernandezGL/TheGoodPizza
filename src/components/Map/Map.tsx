@@ -76,7 +76,7 @@ export function Map() {
         <>
           <InfoWindow position={THE_GOOD_PIZZA_POSITION}>
             <Box width="100%" p={1} color={theme.colors.black.DEFAULT}>
-              <Logo width={100} />
+              <Logo color="black" width={100} />
             </Box>
           </InfoWindow>
           <DirectionsService

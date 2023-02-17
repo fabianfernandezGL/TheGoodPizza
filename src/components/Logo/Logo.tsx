@@ -1,8 +1,14 @@
 import { LogoProps } from 'global.types'
-import LogoGoodPizzaURL from 'images/logo-white.svg'
+import WhiteLogoGoodPizzaURL from 'images/logo-white.svg'
+import BlackLogoGoodPizzaURL from 'images/logo-black.svg'
 
-const Logo = (props: LogoProps) => {
-  return <img src={LogoGoodPizzaURL} width={props.width} />
+const Logo = ({ color, width }: LogoProps) => {
+  return (
+    <img
+      src={color === 'white' ? WhiteLogoGoodPizzaURL : BlackLogoGoodPizzaURL}
+      width={width}
+    />
+  )
 }
 
 export default Logo

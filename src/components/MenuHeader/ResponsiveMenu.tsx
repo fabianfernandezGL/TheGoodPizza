@@ -34,7 +34,7 @@ const ResponsiveMenu = () => {
             display: { flexGrow: 1, sm: 'flex', md: 'none' },
           }}
         >
-          <Logo width={40} />
+          <Logo color="black" width={40} />
         </Box>
         <Box sx={{ display: { sm: 'flex', md: 'none' } }}>
           <IconButton

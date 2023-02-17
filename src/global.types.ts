@@ -148,6 +148,7 @@ export type SectionLayoutProps = {
 
 export type LogoProps = {
   width: number
+  color: 'white' | 'black'
 }
 
 export type TextfieldProps = {
