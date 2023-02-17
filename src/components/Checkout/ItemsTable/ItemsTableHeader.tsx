@@ -1,7 +1,13 @@
-import { TableHead, TableRow, TableCell } from '@mui/material'
+import styled from 'styled-components'
+import { TableHead, TableRow, TableCell as TableCellMui } from '@mui/material'
 
 import { theme } from 'styles/theme'
 import { Text } from 'components/Typography'
+
+const TableCell = styled(TableCellMui)({
+  border: 'none',
+  color: theme.colors.white.DEFAULT,
+}) as typeof TableCellMui
 
 export function ItemsTableHeader() {
   return (
