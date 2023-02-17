@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 
 import cartReducer from 'redux/slices/cart'
 import userReducer from 'redux/slices/user'
+import errorReducer from 'redux/slices/error'
 
 const persistConfig = {
   key: 'theGoodPizzaPersist',
@@ -19,7 +20,7 @@ const combinedReducers = combineReducers({
 const persistedReducer = persistReducer(persistConfig, combinedReducers)
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: { persistedReducer, error: errorReducer },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: [thunk],
 })

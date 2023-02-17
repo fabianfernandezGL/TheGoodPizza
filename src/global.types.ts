@@ -62,6 +62,11 @@ export type ApiError = {
   message: string
 }
 
+export type CustomError = {
+  isError: boolean
+  message: string
+}
+
 export interface ApiResponse<T> {
   payload?: T
   error?: ApiError
