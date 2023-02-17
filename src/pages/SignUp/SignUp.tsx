@@ -25,6 +25,7 @@ import { ApiError, CustomError, SignUpProps, UserInfo } from 'global.types'
 
 import LoginButtons from './SignUpButtons'
 import { showError } from 'redux/slices/error'
+import { setLoading } from 'redux/slices/info'
 
 const signUpSchema = z.object({
   email: EMAIL_VALIDATION,
@@ -50,6 +51,7 @@ export default function SignUp(): JSX.Element {
 
   const onSubmit = async (userData: SignUpProps) => {
     setApiError(DEFAULT_ERROR)
+    dispatch(setLoading({ isLoading: true }))
     registerUser(userData)
       .then((userInfo: UserInfo) => {
         dispatch(logIn({ userInfo }))
@@ -65,6 +67,7 @@ export default function SignUp(): JSX.Element {
           dispatch(showError({ message: err.message }))
         }
       })
+      .finally(() => dispatch(setLoading({ isLoading: false })))
   }
 
   return (

@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios'
 import { Box, Stack } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,13 +11,15 @@ import Button from 'components/Button'
 import { addOrder } from 'services/user'
 import { reset } from 'redux/slices/cart'
 import routes from 'constants/routes.json'
+import { showError } from 'redux/slices/error'
+import { setLoading } from 'redux/slices/info'
 import { IsUser } from 'components/Checkout/IsUser'
 import { ItemsTable } from 'components/Checkout/ItemsTable'
 import { AddressDisplay } from 'components/Checkout/Address'
 import { SmallTitle, Subtitle } from 'components/Typography'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { PaymentDisplay } from 'components/Checkout/Payments'
-import { PizzaOrder, PizzaOrderConfirmation } from 'global.types'
+import { ApiError, PizzaOrder, PizzaOrderConfirmation } from 'global.types'
 import { OrderCosts } from 'components/Checkout/Summary/OrderCosts'
 
 type FullSummaryProps = {
@@ -31,16 +34,26 @@ export function FullSummary({ order, prevStep }: FullSummaryProps) {
   const navigate = useNavigate()
 
   const placeOrder = () => {
+    dispatch(setLoading({ isLoading: true }))
     addOrder({
       ...order,
       address: defaultAddress,
       payment: defaultPayment,
-    }).then((orderConfirm: PizzaOrderConfirmation) => {
-      dispatch(reset())
-      navigate(
-        `/${routes.CHECKOUT_ROOT}/${routes.CHECKOUT_ORDER}/${orderConfirm.num}`
-      )
     })
+      .then((orderConfirm: PizzaOrderConfirmation) => {
+        dispatch(reset())
+        navigate(
+          `/${routes.CHECKOUT_ROOT}/${routes.CHECKOUT_ORDER}/${orderConfirm.num}`
+        )
+      })
+      .catch((err: AxiosError) => {
+        let errMsg = err.message
+        if (err.response) {
+          errMsg = (err.response?.data as ApiError).message
+        }
+        dispatch(showError({ message: errMsg }))
+      })
+      .finally(() => dispatch(setLoading({ isLoading: false })))
   }
 
   return (
