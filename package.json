@@ -71,7 +71,7 @@
     "test:ci": "yarn test -- --coverage .",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "eslint src",
+    "lint": "eslint . --ext .jsx,.tsx,.ts,.js",
     "lint:fix": "yarn lint --cache --fix",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
