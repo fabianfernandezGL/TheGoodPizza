@@ -45,13 +45,16 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.14",
+    "@storybook/addon-coverage": "^0.0.8",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
+    "@storybook/addon-storyshots": "^6.5.16",
     "@storybook/builder-webpack5": "^6.4.14",
     "@storybook/manager-webpack5": "^6.4.14",
     "@storybook/node-logger": "^6.4.14",
     "@storybook/preset-create-react-app": "^4.0.0",
     "@storybook/react": "^6.4.14",
+    "@storybook/test-runner": "^0.9.4",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "css-loader": "^6.5.1",
@@ -60,8 +63,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-storybook": "^0.5.6",
     "husky": "^7.0.0",
+    "jest-styled-components": "^7.1.1",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "react-test-renderer": "^18.2.0",
+    "require-context.macro": "^1.2.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.67.0"
   },
@@ -77,7 +83,8 @@
     "predeploy": "yarn build",
     "type-check": "tsc --strict",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "test-storybook": "test-storybook"
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
@@ -108,13 +115,15 @@
   },
   "jest": {
     "collectCoverageFrom": [
+      "*.test.{js,jsx,ts,tsx}",
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.stories.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}",
+      "<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "resetMocks": true
   },

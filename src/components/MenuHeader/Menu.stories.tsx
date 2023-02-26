@@ -16,6 +16,9 @@ const Layout = styled.div`
 export default {
   title: 'Menu/Full Menu',
   component: MenuHeader,
+  parameters: {
+    storyshots: { disable: true },
+  },
   decorators: [
     (Story: any) => (
       <Layout>
