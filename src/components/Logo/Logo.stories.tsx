@@ -1,28 +1,33 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import styled from 'styled-components'
 
 import { theme } from 'styles/theme'
 
 import Logo from './Logo'
 
-const { black } = theme.colors
+const { yellow } = theme.colors
 
 const Layout = styled.div`
-  height: 300px;
-  width: 300px;
-  padding: 50px 50px;
-  background-color: ${black.DEFAULT};
+  padding: 3%;
+  background-color: ${yellow.DEFAULT};
 `
 
 export default {
-  title: 'Logo/White',
+  title: 'Menu/Logo',
   component: Logo,
-}
+  decorators: [
+    (Story: any) => (
+      <Layout>
+        <Story />
+      </Layout>
+    ),
+  ],
+} as ComponentMeta<typeof Logo>
 
-export const DefaultState = () => <Logo color="white" width={200} />
-DefaultState.decorators = [
-  (Story: any) => (
-    <Layout>
-      <Story />
-    </Layout>
-  ),
-]
+const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  color: 'white',
+  width: 200,
+}

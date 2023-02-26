@@ -16,7 +16,7 @@ const Layout = styled.div<LayoutProps>`
 `
 
 export default {
-  title: 'Button/Primary',
+  title: 'Form/Button/Primary',
   component: Button,
 }
 

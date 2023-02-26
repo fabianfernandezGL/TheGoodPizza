@@ -3,7 +3,7 @@ import { useAppSelector } from 'redux/hooks'
 import { Alert } from 'components/Alert'
 import { selectLoading } from 'redux/slices/info'
 
-export function InfoDispatcher(): JSX.Element {
+export function LoadingDispatcher(): JSX.Element {
   const isLoading = useAppSelector(selectLoading)
 
   return (

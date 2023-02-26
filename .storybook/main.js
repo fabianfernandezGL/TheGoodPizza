@@ -3,6 +3,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-coverage',
     {
       name: '@storybook/preset-create-react-app',
     },

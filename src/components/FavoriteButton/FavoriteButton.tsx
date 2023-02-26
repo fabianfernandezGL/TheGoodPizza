@@ -17,7 +17,7 @@ const renderDefaultContent = (isDefault: boolean, text: string) => {
     textColor = theme.colors.gray.light
   }
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction="row" spacing={1} alignItems="center">
       <Text color={textColor}>{text}</Text>
       <StarRateIcon
         fontSize="small"

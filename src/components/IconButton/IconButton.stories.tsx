@@ -1,38 +1,58 @@
 import styled from 'styled-components'
-import { PhotoAlbumSharp } from '@mui/icons-material'
+import {
+  Add,
+  CardTravel,
+  Delete,
+  LocalPizza,
+  ShoppingBag,
+} from '@mui/icons-material'
 
 import { theme } from 'styles/theme'
 
 import IconButton from './IconButton'
+import { ComponentMeta } from '@storybook/react'
+import { Stack } from '@mui/material'
 
-const { black } = theme.colors
+const { black, white, yellow } = theme.colors
 
 interface LayoutProps {}
 
 const Layout = styled.div<LayoutProps>`
-  height: 150px;
   width: 400px;
   padding: 25px;
   background-color: ${black.DEFAULT};
 `
 
 export default {
-  title: 'IconButton/Primary',
+  title: 'Form/Icon Button',
   component: IconButton,
-}
+  decorators: [
+    (Story: any) => (
+      <Layout>
+        <Story />
+      </Layout>
+    ),
+  ],
+} as ComponentMeta<typeof IconButton>
 
-export const Default = () => (
-  <>
+const Template = () => (
+  <Stack direction="row" spacing={4}>
     <IconButton>
-      <PhotoAlbumSharp />
+      <Delete sx={{ width: '18px', color: white.DEFAULT }} />
     </IconButton>
-  </>
+    <IconButton>
+      <Add sx={{ width: '18px', color: yellow.DEFAULT }} />
+    </IconButton>
+    <IconButton>
+      <ShoppingBag sx={{ width: '18px', color: white.DEFAULT }} />
+    </IconButton>
+    <IconButton>
+      <LocalPizza sx={{ width: '18px', color: yellow.DEFAULT }} />
+    </IconButton>
+    <IconButton>
+      <CardTravel sx={{ width: '18px', color: white.DEFAULT }} />
+    </IconButton>
+  </Stack>
 )
 
-Default.decorators = [
-  (Story: any) => (
-    <Layout>
-      <Story />
-    </Layout>
-  ),
-]
+export const Default = Template.bind({})
