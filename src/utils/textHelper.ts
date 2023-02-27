@@ -112,18 +112,29 @@ export function validateCVV(cvvNumber: string): boolean {
 export function validateCreditCardExpirationDate(
   expirationDate: string
 ): boolean {
+  // Check if date is valid format
   const [month, year] = expirationDate.split('/')
-  const currentDate: Date = new Date()
-  const currentYear = currentDate.getFullYear()
-  const currentMonth = currentDate.getMonth()
-
-  if (parseInt(month) > currentMonth) {
-    if (year.length == 2 && parseInt(year) > currentYear - 2000) {
-      return true
-    }
-    if (parseInt(year) > currentYear || parseInt(year) === currentYear) {
-      return true
-    }
+  if (!month || !year) {
+    return false
   }
-  return false
+
+  // Convert month and year to integers
+  const monthInteger = parseInt(month) - 1 // Months are zero-based
+
+  let yearInteger = parseInt(year)
+  if (yearInteger < 100) {
+    yearInteger += 2000
+  }
+
+  // Validate date
+  const dateIsValid =
+    // Date must not be in the past
+    Date.now() <= new Date(yearInteger, monthInteger).getTime() &&
+    // Month range 1 to 12
+    monthInteger >= 0 &&
+    monthInteger < 12 &&
+    // Year must have two or four digits
+    (year.length === 2 || year.length === 4)
+
+  return dateIsValid
 }

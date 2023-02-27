@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Divider, Stack } from '@mui/material'
+import { Collapse, Divider, Stack } from '@mui/material'
 
 import { theme } from 'styles/theme'
 import Button from 'components/Button'
@@ -25,14 +25,12 @@ export function AddressAddNew() {
         </Button>
         {!showForm && <Text color={componentTextColor}>Add new address</Text>}
       </Stack>
-      <>
-        {showForm && (
-          <Stack spacing={3} mt={3}>
-            <Divider color="white" />
-            <AddressForm onSubmitForm={() => setShowForm(false)} />
-          </Stack>
-        )}
-      </>
+      <Collapse in={showForm} timeout={450}>
+        <Stack spacing={3} mt={3}>
+          <Divider color="white" />
+          <AddressForm onSubmitForm={() => setShowForm(false)} />
+        </Stack>
+      </Collapse>
     </AddressBox>
   )
 }

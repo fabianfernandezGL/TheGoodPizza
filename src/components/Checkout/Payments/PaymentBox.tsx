@@ -11,7 +11,7 @@ const Card = styled(CardMui)({
 }) as typeof CardMui
 
 type PaymentBoxProps = {
-  children: JSX.Element
+  children: JSX.Element[] | JSX.Element
 }
 
 export function PaymentBox({ children }: PaymentBoxProps) {

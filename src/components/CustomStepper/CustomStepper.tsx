@@ -87,7 +87,7 @@ function CustomStepIcon(props: StepIconProps) {
   )
 }
 
-export default function CustomStepper(): JSX.Element {
+export function CustomStepper(): JSX.Element {
   return (
     <Box width="100%">
       <Stepper activeStep={1} alternativeLabel connector={<CustomConnector />}>

@@ -7,7 +7,7 @@ import mainBg from 'images/checkout/bg.png'
 import SecondaryLayout from 'components/Layouts/SecondaryLayout'
 import { Subtitle, SmallTitle, Text } from 'components/Typography'
 
-import CustomStepper from './CustomStepper'
+import { CustomStepper } from 'components/CustomStepper'
 
 export default function Order(): JSX.Element {
   const { orderId } = useParams()

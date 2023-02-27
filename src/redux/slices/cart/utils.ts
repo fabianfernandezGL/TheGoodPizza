@@ -22,7 +22,6 @@ export const removeItemFromCart = (
   items: Array<PizzaOrderItem>,
   itemNameToRemove: string
 ) => {
-  console.log('items', [...items])
   return items.filter(
     (item) => item.itemInfo.name !== itemNameToRemove && item.quantity > 0
   )
@@ -39,7 +38,6 @@ export const removeItemQtyFromCart = (
       break
     }
   }
-  console.log('items', [...items])
 
   return removeItemFromCart(items, '')
 }

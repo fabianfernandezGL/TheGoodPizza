@@ -13,7 +13,7 @@ const Layout = styled.div`
 `
 
 export default {
-  title: 'Menu/Logo',
+  title: 'Components/Logo',
   component: Logo,
   decorators: [
     (Story: any) => (

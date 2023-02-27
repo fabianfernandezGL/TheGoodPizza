@@ -16,7 +16,7 @@ const Layout = styled.div`
 `
 
 export default {
-  title: 'Our Menu/Pizza Card',
+  title: 'Components/Pizza Card',
   component: MenuOptionCard,
   decorators: [
     (Story: any) => (
