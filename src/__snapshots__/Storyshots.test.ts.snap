@@ -7820,7 +7820,7 @@ exports[`Storyshots Checkout/Summary/Order Items Default 1`] = `
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
         >
-          1
+          4
         </p>
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
@@ -8627,7 +8627,7 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
             >
-              1
+              4
             </p>
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
