@@ -5816,6 +5816,7 @@ exports[`Storyshots Checkout/Summary Default 1`] = `
               >
                 <p
                   className="c22 MuiTypography-root MuiTypography-body2 c23"
+                  data-testid="item-quantity"
                 >
                   5
                 </p>
@@ -5936,6 +5937,7 @@ exports[`Storyshots Checkout/Summary Default 1`] = `
               >
                 <p
                   className="c22 MuiTypography-root MuiTypography-body2 c23"
+                  data-testid="item-quantity"
                 >
                   2
                 </p>
@@ -6056,6 +6058,7 @@ exports[`Storyshots Checkout/Summary Default 1`] = `
               >
                 <p
                   className="c22 MuiTypography-root MuiTypography-body2 c23"
+                  data-testid="item-quantity"
                 >
                   1
                 </p>
@@ -6562,6 +6565,7 @@ exports[`Storyshots Checkout/Summary Table/Quantity Handler Default 1`] = `
     >
       <p
         className="c7 MuiTypography-root MuiTypography-body2 c8"
+        data-testid="item-quantity"
       >
         12
       </p>
@@ -7105,6 +7109,7 @@ exports[`Storyshots Checkout/Summary Table/Table Default 1`] = `
             >
               <p
                 className="c21 MuiTypography-root MuiTypography-body2 c22"
+                data-testid="item-quantity"
               >
                 5
               </p>
@@ -7225,6 +7230,7 @@ exports[`Storyshots Checkout/Summary Table/Table Default 1`] = `
             >
               <p
                 className="c21 MuiTypography-root MuiTypography-body2 c22"
+                data-testid="item-quantity"
               >
                 2
               </p>
@@ -7345,6 +7351,7 @@ exports[`Storyshots Checkout/Summary Table/Table Default 1`] = `
             >
               <p
                 className="c21 MuiTypography-root MuiTypography-body2 c22"
+                data-testid="item-quantity"
               >
                 1
               </p>
@@ -7562,7 +7569,9 @@ exports[`Storyshots Checkout/Summary/Order Costs Default 1`] = `
       <p
         className="c5 MuiTypography-root MuiTypography-body1 c4"
       >
-        <strong>
+        <strong
+          data-testid="Subtotal"
+        >
           
           $
           56.00
@@ -7580,7 +7589,9 @@ exports[`Storyshots Checkout/Summary/Order Costs Default 1`] = `
       <p
         className="c6 MuiTypography-root MuiTypography-body1 c4"
       >
-        <strong>
+        <strong
+          data-testid="Total Savings"
+        >
           -
           $
           2.80
@@ -7601,7 +7612,9 @@ exports[`Storyshots Checkout/Summary/Order Costs Default 1`] = `
       <p
         className="c5 MuiTypography-root MuiTypography-body1 c4"
       >
-        <strong>
+        <strong
+          data-testid="Express"
+        >
           
           $
           5.00
@@ -7619,7 +7632,9 @@ exports[`Storyshots Checkout/Summary/Order Costs Default 1`] = `
       <p
         className="c5 MuiTypography-root MuiTypography-body1 c4"
       >
-        <strong>
+        <strong
+          data-testid="Taxes (13%)"
+        >
           
           $
           7.28
@@ -7637,7 +7652,9 @@ exports[`Storyshots Checkout/Summary/Order Costs Default 1`] = `
       <p
         className="c5 MuiTypography-root MuiTypography-body1 c4"
       >
-        <strong>
+        <strong
+          data-testid="Total"
+        >
           
           $
           65.48
@@ -7793,17 +7810,20 @@ exports[`Storyshots Checkout/Summary/Order Items Default 1`] = `
       >
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-quantity"
         >
           1
         </p>
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-name"
         >
           Veggie Fest
         </p>
       </div>
       <p
         className="c6 MuiTypography-root MuiTypography-body1 c5"
+        data-testid="item-summary-price"
       >
         <strong>
           $
@@ -7819,17 +7839,20 @@ exports[`Storyshots Checkout/Summary/Order Items Default 1`] = `
       >
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-quantity"
         >
           4
         </p>
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-name"
         >
           Salami & Tomato
         </p>
       </div>
       <p
         className="c6 MuiTypography-root MuiTypography-body1 c5"
+        data-testid="item-summary-price"
       >
         <strong>
           $
@@ -7845,17 +7868,20 @@ exports[`Storyshots Checkout/Summary/Order Items Default 1`] = `
       >
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-quantity"
         >
           2
         </p>
         <p
           className="c4 MuiTypography-root MuiTypography-body1 c5"
+          data-testid="item-summary-name"
         >
           Egg & Basil
         </p>
       </div>
       <p
         className="c6 MuiTypography-root MuiTypography-body1 c5"
+        data-testid="item-summary-price"
       >
         <strong>
           $
@@ -7985,17 +8011,20 @@ exports[`Storyshots Checkout/Summary/Order Line Default 1`] = `
     >
       <p
         className="c3 MuiTypography-root MuiTypography-body1 c4"
+        data-testid="item-summary-quantity"
       >
         1
       </p>
       <p
         className="c3 MuiTypography-root MuiTypography-body1 c4"
+        data-testid="item-summary-name"
       >
         Veggie Fest
       </p>
     </div>
     <p
       className="c5 MuiTypography-root MuiTypography-body1 c4"
+      data-testid="item-summary-price"
     >
       <strong>
         $
@@ -8600,17 +8629,20 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
           >
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-quantity"
             >
               1
             </p>
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-name"
             >
               Veggie Fest
             </p>
           </div>
           <p
             className="c12 MuiTypography-root MuiTypography-body1 c11"
+            data-testid="item-summary-price"
           >
             <strong>
               $
@@ -8626,17 +8658,20 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
           >
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-quantity"
             >
               4
             </p>
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-name"
             >
               Salami & Tomato
             </p>
           </div>
           <p
             className="c12 MuiTypography-root MuiTypography-body1 c11"
+            data-testid="item-summary-price"
           >
             <strong>
               $
@@ -8652,17 +8687,20 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
           >
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-quantity"
             >
               2
             </p>
             <p
               className="c10 MuiTypography-root MuiTypography-body1 c11"
+              data-testid="item-summary-name"
             >
               Egg & Basil
             </p>
           </div>
           <p
             className="c12 MuiTypography-root MuiTypography-body1 c11"
+            data-testid="item-summary-price"
           >
             <strong>
               $
@@ -8698,7 +8736,9 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
               <p
                 className="c12 MuiTypography-root MuiTypography-body1 c11"
               >
-                <strong>
+                <strong
+                  data-testid="Subtotal"
+                >
                   
                   $
                   56.00
@@ -8716,7 +8756,9 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
               <p
                 className="c20 MuiTypography-root MuiTypography-body1 c11"
               >
-                <strong>
+                <strong
+                  data-testid="Total Savings"
+                >
                   -
                   $
                   2.80
@@ -8737,7 +8779,9 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
               <p
                 className="c12 MuiTypography-root MuiTypography-body1 c11"
               >
-                <strong>
+                <strong
+                  data-testid="Express"
+                >
                   
                   $
                   5.00
@@ -8755,7 +8799,9 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
               <p
                 className="c12 MuiTypography-root MuiTypography-body1 c11"
               >
-                <strong>
+                <strong
+                  data-testid="Taxes (13%)"
+                >
                   
                   $
                   7.28
@@ -8773,7 +8819,9 @@ exports[`Storyshots Checkout/Summary/Order Summary Card Default 1`] = `
               <p
                 className="c12 MuiTypography-root MuiTypography-body1 c11"
               >
-                <strong>
+                <strong
+                  data-testid="Total"
+                >
                   
                   $
                   65.48
@@ -11090,6 +11138,7 @@ exports[`Storyshots Components/Shopping Cart Default 1`] = `
 >
   <span
     className="c1 MuiBadge-root BaseBadge-root"
+    data-testid="shopping-cart-badge"
   >
     <svg
       aria-hidden="true"
