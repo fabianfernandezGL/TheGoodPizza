@@ -7,7 +7,11 @@ import { selectCartItemsQty } from 'redux/slices/cart'
 export function ShoppingCart({}) {
   const itemsQty = useAppSelector(selectCartItemsQty)
   return (
-    <Badge badgeContent={itemsQty} color="secondary">
+    <Badge
+      badgeContent={itemsQty}
+      data-testid="shopping-cart-badge"
+      color="secondary"
+    >
       <ShoppingCartIcon style={{ fontSize: '30px' }} aria-hidden="true" />
     </Badge>
   )

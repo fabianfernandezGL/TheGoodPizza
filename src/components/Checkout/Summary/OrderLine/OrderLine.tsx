@@ -23,10 +23,24 @@ export function OrderLine({ orderLine }: OrderLineProps) {
       width="100%"
     >
       <Stack direction="row" justifyContent="space-between" spacing={2}>
-        <Text color={theme.colors.white.DEFAULT}>{quantity}</Text>
-        <Text color={theme.colors.white.DEFAULT}>{capitalizeText(name)}</Text>
+        <Text
+          color={theme.colors.white.DEFAULT}
+          data-testid="item-summary-quantity"
+        >
+          {quantity}
+        </Text>
+        <Text
+          color={theme.colors.white.DEFAULT}
+          data-testid="item-summary-name"
+        >
+          {capitalizeText(name)}
+        </Text>
       </Stack>
-      <Text color={theme.colors.white.DEFAULT} textAlign="right">
+      <Text
+        color={theme.colors.white.DEFAULT}
+        textAlign="right"
+        data-testid="item-summary-price"
+      >
         <strong>${total.toFixed(2)}</strong>
       </Text>
     </Stack>

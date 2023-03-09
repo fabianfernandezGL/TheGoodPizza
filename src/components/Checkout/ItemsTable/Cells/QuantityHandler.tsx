@@ -55,7 +55,7 @@ export function QuantityHandler({ quantity, itemInfo }: QuantityHandlerProps) {
         )}
       </IconButton>
       <Box sx={{ width: 15, textAlign: 'center' }}>
-        <BigText>{quantity}</BigText>
+        <BigText data-testid="item-quantity">{quantity}</BigText>
       </Box>
       <IconButton onClick={addOne} disabled={quantity === 100}>
         <AddIcon sx={IconStyling} />

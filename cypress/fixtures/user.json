@@ -1,0 +1,42 @@
+{
+  "user": {
+    "role": "user",
+    "isEmailVerified": false,
+    "addresses": [
+      {
+        "name": "Work",
+        "street1": "Sabana Business Center 10th Floor",
+        "street2": "Bv. Ernesto Rohrmoser",
+        "city": "San Jose",
+        "state": "San Jose",
+        "zip": "10108",
+        "phoneNumber": "41056000",
+        "isDefault": false
+      }
+    ],
+    "payments": [
+      {
+        "name": "MasterCard Black",
+        "nameOnCard": "John Doe",
+        "cardNumber": "5303975336902651",
+        "cvv": "123",
+        "expiration": "10/25",
+        "isDefault": true
+      }
+    ],
+    "name": "John Doe",
+    "email": "e2e@test.com",
+    "phoneNumber": "88888888",
+    "id": "63b8ffa9e479b03ec251fde1"
+  },
+  "tokens": {
+    "access": {
+      "token": "this_is_the_access_token",
+      "expires": "2050-05-09T08:15:15.469Z"
+    },
+    "refresh": {
+      "token": "this_is_the_refresh_token",
+      "expires": "2050-05-08T07:15:15.688Z"
+    }
+  }
+}

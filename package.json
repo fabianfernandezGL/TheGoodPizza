@@ -58,6 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "css-loader": "^6.5.1",
+    "cypress": "^12.7.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -72,19 +73,20 @@
     "webpack": "^5.67.0"
   },
   "scripts": {
-    "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "test:ci": "yarn test -- --coverage .",
+    "build-storybook": "build-storybook -s public",
+    "cypress:open": "cypress open",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
     "lint": "eslint ./src/.  --ext .jsx,.tsx,.ts,.js",
     "lint:fix": "yarn lint --cache --fix",
     "predeploy": "yarn build",
+    "prepare": "husky install",
+    "test": "craco test",
+    "test:ci": "yarn test -- --coverage .",
+    "test-storybook": "test-storybook",
     "type-check": "tsc --strict",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "test-storybook": "test-storybook"
+    "start": "craco start",
+    "storybook": "start-storybook -p 6006 -s public"
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",

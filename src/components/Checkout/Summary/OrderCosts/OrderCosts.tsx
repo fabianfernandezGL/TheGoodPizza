@@ -26,7 +26,7 @@ const generateRow = (text: string, price: number) => {
         {text}
       </Text>
       <Text color={priceColor} textAlign="right">
-        <strong>
+        <strong data-testid={text}>
           {extraSymbols}${price.toFixed(2)}
         </strong>
       </Text>
